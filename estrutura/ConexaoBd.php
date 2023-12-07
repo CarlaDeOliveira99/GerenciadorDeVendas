@@ -6,7 +6,7 @@ use PDO;
 class ConexaoBd {
 
     const HOST= 'localhost';
-    const DATABASE = 'teste';
+    const DATABASE = 'Gerenciador_de_vendas';
     const USER = 'postgres';
     const PASSWORD = '1234';
     const PORT = '5432';
