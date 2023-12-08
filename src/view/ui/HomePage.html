@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="upload/Logotipo/logotipoPanda.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../view/style/nav.css">
+    <link rel="stylesheet" href="../../view/style/search.css">
 
 <body>
 
@@ -27,33 +29,35 @@
 
 
 
-
     <!-- barra de navegação -->
     <nav class="navbar fixed-top bg-body-tertiary" style="padding-top: 0;">
         <div class="container-fluid" style="background-color:rgba(68, 71, 72, 1);">
-
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
-                style="background-color: rgba(244, 85, 114, 1); border: rgba(244, 85, 114, 1);"><img src="../../../upload/icones/menu.png" alt="menu" srcset="../../../upload/icones/menu.png 40000w"><span style="font-size: 12pt;">Acesso todos os <strong style="font-size: 12pt;">dapartamento</strong></button>
-                
-
+            <div id="areaNav">
+                <div id="areaLogoBtn">
+                    <div id="ImgSite"><a href="HomePage.html"><img id="imgLogotipoNome"
+                                src="../../../upload/Logotipo/nomeSite.png" alt="logotipoNome"></a></div>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+                        id="BtnMenu">
+                        <div id="areaBtn">
+                            <div id="divImgMenu">
+                                <img id="imgMenu" src="../../../upload/icones/menu.png" alt="menu">
+                            </div>
+                            <div class="textBtn text1"><span>Acesso todos os</span></div>
+                            <div class="textBtn text2"><strong>dapartamento</strong></div>
+                        </div>
+                    </button>
+                    <div id="logotipo"><a class="navbar-brand" href="HomePage.html"><img id="imgLogotipo"
+                                src="../../../upload/Logotipo/logotipoPanda.png" alt="logotipo"></a></div>
+                </div>
+                <div id="areaSearch">
+                    <input id="search__input" type="text" placeholder="Search">
+                </div>
+            </div>
         </div>
     </nav>
 
 
-    
-
-
-    <!-- <img src="../../../upload/Logotipo/logotipoPanda.png"
-    alt="menu" srcset="../../../upload/Logotipo/logotipoPanda.png 10000w"> -->
-
-
-
-    <div style="margin: 5% auto;">
-        <h1>Deu certo</h1>
-    </div>
-
-    <!-- <a class="navbar-brand" href="#">Fixed top</a> -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

@@ -1,0 +1,89 @@
+
+
+#areaNav{
+
+}
+
+
+#ImgSite{grid-area: hearder;}
+#BtnMenu{grid-area: sidenav ;}
+#logotipo{grid-area: logotipo;}
+
+#areaLogoBtn{
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-areas:
+        "hearder logotipo"
+        "sidenav logotipo";
+    grid-template-columns: max-content max-content;
+    grid-template-rows: 40px 50px;
+    column-gap: 2px;
+}
+
+
+
+#logotipo ,#imgLogotipo {
+    width: 60px;
+    height: 74px;
+    margin-top: 6px;
+}
+
+#ImgSite, #imgLogotipoNome {
+    width: 163px;
+    height: 32px;
+    margin-left: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+
+#BtnMenu {
+    background-color: rgba(244, 85, 114, 1);
+    border: rgba(244, 85, 114, 1);
+    height: fit-content;
+    width: fit-content;
+    padding-top: 2px;
+    margin-top: 1;
+    margin-bottom: 1%;
+}
+
+
+#divImgMenu {
+    grid-area: aside;
+}
+
+#text1 {
+    grid-area: man;
+}
+
+#text2 {
+    grid-area: footer;
+}
+
+#areaBtn {
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-areas:
+        "aside man"
+        "aside footer";
+    grid-template-columns: max-content max-content;
+    grid-template-rows: 14px 20px;
+    column-gap: 5px;
+}
+
+#divImgMenu, #imgMenu {
+    margin-top: 2px;
+    width: 30px;
+    height: 34.5px;
+}
+
+.textBtn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 12pt;
+    width: fit-content;
+    height: fit-content;
+}
