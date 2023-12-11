@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 body {
-    background: rgb(194, 205, 212);
-    background: radial-gradient(circle, rgba(194, 205, 212, 1) 0%, rgba(172, 230, 254, 1) 100%);
+   background-color: #00a0f6;
+    
 }
 
 #login {
@@ -25,12 +25,12 @@ body {
 
 #cardApresentacao {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: #93d7fc;
+    background-color: #adc4ce;
 }
 
 #cardLogin {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: #93d7fc93;
+    background-color: #ADC4CE;
 }
 
 #cardBemVindo {
@@ -176,8 +176,8 @@ form {
     cursor: pointer;
     border: 0;
     color: rgb(253, 253, 253);
-    background-color: #77cbf8;
-    box-shadow: #77cbf8 0 0 8px;
+    background-color: #00a0f6c8;
+    box-shadow: #00a0f6c8 0 0 8px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-size: 15px;
@@ -188,17 +188,17 @@ form {
 
 #btnEnviar:hover {
     letter-spacing: 3px;
-    background-color: #DFFFD8;
+    background-color: #01314ac8;
     color: hsl(0, 0%, 0%);
-    box-shadow: #DFFFD8 0px 7px 29px 0px;
+    box-shadow: #01314ac8 0px 7px 29px 0px;
 }
 
 #btnEnviar:active {
     letter-spacing: 3px;
     font-weight: bold;
-    background-color: #DFFFD8;
+    background-color: #BCCC9A;
     color: hsl(0, 0%, 100%);
-    box-shadow: #DFFFD8 0px 0px 0px 0px;
+    box-shadow: #01314ac8 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
 }
