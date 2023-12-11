@@ -154,9 +154,14 @@ a {
     margin: auto;
 }
 
+#esqueceuSenha{
+ margin-top: 3%;  
+ float: right;
+}
+
 
 .btnForm {
-    margin: 5% auto;
+    margin: 2% auto;
     width: fit-content;
     height: fit-content;
 }
@@ -189,7 +194,7 @@ form {
 #btnEnviar:hover {
     letter-spacing: 3px;
     background-color: #01314ac8;
-    color: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 100%);
     box-shadow: #01314ac8 0px 7px 29px 0px;
 }
 
