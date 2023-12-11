@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,100;8..144,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+body {
+    background: rgb(194, 205, 212);
+    background: radial-gradient(circle, rgba(194, 205, 212, 1) 0%, rgba(172, 230, 254, 1) 100%);
+}
+
+#login {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 7% auto;
+}
+
+
+#cardApresentacao, #cardLogin {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    border-radius: 20px 20px 20px 20px;
+}
+
+#cardApresentacao {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: #93d7fc;
+}
+
+#cardLogin {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background-color: #93d7fc93;
+}
+
+#cardBemVindo {
+    margin: 3% auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+.CardImg {
+    margin: 4% auto;
+}
+
+#imgNome {
+    width: 250px;
+}
+
+#imglogotipo {
+    width: 180px;
+    padding-left: 5vh;
+
+}
+
+#areaTxtCard {
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+#txtBemVindo {
+    font-size: 22pt;
+    font-family: 'Roboto Serif', serif;
+    font-weight: 900;
+    margin-top: 12px;
+    margin-bottom: 13px;
+}
+
+#cardMenu {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+#cardHome {
+    width: fit-content;
+    height: fit-content;
+    margin-right: 46px;
+}
+
+#cardCadastrar {
+    width: fit-content;
+    height: fit-content;
+}
+
+
+#imgHome {
+    width: 57px;
+    padding-left: 19px;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+#imgCadasrtrar {
+    width: 65px;
+    padding-left: 13px;
+}
+
+#txtIconePag {
+    margin-top: 6px;
+}
+
+#txtIconeCad {
+    margin-top: 0px;
+}
+
+#txtIconeCad, #txtIconePag {
+    margin-bottom: 0px;
+    font-family: 'Acme', sans-serif;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+#user {
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 4%;
+}
+
+#imgUser {
+    width: 100px;
+    padding-left: 14px;
+}
+
+.txtLogin {
+    font-family: 'Roboto Serif', serif;
+    font-size: 25pt;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+#campoLogin {
+    margin: auto;
+}
+
+#campoUser {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.campoInfor {
+    display: flex;
+    margin: auto;
+}
+
+
+.btnForm {
+    margin: 5% auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+form {
+    font-family: 'Acme', sans-serif;
+}
+
+.alertCampo {
+    color: black;
+}
+
+
+#btnEnviar {
+    padding: 17px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: 0;
+    color: rgb(253, 253, 253);
+    background-color: #77cbf8;
+    box-shadow: #77cbf8 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: 'Acme', sans-serif;
+    font-weight: bold;
+    transition: all 0.5s ease;
+}
+
+#btnEnviar:hover {
+    letter-spacing: 3px;
+    background-color: #DFFFD8;
+    color: hsl(0, 0%, 0%);
+    box-shadow: #DFFFD8 0px 7px 29px 0px;
+}
+
+#btnEnviar:active {
+    letter-spacing: 3px;
+    font-weight: bold;
+    background-color: #DFFFD8;
+    color: hsl(0, 0%, 100%);
+    box-shadow: #DFFFD8 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
