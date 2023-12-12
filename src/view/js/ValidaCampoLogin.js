@@ -1,19 +1,47 @@
-(() => {
+const submit = document.getElementById("btnEnviar");
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')
+submit.addEventListener('click', validate);
 
-    // Loop over them and prevent submission
-    Array.from(forms).forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
+function validate(e) {
+    e.preventDefault();
 
-        form.classList.add('was-validated')
-      }, false)
+    const firstNameField = document.getElementById("floatingInput");
+    const floatingPassword = document.getElementById("floatingPassword");
+    let validNome = true;
+    let validSenha = true;
+
+    if (!firstNameField.value) {
+        const nameError = document.getElementById("nameErrorNome");
+        nameError.classList.add("visible");
+        firstNameField.classList.add("invalid");
+        nameError.setAttribute('aria-hidden', false);
+        nameError.setAttribute('aria-invalid', true);
+        validNome = false
+    }
+
+    if (!floatingPassword.value) {
+        const nameError = document.getElementById("nameErrorSenha");
+        nameError.classList.add("visible");
+        floatingPassword.classList.add("invalid");
+        nameError.setAttribute('aria-hidden', false);
+        nameError.setAttribute('aria-invalid', true);
+        validSenha = false
+    }
+
+    if (validNome & validSenha == true) {
+        user(firstNameField, floatingPassword)
+    }
+}
+
+function user(nome, senha) {
+    const dados = { nome: nome.value, senha: senha.value }
+    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=validarUser', {
+
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(dados)
     })
-  })()
-
-
+}

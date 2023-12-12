@@ -7,8 +7,15 @@ class ControllerTeste {
         echo 'chama no dinamismo MDFK';
     }
 
-    public function get_xTeste() {
-        echo 'chupa essa fdp';
+    public function post_xTeste() {
+        $json_convertido = json_decode(file_get_contents('php://input'), true);
+
+       
+
+
+        header('Content-Type: application/json');
+        echo json_encode( $json_convertido);
+        
     }
 
 }

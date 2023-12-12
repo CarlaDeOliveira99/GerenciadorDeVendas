@@ -2,7 +2,7 @@
 
 $ROTAS = [
     'teste'  => src\controller\ControllerTeste::class,
-    'batata' => src\controller\ControllerBatata::class
+    'user' => src\controller\ControllerUser::class
 ];
 
 
