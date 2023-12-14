@@ -8,9 +8,10 @@ class User
 {
 
 	private $nome;
+	private $email;
 	private $cpf;
 	private $senha;
-	private $cliente;
+	private $gestor;
 	private $dao;
 
 	public function __constructor()
@@ -20,13 +21,13 @@ class User
 	}
 
 
-	public function validarLogin($nomeUser, $senhaUser)
+	public function validarLogin($emailUser, $senhaUser)
 	{
-		$this->nome = strtolower($nomeUser);
+		$this->email = strtolower($emailUser);
 		$this->senha = strtolower($senhaUser);
 
 		#$userDao = new UserDao();
-		$result = $this->dao->validarCadastro($this->nome, $this->senha);
+		$result = $this->dao->validarCadastro($this->email, $this->senha);
 
 		return $result;
 	}
@@ -62,13 +63,21 @@ class User
 		$this->senha = $value;
 	}
 
-	public function getCliente()
+	public function getGestor()
 	{
-		return $this->cliente;
+		return $this->gestor;
 	}
 
-	public function setCliente($value)
+	public function setGestor($value)
 	{
-		$this->cliente = $value;
+		$this->gestor = $value;
+	}
+
+	public function getEmail() {
+		return $this->email;
+	}
+
+	public function setEmail($value) {
+		$this->email = $value;
 	}
 }

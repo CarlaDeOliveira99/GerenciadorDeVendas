@@ -7,14 +7,17 @@ use estrutura\ConexaoBd;
 
 class UserDao
 {
+     private $conexao;
 
-    function validarCadastro($nome, $senha)
+    public function __construct() {
+        $this->conexao = ConexaoBd::conecta();
+    }
+
+    function validarCadastro($email, $senha)
     {
-        $conexao = ConexaoBd::conecta();
-
-        $sql = "SELECT nome, gestor FROM usuario WHERE nome = :nome AND senha = :senha";
-        $stmt = $conexao->prepare($sql);
-        $stmt->bindValue(":nome", $nome);
+        $sql = "SELECT email, gestor FROM usuario WHERE email = :nome AND senha = :senha";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(":nome", $email);
         $stmt->bindValue(":senha", $senha);
         $stmt->execute();
 

@@ -9,12 +9,12 @@ class ControllerUser
     public function post_validarUser()
     {
         $dados = json_decode(file_get_contents('php://input'), true);
-        $nome = $dados['nome'];
+        $email = $dados['email'];
         $senha = $dados['senha'];
 
         $user = new User();
 
-        $resultado =  $user->validarLogin($nome, $senha);
+        $resultado =  $user->validarLogin($email, $senha);
 
         if ($resultado) {
             session_start();

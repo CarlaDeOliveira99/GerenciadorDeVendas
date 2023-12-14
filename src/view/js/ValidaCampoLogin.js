@@ -33,8 +33,8 @@ function validate(e) {
     }
 }
 
-function user(nome, senha) {
-    const dados = { nome: nome.value, senha: senha.value }
+function user(email, senha) {
+    const dados = { email: email.value, senha: senha.value }
     fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=validarUser', {
 
         headers: {

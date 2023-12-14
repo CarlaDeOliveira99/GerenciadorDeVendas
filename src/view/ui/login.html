@@ -1,108 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>PanTec</title>
-        <meta name="description" content>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon"
-            href="../../../upload/Logotipo/logotipoPanda.png"
-            type="image/x-icon">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous">
-        <link rel="stylesheet" href="../style/login.css">
-    </head>
-    <body>
-        <div id="login">
-            <div id="cardApresentacao">
-                <div id="cardBemVindo">
-                    <div class="CardImg"><img id="imgNome"
-                            src="../../../upload/Logotipo/nomeSitePreto.png"
-                            alt="Nome do ecommerce"></div>
-                    <div class="CardImg"><img id="imglogotipo"
-                            src="../../../upload/Logotipo/logotipoPanda.png"
-                            alt="Nome do ecommerce"></div>
-                </div>
-                <div id="areaTxtCard">
-                    <h2 id="txtBemVindo">Seja Bem-Vindo</h2>
-                </div>
-                <div id="cardMenu">
-                    <div id="cardHome"><a href="HomePage.html"><img id="imgHome"
-                                src="../../../upload/icones/home.png"
-                                alt="icone para pagina principal">
-                            <p id="txtIconePag">Pagina Inicial</p>
-                        </a>
-                    </div>
-                    <div id="cardCadastrar"><a href><img id="imgCadasrtrar"
-                                src="../../../upload/icones/cadastrar.png"
-                                alt="icone para pagina principal">
-                            <p id="txtIconeCad">Se cadastar</p>
-                        </a>
-                    </div>
-                </div>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PanTec</title>
+    <meta name="description" content>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../../upload/Logotipo/logotipoPanda.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/login.css">
+</head>
+
+<body>
+    <div id="login">
+        <div id="cardApresentacao">
+            <div id="cardBemVindo">
+                <div class="CardImg"><img id="imgNome" src="../../../upload/Logotipo/nomeSitePreto.png"
+                        alt="Nome do ecommerce"></div>
+                <div class="CardImg"><img id="imglogotipo" src="../../../upload/Logotipo/logotipoPanda.png"
+                        alt="Nome do ecommerce"></div>
             </div>
-            <div id="cardLogin">
-                <div id="user"><img id="imgUser"
-                        src="../../../upload/icones/userLogin.png"
-                        alt="imagem de usuario">
-                    <p class="txtLogin">Login</p>
+            <div id="areaTxtCard">
+                <h2 id="txtBemVindo">Seja Bem-Vindo</h2>
+            </div>
+            <div id="cardMenu">
+                <div id="cardHome"><a href="homePage.html"><img id="imgHome" src="../../../upload/icones/home.png"
+                            alt="icone para pagina principal">
+                        <p id="txtIconePag">Pagina Inicial</p>
+                    </a>
                 </div>
-                <div id="campoLogin">
-                    <div id="campoUser">
-                        <form class="row g-3">
-                            <div id="campos">
-                                <div id="campoNome">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control"
-                                            id="floatingInput"
-                                            placeholder="Nome"
-                                            required>
-                                        <label for="floatingInput">Nome</label>
-                                        <span role="alert" id="nameErrorNome"
-                                            aria-hidden="true"> Por favor,
-                                            insira o
-                                            nome!</span>
-                                    </div>
-                                </div>
-                                <div id="campoSenha">
-                                    <div class="form-floating">
-                                        <input type="password"
-                                            class="form-control"
-                                            id="floatingPassword"
-                                            placeholder="Password" required>
-                                        <label for="floatingPassword">Password</label>
-                                        <span role="alert" id="nameErrorSenha"
-                                            aria-hidden="true"> Por favor,
-                                            insira a
-                                            senha! </span>
-                                        <div id="mostrarSenha"><input
-                                                onclick="show()" type="checkbox"
-                                                class="ui-checkbox"> <span>Mostrar
-                                                Senha</span>
-                                        </div>
-                                    </div>
-                                    <div id="esqueceuSenha">
-                                        <a href>
-                                            <p>Esqueceu da Senha?</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 btnForm">
-                                <button id="btnEnviar" class="btn btn-primary"
-                                    type="submit">Entrar</button>
-                            </div>
-                        </form>
-                    </div>
+                <div id="cardCadastrar"><a href="cadastro.html"><img id="imgCadasrtrar"
+                            src="../../../upload/icones/cadastrar.png" alt="icone para pagina principal">
+                        <p id="txtIconeCad">Se cadastar</p>
+                    </a>
                 </div>
             </div>
         </div>
+        <div id="cardLogin">
+            <div id="user"><img id="imgUser" src="../../../upload/icones/userLogin.png" alt="imagem de usuario">
+                <p class="txtLogin">Login</p>
+            </div>
+            <div id="campoLogin">
+                <div id="campoUser">
+                    <form class="row g-3">
+                        <div id="campos">
+                            <div id="campoNome">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInput"
+                                        placeholder="name@example.com" required>
+                                    <label for="floatingInput">Email</label>
+                                    <span role="alert" id="nameErrorNome" aria-hidden="true"> Por favor, insira o nome!</span>
+                                </div>
+                            </div>
+                            <div id="campoSenha">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="floatingPassword"
+                                        placeholder="Password" required>
+                                    <label for="floatingPassword">Password</label>
+                                    <span role="alert" id="nameErrorSenha" aria-hidden="true"> Por favor, insira a senha! </span>
+                                    <div id="mostrarSenha"><input onclick="show()" type="checkbox" class="ui-checkbox">
+                                        <span>Mostrar Senha</span>
+                                    </div>
+                                </div>
+                                <div id="esqueceuSenha">
+                                    <a href="recuperarSenha.html">
+                                        <p>Esqueceu da Senha?</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 btnForm">
+                            <button id="btnEnviar" class="btn btn-primary" type="submit">Entrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <script>
+    <script>
         function show() {
             var senha = document.getElementById("floatingPassword");
             if (senha.type === "password") {
@@ -113,11 +91,10 @@
         }
     </script>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-        <script src="../js/ValidaCampoLogin.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="../js/ValidaCampoLogin.js"></script>
+</body>
 
 </html>
