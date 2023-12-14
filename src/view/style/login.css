@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
 body {
-    background-color: #00a0f6;
+    background-color: #EEEEEE;
 
 }
 
@@ -25,12 +25,12 @@ body {
 
 #cardApresentacao {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: #adc4ce;
+    background-color: #FFFFFF;
 }
 
 #cardLogin {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    background-color: #ADC4CE;
+    background-color: #FFFFFF;
 }
 
 #cardBemVindo {
@@ -137,6 +137,7 @@ a {
     letter-spacing: 2px;
     margin-top: 0px;
     margin-bottom: 25px;
+    color: #0a0a0a;
 }
 
 #campoLogin {
@@ -165,6 +166,9 @@ a {
     float: right;
 }
 
+#floatingInput, #floatingPassword{
+    border-color: #0a0a0a;
+}
 
 .btnForm {
     margin: 2% auto;
@@ -186,9 +190,9 @@ form {
     border-radius: 50px;
     cursor: pointer;
     border: 0;
-    color: rgb(253, 253, 253);
-    background-color: #00a0f6c8;
-    box-shadow: #00a0f6c8 0 0 8px;
+    color: rgb(0, 0, 0);
+    background-color: #9f9d9d;
+    box-shadow: #bdb8b8 0 0 8px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-size: 15px;
@@ -199,17 +203,17 @@ form {
 
 #btnEnviar:hover {
     letter-spacing: 3px;
-    background-color: #01314ac8;
-    color: hsl(0, 0%, 100%);
-    box-shadow: #01314ac8 0px 7px 29px 0px;
+    background-color: #9f9d9d;
+    color: hsl(0, 0%, 5%);
+    box-shadow: #9f9d9d 0px 7px 29px 0px;
 }
 
 #btnEnviar:active {
     letter-spacing: 3px;
     font-weight: bold;
-    background-color: #01314ac8;
+    background-color: #3b3b3b;
     color: hsl(0, 0%, 100%);
-    box-shadow: #01314ac8 0px 0px 0px 0px;
+    box-shadow: #3b3b3b 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
 }
@@ -218,7 +222,7 @@ form {
 #nameErrorSenha, #nameErrorNome {
     display: none;
     font-size: 13pt;
-    color: #0575b0;
+    color: #d20505;
 }
 
 #nameErrorSenha.visible, #nameErrorNome.visible {
@@ -226,7 +230,7 @@ form {
 }
 
 input.invalid {
-    border: 3px solid #00a0f6;
+    border: 3px solid #000000;
 }
 
 
@@ -234,13 +238,13 @@ input.invalid {
 /* checkBox */
 
 .ui-checkbox {
-    --primary-color: #1677ff;
+    --primary-color: #4096ff;
     --secondary-color: #fff;
     --primary-hover-color: #4096ff;
     /* checkbox */
     --checkbox-diameter: 20px;
     --checkbox-border-radius: 5px;
-    --checkbox-border-color: #d9d9d9;
+    --checkbox-border-color: #0a0909;
     --checkbox-border-width: 1px;
     --checkbox-border-style: solid;
     /* checkmark */

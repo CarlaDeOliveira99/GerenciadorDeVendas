@@ -1,53 +1,74 @@
-<?php 
+<?php
 
 namespace src\model;
 
-class User{
+use src\model\UserDao;
 
-    private $nome;
-    private $cpf;
-    private $senha;
-    private $cliente;
+class User
+{
 
-    public function __constructor($nome, $cpf, $senha, $cliente) {
+	private $nome;
+	private $cpf;
+	private $senha;
+	private $cliente;
+	private $dao;
 
-		$this->nome = $nome;
-		$this->cpf = $cpf;
-		$this->senha = $senha;
-		$this->cliente = $cliente;
+	public function __constructor()
+	{
+
+		$this->dao = new UserDao();
 	}
 
 
-	public function getNome() {
+	public function validarLogin($nomeUser, $senhaUser)
+	{
+		$this->nome = strtolower($nomeUser);
+		$this->senha = strtolower($senhaUser);
+
+		#$userDao = new UserDao();
+		$result = $this->dao->validarCadastro($this->nome, $this->senha);
+
+		return $result;
+	}
+
+
+	public function getNome()
+	{
 		return $this->nome;
 	}
 
-	public function setNome($value) {
+	public function setNome($value)
+	{
 		$this->nome = $value;
 	}
 
-	public function getCpf() {
+	public function getCpf()
+	{
 		return $this->cpf;
 	}
 
-	public function setCpf($value) {
+	public function setCpf($value)
+	{
 		$this->cpf = $value;
 	}
 
-	public function getSenha() {
+	public function getSenha()
+	{
 		return $this->senha;
 	}
 
-	public function setSenha($value) {
+	public function setSenha($value)
+	{
 		$this->senha = $value;
 	}
 
-	public function getCliente() {
+	public function getCliente()
+	{
 		return $this->cliente;
 	}
 
-	public function setCliente($value) {
+	public function setCliente($value)
+	{
 		$this->cliente = $value;
 	}
-
 }
