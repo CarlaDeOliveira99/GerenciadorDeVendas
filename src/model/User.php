@@ -12,26 +12,27 @@ class User
 	private $cpf;
 	private $senha;
 	private $gestor;
-	private $dao;
-
-	public function __constructor()
-	{
-
-		$this->dao = new UserDao();
-	}
 
 
 	public function validarLogin($emailUser, $senhaUser)
 	{
-		$this->email = strtolower($emailUser);
-		$this->senha = strtolower($senhaUser);
+		$this->email = $emailUser;
+		$this->senha = $senhaUser;
 
-		#$userDao = new UserDao();
-		$result = $this->dao->validarCadastro($this->email, $this->senha);
+		$dao = new UserDao();
+
+		$result = $dao->validarCadastro($this->email, $this->senha);
 
 		return $result;
 	}
 
+	public function userLogado($cpf)
+	{
+		$this->cpf = $cpf;
+		$dao = new UserDao();
+		$result = $dao->verificarUser($this->cpf);
+		return $result;
+	}
 
 	public function getNome()
 	{
@@ -73,11 +74,13 @@ class User
 		$this->gestor = $value;
 	}
 
-	public function getEmail() {
+	public function getEmail()
+	{
 		return $this->email;
 	}
 
-	public function setEmail($value) {
+	public function setEmail($value)
+	{
 		$this->email = $value;
 	}
 }

@@ -7,20 +7,32 @@ use estrutura\ConexaoBd;
 
 class UserDao
 {
-     private $conexao;
+    private $conexao;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conexao = ConexaoBd::conecta();
     }
 
     function validarCadastro($email, $senha)
     {
-        $sql = "SELECT email, gestor FROM usuario WHERE email = :nome AND senha = :senha";
+        $sql = "SELECT email,nome,cpf, gestor FROM usuario WHERE email = :email AND senha = :senha";
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(":nome", $email);
+        $stmt->bindValue(":email", $email);
         $stmt->bindValue(":senha", $senha);
         $stmt->execute();
 
+
+        $dados = $stmt->fetchAll();
+        return $dados;
+    }
+
+    function verificarUser($cpf)
+    {
+        $sql = "SELECT  gestor FROM usuario WHERE cpf = :cpf";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(":cpf", $cpf);
+        $stmt->execute();
 
         $dados = $stmt->fetchAll();
         return $dados;

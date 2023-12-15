@@ -1,3 +1,18 @@
+
+window.addEventListener("load", function verificarUser() {
+    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=userLogado', {
+        method: "GET",
+    })
+    .then(res => res.text())
+        .then(res => JSON.parse(res))
+        .then(res => {
+            if (res != "login") {
+                window.location = res;     
+            } 
+        });
+})
+
+
 const submit = document.getElementById("btnEnviar");
 
 submit.addEventListener('click', validate);
@@ -44,4 +59,21 @@ function user(email, senha) {
         method: "POST",
         body: JSON.stringify(dados)
     })
+        .then(res => res.text())
+        .then(res => JSON.parse(res))
+        .then(res => {
+            if (res == "erro") {
+                Swal.fire({
+                    text: "Dados inválidos",
+                    icon: "warning",
+                    confirmButtonColor: "#3085d6",
+                });
+            } else {
+                window.location = res;
+            }
+        });
+
+
 }
+
+

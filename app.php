@@ -11,6 +11,8 @@
     $metodoAjustado = $verboHttp.'_'.$metodo;
     $controller = new $classe();
     $controller->$metodoAjustado();
+    
+
 
 
 
