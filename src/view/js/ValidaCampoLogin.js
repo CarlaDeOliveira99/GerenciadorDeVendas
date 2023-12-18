@@ -1,14 +1,14 @@
 
-window.addEventListener("load", function verificarUser() {
+
+window.addEventListener("pageshow", function verificarUser() {
     fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=userLogado', {
         method: "GET",
     })
-    .then(res => res.text())
-        .then(res => JSON.parse(res))
+        .then(res => res.json())
         .then(res => {
-            if (res != "login") {
-                window.location = res;     
-            } 
+            if (res.pagina) {
+                window.location = res.pagina
+            }
         });
 })
 

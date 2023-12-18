@@ -25,11 +25,11 @@ class ControllerUser
         $resultado =  $this->user->validarLogin($email, $senha);
 
 
-        if (count($resultado) > 0) {
-            $this->Session->sessionStart();
-            $this->Session->valoresSession($resultado[0]['cpf']);
+        if ($resultado) {
+            $dadosUsuario = $resultado[0];
+            $this->Session->criaSession($dadosUsuario);
             //valida o redirecionamento da pagina
-            if ($resultado[0]['gestor'] == 1) {
+            if ($dadosUsuario['gestor'] == User::GESTOR_SIM) {
                 $respostaTex = ["gerenciadorDeVendas.html"];
             } else {
                 $respostaTex = ["homePage.html"];
@@ -41,22 +41,30 @@ class ControllerUser
         echo $respostaJson;
     }
 
+
     public function get_userLogado()
     {
-        $cpf =  $this->Session->userLogado();
-        if ($cpf != "") {
-            $resultado =  $this->user->userLogado($cpf);
+        $this->Session->userLogado();
 
-            if ($resultado[0]['gestor'] == 1) {
-                $respostaTex = ["gerenciadorDeVendas.html"];
-            } else {
-                $respostaTex = ["homePage.html"];
-            }
+        if ($_SESSION['gestor'] == User::GESTOR_SIM) {
+            $respostaTex = "gerenciadorDeVendas.html";
         } else {
-            $respostaTex = ["login"];
+            $respostaTex = "homePage.html";
         }
 
+        $respostaJson = json_encode(['pagina' => $respostaTex]);
+        echo $respostaJson;
+    }
+
+
+    public function get_sairSession()
+    {
+        $this->Session->encerrarSession();
+
+        $respostaTex = ["login.html"];
+       
         $respostaJson = json_encode($respostaTex);
         echo $respostaJson;
+
     }
 }

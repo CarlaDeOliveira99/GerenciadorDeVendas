@@ -7,6 +7,9 @@ use src\model\UserDao;
 class User
 {
 
+	const GESTOR_SIM = 1;
+	const GESTOR_NAO = 0;
+
 	private $nome;
 	private $email;
 	private $cpf;

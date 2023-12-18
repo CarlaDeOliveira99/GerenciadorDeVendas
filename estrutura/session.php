@@ -5,38 +5,44 @@ namespace estrutura;
 class session
 {
 
-
-    public function sessionStart()
+    public function criaSession($dadosUsuario) {
+        $this->sessionStart();
+        $_SESSION["cpf"] = $dadosUsuario["cpf"];
+        $_SESSION["nome"] = $dadosUsuario["nome"];
+        $_SESSION["email"] = $dadosUsuario["email"];
+        $_SESSION["gestor"] = $dadosUsuario["gestor"];
+    }
+    
+    private function sessionStart()
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
     }
 
-    public function valoresSession($cpf)
-    {
-        $this->sessionStart();
-        $_SESSION["cpf"] = $cpf;
-    }
 
     public function userLogado()
     {
         $this->sessionStart();
 
-        if (session_status() == PHP_SESSION_ACTIVE) {
-            return $_SESSION["cpf"];
-        }
-    }
+        # requisição sem dados na session
+        if(!isset($_SESSION["cpf"])) { 
+           # adicionar validação da data se ela expirou
+           # adicionar validação da data se ela expirou
+           # adicionar validação da data se ela expirou
+           # adicionar validação da data se ela expirou
+           # adicionar validação da data se ela expirou
 
-    public function  encerrarSession()
+           session_destroy();
+           echo json_encode(['erro' => 'login']);     
+           die();
+        } 
+    }
+    
+
+    public function encerrarSession()
     {
         $this->sessionStart();
-        if (session_status() == PHP_SESSION_ACTIVE) {
-            session_destroy();
-        }
+        session_destroy();
     }
 }
-
-
-
- 
