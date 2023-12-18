@@ -1,28 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;900&display=swap');
 
+/*Para dispositivos com width menor que 768px*/
+/* body {
+    padding-top: 290px;
+  } */
+  
+  /*Para dispositivos com width maior ou igual a 768px*/
+  /* @media (min-width: 768px) {
+   body {
+       padding-top: 220px;
+    }
+  } */
 
-#areaNav{
-display: flex;
-width: fit-content;
-height: fit-content;
-background-color: blue;
+  body{
+   padding-top: 220px;
+  }
+  
+.navbar {
+    padding-top: 0px;
+    position: fixed;
+    justify-content: space-evenly
+}
+.navbar>.container-fluid{
+    justify-content: space-evenly;
 }
 
-#areaSearch{
-    width: 550px;
+.estruturaNav {
+    background-color: rgba(68, 71, 72, 1);
+}
+
+
+.offcanvas {
+    width: fit-content;
+}
+
+
+#areaNav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    width: fit-content;
     height: fit-content;
-    background-color: aqua;
+    /* background-color: blue; */
 }
 
-#search__input{
-    width: 450px;
+/* Campo de pesquisa */
+
+#search {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgb(238, 238, 238, 1);
+    border-radius: 5px;
+    padding: 2px;
+    background-color: rgba(238, 238, 238, 1);
+    width: fit-content;
+    height: fit-content;
 }
 
+#search__input {
+    background-color: rgba(238, 238, 238, 1);
+    color: rgba(0, 0, 0, 0.841);
+    font-family: 'Alfa Slab One', serif;
+    font-size: 10pt;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    width: 379px;
+}
 
-#ImgSite{grid-area: hearder;}
-#BtnMenu{grid-area: sidenav ;}
-#logotipo{grid-area: logotipo;}
+#btnPesquisar {
+    border: 1px solid transparent;
+}
 
-#areaLogoBtn{
+#btnPesquisar:hover {
+    background-color: rgba(68, 71, 72, 0.292);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Botão, logotipo ao canto esquerdo */
+#ImgSite {
+    grid-area: hearder;
+}
+
+#BtnMenu {
+    grid-area: sidenav;
+}
+
+#logotipo {
+    grid-area: logotipo;
+}
+
+#areaLogoBtn {
     width: fit-content;
     height: fit-content;
     display: grid;
@@ -30,24 +102,24 @@ background-color: blue;
         "hearder logotipo"
         "sidenav logotipo";
     grid-template-columns: max-content max-content;
-    grid-template-rows: 40px 50px;
+    grid-template-rows: 28px 44px;
     column-gap: 2px;
 }
 
 
 
-#logotipo ,#imgLogotipo {
-    width: 60px;
-    height: 74px;
-    margin-top: 6px;
+#logotipo, #imgLogotipo {
+    width: 49px;
+    height: 68px;
+    margin-top: 1px;
 }
 
 #ImgSite, #imgLogotipoNome {
-    width: 163px;
-    height: 32px;
-    margin-left: 4px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    width: 119px;
+    height: 25px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 2px;
 }
 
 
@@ -57,8 +129,11 @@ background-color: blue;
     height: fit-content;
     width: fit-content;
     padding-top: 2px;
-    margin-top: 1;
+    margin-top: 1%;
     margin-bottom: 1%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
 }
 
 
@@ -88,24 +163,108 @@ background-color: blue;
 
 #divImgMenu, #imgMenu {
     margin-top: 2px;
-    width: 30px;
-    height: 34.5px;
+    width: 22px;
+    height: 25.5px;
 }
 
 .textBtn {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    font-size: 12pt;
+    font-size: 9.5pt;
     width: fit-content;
     height: fit-content;
 }
 
-  .input-group.md-form.form-sm.form-2 input {
-    border: 1px solid #bdbdbd;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
-  }
-  .input-group.md-form.form-sm.form-2 input.red-border {
-    border: 1px solid #ef9a9a;
-  }
+/* favorito e conta */
+.favoritoCoonta {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.LinkBarraFavCon {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 15px;
+    font-size: 11pt;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.txtNegrito {
+    letter-spacing: .80px;
+}
+
+.ImgBarraFavCon {
+    margin-right: 5px;
+}
+
+
+
+#favorito, #conta, #compra {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+/* favorito */
+#favorito{
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+#conta{
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+/* botão de compras */
+#compra{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+#btnCompras {
+    background-color: rgba(76, 198, 76, 0.68);
+    border: 1px solid rgba(76, 198, 76, 0.68);
+    border-radius: 5px;
+    margin: 5% auto;
+    
+
+}
+
+#itensCompra {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: auto;
+}
+
+#imgCarrinho {
+    margin: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+#areaDasIfo, strong, #quantiProduto {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+#txtCarrinho{
+font-size: 10pt;
+}
+
+#areaDasIfo {
+    line-height: 16px;
+    color: white;
+    margin: auto;
+}

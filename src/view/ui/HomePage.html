@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="../../view/style/nav.css">
     <!-- <link rel="stylesheet" href="../../view/style/search.css"> -->
 </head>
+
 <body>
 
     <!-- barra de navegação lateral -->
@@ -27,15 +29,14 @@
         </div>
     </div>
 
-
-
     <!-- barra de navegação -->
-    <nav class="navbar fixed-top bg-body-tertiary" style="padding-top: 0;">
-        <div class="container-fluid" style="background-color:rgba(68, 71, 72, 1);">
+    <nav class="navbar fixed-top bg-body-tertiary">
+        <div class="container-fluid estruturaNav">
             <div id="areaNav">
                 <div id="areaLogoBtn">
                     <div id="ImgSite"><a href="HomePage.html"><img id="imgLogotipoNome"
-                                src="../../../upload/Logotipo/nomeSite.png" alt="logotipoNome"></a></div>
+                                src="../../../upload/Logotipo/nomeSite.png" alt="logotipoNome"></a>
+                    </div>
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
                         id="BtnMenu">
@@ -48,21 +49,69 @@
                         </div>
                     </button>
                     <div id="logotipo"><a class="navbar-brand" href="HomePage.html"><img id="imgLogotipo"
-                                src="../../../upload/Logotipo/logotipoPanda.png" alt="logotipo"></a></div>
+                                src="../../../upload/Logotipo/logotipoPanda.png" alt="logotipo"></a>
+                    </div>
                 </div>
-                
-                  </div>
+                <div id="search">
+                    <input id="search__input" type="text" placeholder="Digite o que você procura..."><button
+                        type="button" id="btnPesquisar"><img src="../../../upload/icones/lupa.png"
+                            alt="lupa de pesquisa" id="lupaPesquisar"></button>
+                </div>
+                <div id="favorito">
+                    <a href="" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
+                            src="../../../upload/icones/favorito.png" alt="favorito">
+                        <div class="favoritoCoonta"><span>Meus</span> <strong>favoritos</strong></div>
+                    </a>
+                </div>
+                <div id="conta">
+                    <a href="" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
+                            src="../../../upload/icones/userNav.png" alt="favorito">
+                        <div class="favoritoCoonta"><span>Minha Conta</span> <strong
+                                class="txtNegrito">Entrar/Cadastrar</strong></div>
+                    </a>
+                </div>
+                <div id="compra"><button type="button" id="btnCompras">
+                        <div id="itensCompra">
+                            <img id="imgCarrinho" src="../../../upload/icones/carrinhoCompras.png" alt="carrinho">
+                            <div id="areaDasIfo">
+                                <strong id="txtCarrinho">CARRINHO</strong>
+                                <div class="quantiProduto">0 <span class="quantiProduto">produto</span>
+                                </div>
+                            </div>
+                        </div>
+                    </button></div>
             </div>
+        </div>
         </div>
     </nav>
 
+<!-- Carrossel -->
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="background-color: aqua;">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="..." class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-    <div style="margin: 10% auto; width: fit-content; height: fit-content;"><button type="button" id="btnSair" style="background-color: rgb(65, 172, 254); padding: 5px; border-radius: 10px;">Sair</button></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        <script src="../js/finalizarSession.js"></script>
 </body>
 
 </html>
