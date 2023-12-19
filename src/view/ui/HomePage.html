@@ -11,7 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../../view/style/nav.css">
-    <!-- <link rel="stylesheet" href="../../view/style/search.css"> -->
 </head>
 
 <body>
@@ -28,6 +27,7 @@
             <p>Try scrolling the rest of the page to see this option in action.</p>
         </div>
     </div>
+
 
     <!-- barra de navegação -->
     <nav class="navbar fixed-top bg-body-tertiary">
@@ -66,7 +66,7 @@
                 <div id="conta">
                     <a href="" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
                             src="../../../upload/icones/userNav.png" alt="favorito">
-                        <div class="favoritoCoonta"><span>Minha Conta</span> <strong
+                        <div class="favoritoCoonta facet_sidebar"><span>Minha Conta</span> <strong
                                 class="txtNegrito">Entrar/Cadastrar</strong></div>
                     </a>
                 </div>
@@ -85,29 +85,35 @@
         </div>
     </nav>
 
-<!-- Carrossel -->
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="background-color: aqua;">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
+    <!-- Carrossel -->
+    <div id="carrossel">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel"
+            style="background-color: aqua; margin:5% auto;">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src=".../../../../../upload/icones/imgCarrossel.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src=".../../../../../upload/icones/imgCarrossel.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src=".../../../../../upload/icones/imgCarrossel.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
+    <div style="height: 37%;width: 25%;background-color: aquamarine;margin-top: 500px;padding-top: 500px;"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

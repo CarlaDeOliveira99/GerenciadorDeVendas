@@ -1,28 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;900&display=swap');
 
-/*Para dispositivos com width menor que 768px*/
-/* body {
-    padding-top: 290px;
-  } */
-  
-  /*Para dispositivos com width maior ou igual a 768px*/
-  /* @media (min-width: 768px) {
-   body {
-       padding-top: 220px;
-    }
-  } */
 
-  body{
-   padding-top: 220px;
-  }
-  
+body {
+    padding-top: 20px;
+}
+
+@media (max-width: 1489px) {
+    body {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 1097px) {
+    body {
+        padding-top: 102px;
+    }
+}
+
+@media (max-width: 1080px) {
+    body {
+        padding-top: 119px;
+    }
+}
+
+
+
 .navbar {
     padding-top: 0px;
     position: fixed;
     justify-content: space-evenly
 }
-.navbar>.container-fluid{
+
+.navbar>.container-fluid {
     justify-content: space-evenly;
 }
 
@@ -30,26 +40,25 @@
     background-color: rgba(68, 71, 72, 1);
 }
 
-
 .offcanvas {
     width: fit-content;
 }
 
-
 #areaNav {
     display: flex;
     flex-wrap: wrap;
+    /* flex-wrap: nowrap; */
     flex-grow: 1;
+    flex-shrink: 1;
     justify-content: space-evenly;
     width: fit-content;
     height: fit-content;
-    /* background-color: blue; */
 }
 
 /* Campo de pesquisa */
 
 #search {
-    margin: auto;
+    /* margin: auto;
     display: flex;
     align-items: center;
     border: 2px solid rgb(238, 238, 238, 1);
@@ -57,10 +66,29 @@
     padding: 2px;
     background-color: rgba(238, 238, 238, 1);
     width: fit-content;
+    height: fit-content; */
+    margin: auto;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgb(238, 238, 238, 1);
+    border-radius: 5px;
+    padding: 2px;
+    background-color: rgba(238, 238, 238, 1);
+    width: 36%;
     height: fit-content;
+    margin-left: 4%;
+    margin-right: 11%;
 }
 
 #search__input {
+    /* background-color: rgba(238, 238, 238, 1);
+    color: rgba(0, 0, 0, 0.841);
+    font-family: 'Alfa Slab One', serif;
+    font-size: 10pt;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    width: 379px; */
     background-color: rgba(238, 238, 238, 1);
     color: rgba(0, 0, 0, 0.841);
     font-family: 'Alfa Slab One', serif;
@@ -68,8 +96,17 @@
     letter-spacing: 1px;
     border: none;
     outline: none;
-    width: 379px;
+    width: 100%;
+    margin: auto;
 }
+
+@media (max-width: 748px) {
+    #search__input {
+        font-size: 6.4pt;
+        letter-spacing: 0px;
+    }
+}
+
 
 #btnPesquisar {
     border: 1px solid transparent;
@@ -215,18 +252,14 @@
 }
 
 /* favorito */
-#favorito{
-    margin-right: 40px;
-    margin-left: 40px;
+#favorito, #conta {
+    margin-right: 3%;
+    margin-left: 1%;
 }
 
-#conta{
-    margin-right: 40px;
-    margin-left: 40px;
-}
 
 /* botão de compras */
-#compra{
+#compra {
     margin-left: 10px;
     margin-right: 5px;
 }
@@ -236,7 +269,7 @@
     border: 1px solid rgba(76, 198, 76, 0.68);
     border-radius: 5px;
     margin: 5% auto;
-    
+
 
 }
 
@@ -259,8 +292,8 @@
     margin: auto;
 }
 
-#txtCarrinho{
-font-size: 10pt;
+#txtCarrinho {
+    font-size: 10pt;
 }
 
 #areaDasIfo {
@@ -268,3 +301,5 @@ font-size: 10pt;
     color: white;
     margin: auto;
 }
+
+/* carrossel */
