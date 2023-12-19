@@ -3,12 +3,12 @@
 
 
 body {
-    padding-top: 20px;
+    padding-top: 90px;
 }
 
 @media (max-width: 1489px) {
     body {
-        padding-top: 80px;
+        padding-top: 151px;
     }
 }
 
@@ -20,8 +20,24 @@ body {
 
 @media (max-width: 1080px) {
     body {
-        padding-top: 119px;
+        padding-top: 147px;
     }
+}
+
+#areaDasIfo, strong, #quantiProduto,
+#areaPromoDay, #areaNav, #areaLogoBtn,
+#BtnMenu, #areaBtn, .textBtn, #favorito,
+#conta, #compra {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+
+#areaNav, #search, .textBtn,
+.favoritoCoonta, .LinkBarraFavCon,
+#itensCompra {
+    display: flex;
 }
 
 
@@ -45,30 +61,16 @@ body {
 }
 
 #areaNav {
-    display: flex;
     flex-wrap: wrap;
-    /* flex-wrap: nowrap; */
     flex-grow: 1;
     flex-shrink: 1;
     justify-content: space-evenly;
-    width: fit-content;
-    height: fit-content;
 }
 
 /* Campo de pesquisa */
 
 #search {
-    /* margin: auto;
-    display: flex;
-    align-items: center;
-    border: 2px solid rgb(238, 238, 238, 1);
-    border-radius: 5px;
-    padding: 2px;
-    background-color: rgba(238, 238, 238, 1);
-    width: fit-content;
-    height: fit-content; */
     margin: auto;
-    display: flex;
     align-items: center;
     border: 2px solid rgb(238, 238, 238, 1);
     border-radius: 5px;
@@ -81,14 +83,6 @@ body {
 }
 
 #search__input {
-    /* background-color: rgba(238, 238, 238, 1);
-    color: rgba(0, 0, 0, 0.841);
-    font-family: 'Alfa Slab One', serif;
-    font-size: 10pt;
-    letter-spacing: 1px;
-    border: none;
-    outline: none;
-    width: 379px; */
     background-color: rgba(238, 238, 238, 1);
     color: rgba(0, 0, 0, 0.841);
     font-family: 'Alfa Slab One', serif;
@@ -132,8 +126,6 @@ body {
 }
 
 #areaLogoBtn {
-    width: fit-content;
-    height: fit-content;
     display: grid;
     grid-template-areas:
         "hearder logotipo"
@@ -163,8 +155,6 @@ body {
 #BtnMenu {
     background-color: rgba(244, 85, 114, 1);
     border: rgba(244, 85, 114, 1);
-    height: fit-content;
-    width: fit-content;
     padding-top: 2px;
     margin-top: 1%;
     margin-bottom: 1%;
@@ -187,8 +177,6 @@ body {
 }
 
 #areaBtn {
-    width: fit-content;
-    height: fit-content;
     display: grid;
     grid-template-areas:
         "aside man"
@@ -205,17 +193,13 @@ body {
 }
 
 .textBtn {
-    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     font-size: 9.5pt;
-    width: fit-content;
-    height: fit-content;
 }
 
 /* favorito e conta */
 .favoritoCoonta {
-    display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-start;
@@ -224,7 +208,6 @@ body {
 .LinkBarraFavCon {
     text-decoration: none;
     color: white;
-    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
@@ -241,14 +224,6 @@ body {
 
 .ImgBarraFavCon {
     margin-right: 5px;
-}
-
-
-
-#favorito, #conta, #compra {
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
 }
 
 /* favorito */
@@ -274,7 +249,6 @@ body {
 }
 
 #itensCompra {
-    display: flex;
     flex-direction: row;
     align-items: stretch;
     margin: auto;
@@ -284,12 +258,6 @@ body {
     margin: 5px;
     width: 35px;
     height: 35px;
-}
-
-#areaDasIfo, strong, #quantiProduto {
-    width: fit-content;
-    height: fit-content;
-    margin: auto;
 }
 
 #txtCarrinho {
@@ -303,3 +271,144 @@ body {
 }
 
 /* carrossel */
+
+.w-100 {
+    height: 305px !important;
+}
+
+/* area da promoção do dia */
+
+#areaPromoDay {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#textPromoDay {
+    color: #E31313;
+    font-size: 40pt;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+
+/*carrosssel cards*/
+
+.areaCardsOfertaDia, .cardsOfertaDia {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    background-color: rgb(145, 145, 146);
+}
+
+/* cards */
+#areaCards {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cards {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    background-color: #ffffff;
+    padding: 2%;
+    width: 250px;
+    margin: 17px;
+    border-radius: 12px;
+}
+
+.tituloProd, .preco,
+.frete {
+    width: 224px;
+    margin: auto;
+}
+
+.areaImgProd {
+    padding: 2px;
+}
+
+
+.imgProd {
+    width: 100%;
+    height: 100%;
+}
+
+.tituloProd {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13pt;
+    font-weight: 900;
+    margin-top: 1.5px;
+    color: black;
+}
+
+.descricaoProd {
+    height: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
+    white-space: normal;
+    text-align: justify;
+    color: black;
+
+}
+
+.preco {
+    margin-top: 10px;
+}
+
+.antesDaProma {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    margin-bottom: 3px;
+    color: #CE261D;
+}
+
+.valorAntes {
+    text-decoration: line-through;
+}
+
+.precoNormal {
+    font-size: 15pt;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: #3A9E0B;
+}
+
+.frete {
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #014618;
+}
+
+.caminhao {
+    margin: auto;
+    width: 22px;
+    margin-right: 7px;
+    margin-bottom: 5pt;
+}
+
+a {
+    text-decoration: none;
+}
+
+.desconto {
+    font-size: 9pt;
+    margin-left: 5px;
+}
+
+/* rodape */
+.rodape{
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    background-color: rgb(199, 199, 200);
+}

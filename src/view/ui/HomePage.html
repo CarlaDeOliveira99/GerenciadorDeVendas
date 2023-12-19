@@ -8,8 +8,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../../../upload/Logotipo/logotipoPanda.png" type="image/x-icon">
+    <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- css -->
     <link rel="stylesheet" href="../../view/style/nav.css">
 </head>
 
@@ -33,9 +35,12 @@
     <nav class="navbar fixed-top bg-body-tertiary">
         <div class="container-fluid estruturaNav">
             <div id="areaNav">
+                <!-- botão rosa e logotipo -->
                 <div id="areaLogoBtn">
-                    <div id="ImgSite"><a href="HomePage.html"><img id="imgLogotipoNome"
-                                src="../../../upload/Logotipo/nomeSite.png" alt="logotipoNome"></a>
+                    <div id="ImgSite">
+                        <a href="HomePage.html"><img id="imgLogotipoNome" src="../../../upload/Logotipo/nomeSite.png"
+                                alt="logotipoNome">
+                        </a>
                     </div>
                     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
@@ -44,33 +49,46 @@
                             <div id="divImgMenu">
                                 <img id="imgMenu" src="../../../upload/icones/menu.png" alt="menu">
                             </div>
-                            <div class="textBtn text1"><span>Acesso todos os</span></div>
-                            <div class="textBtn text2"><strong>dapartamento</strong></div>
+                            <div class="textBtn text1">
+                                <span>Acesso todos os</span>
+                            </div>
+                            <div class="textBtn text2">
+                                <strong>dapartamento</strong>
+                            </div>
                         </div>
                     </button>
                     <div id="logotipo"><a class="navbar-brand" href="HomePage.html"><img id="imgLogotipo"
                                 src="../../../upload/Logotipo/logotipoPanda.png" alt="logotipo"></a>
                     </div>
                 </div>
+                <!-- barra de pesquisa -->
                 <div id="search">
-                    <input id="search__input" type="text" placeholder="Digite o que você procura..."><button
-                        type="button" id="btnPesquisar"><img src="../../../upload/icones/lupa.png"
-                            alt="lupa de pesquisa" id="lupaPesquisar"></button>
+                    <input id="search__input" type="text" placeholder="Digite o que você procura...">
+                    <button type="button" id="btnPesquisar"><img src="../../../upload/icones/lupa.png"
+                            alt="lupa de pesquisa" id="lupaPesquisar">
+                    </button>
                 </div>
+                <!-- area favorito -->
                 <div id="favorito">
                     <a href="" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
                             src="../../../upload/icones/favorito.png" alt="favorito">
-                        <div class="favoritoCoonta"><span>Meus</span> <strong>favoritos</strong></div>
+                        <div class="favoritoCoonta">
+                            <span>Meus</span><strong>favoritos</strong>
+                        </div>
                     </a>
                 </div>
+                <!-- area conta -->
                 <div id="conta">
                     <a href="" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
                             src="../../../upload/icones/userNav.png" alt="favorito">
-                        <div class="favoritoCoonta facet_sidebar"><span>Minha Conta</span> <strong
-                                class="txtNegrito">Entrar/Cadastrar</strong></div>
+                        <div class="favoritoCoonta facet_sidebar">
+                            <span>Minha Conta</span> <strong class="txtNegrito">Entrar/Cadastrar</strong>
+                        </div>
                     </a>
                 </div>
-                <div id="compra"><button type="button" id="btnCompras">
+                <!-- area compra -->
+                <div id="compra">
+                    <button type="button" id="btnCompras">
                         <div id="itensCompra">
                             <img id="imgCarrinho" src="../../../upload/icones/carrinhoCompras.png" alt="carrinho">
                             <div id="areaDasIfo">
@@ -79,7 +97,8 @@
                                 </div>
                             </div>
                         </div>
-                    </button></div>
+                    </button>
+                </div>
             </div>
         </div>
         </div>
@@ -87,17 +106,17 @@
 
     <!-- Carrossel -->
     <div id="carrossel">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel"
-            style="background-color: aqua; margin:5% auto;">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <img src=".../../../../../upload/icones/imgCarrossel.png" class="d-block w-100" alt="...">
+                    <img src=".../../../../../upload/imagens_e_gifs/imgCarrossel.png" class="d-block w-100" alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img src=".../../../../../upload/icones/imgCarrossel.png" class="d-block w-100" alt="...">
+                <div class="carousel-item" data-bs-interval="7000">
+                    <img src=".../../../../../upload/imagens_e_gifs/carrosselNatal.gif" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src=".../../../../../upload/icones/imgCarrossel.png" class="d-block w-100" alt="...">
+                    <img src=".../../../../../upload/imagens_e_gifs/carrosselPromopng.png" class="d-block w-100"
+                        alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
@@ -113,8 +132,558 @@
         </div>
     </div>
 
-    <div style="height: 37%;width: 25%;background-color: aquamarine;margin-top: 500px;padding-top: 500px;"></div>
+    <!-- texto de promoção do dia -->
+    <div id="areaPromoDay">
+        <strong id="textPromoDay">🔥Promoção do dia🔥 </strong>
+    </div>
 
+    <!--  cards oferta do dia -->
+    <div class="areaCardsOfertaDia">
+        <div class="cardsOfertaDia">
+            <div class="cards">
+                <a href="">
+                    <!-- imagem do produto -->
+                    <div class="areaImgProd">
+                        <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                    </div>
+                    <!-- titulo do produto -->
+                    <div class="tituloProd">
+                        <span>fone de ouvido </span>
+                    </div>
+
+                    <!-- preços -->
+                    <div class="preco">
+                        <div class="antesDaProma">
+                            <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                        </div>
+                        <div class="precoNormal">
+                            <span>R$175,00</span>
+                            <span class="desconto"> 30% OFF</span>
+                        </div>
+                    </div>
+                    <!-- frete -->
+                    <div class="frete">
+                        <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                            gratis</span>
+                    </div>
+                    <!-- descrição do produto -->
+                    <div class="descricaoProd">
+                        <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="cards">
+                <a href="">
+                    <!-- imagem do produto -->
+                    <div class="areaImgProd">
+                        <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                    </div>
+                    <!-- titulo do produto -->
+                    <div class="tituloProd">
+                        <span>fone de ouvido </span>
+                    </div>
+
+                    <!-- preços -->
+                    <div class="preco">
+                        <div class="antesDaProma">
+                            <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                        </div>
+                        <div class="precoNormal">
+                            <span>R$175,00</span>
+                            <span class="desconto"> 30% OFF</span>
+                        </div>
+                    </div>
+                    <!-- frete -->
+                    <div class="frete">
+                        <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                            gratis</span>
+                    </div>
+                    <!-- descrição do produto -->
+                    <div class="descricaoProd">
+                        <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="cards">
+                <a href="">
+                    <!-- imagem do produto -->
+                    <div class="areaImgProd">
+                        <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                    </div>
+                    <!-- titulo do produto -->
+                    <div class="tituloProd">
+                        <span>fone de ouvido </span>
+                    </div>
+
+                    <!-- preços -->
+                    <div class="preco">
+                        <div class="antesDaProma">
+                            <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                        </div>
+                        <div class="precoNormal">
+                            <span>R$175,00</span>
+                            <span class="desconto"> 30% OFF</span>
+                        </div>
+                    </div>
+                    <!-- frete -->
+                    <div class="frete">
+                        <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                            gratis</span>
+                    </div>
+                    <!-- descrição do produto -->
+                    <div class="descricaoProd">
+                        <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                    </div>
+
+                </a>
+            </div>
+            <div class="cards">
+                <a href="">
+                    <!-- imagem do produto -->
+                    <div class="areaImgProd">
+                        <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                    </div>
+                    <!-- titulo do produto -->
+                    <div class="tituloProd">
+                        <span>fone de ouvido </span>
+                    </div>
+
+                    <!-- preços -->
+                    <div class="preco">
+                        <div class="antesDaProma">
+                            <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                        </div>
+                        <div class="precoNormal">
+                            <span>R$175,00</span>
+                            <span class="desconto"> 30% OFF</span>
+                        </div>
+                    </div>
+                    <!-- frete -->
+                    <div class="frete">
+                        <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                            gratis</span>
+                    </div>
+                    <!-- descrição do produto -->
+                    <div class="descricaoProd">
+                        <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                    </div>
+
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!--  cards -->
+    <div id="areaCards">
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido </span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+        <div class="cards">
+            <a href="">
+                <!-- imagem do produto -->
+                <div class="areaImgProd">
+                    <img class="imgProd" src="../../../upload/imagens_e_gifs/fone.jpg">
+                </div>
+                <!-- titulo do produto -->
+                <div class="tituloProd">
+                    <span>fone de ouvido</span>
+                </div>
+
+                <!-- preços -->
+                <div class="preco">
+                    <div class="antesDaProma">
+                        <span>de R$ <span class="valorAntes">250,00</span> por:</span>
+                    </div>
+                    <div class="precoNormal">
+                        <span>R$175,00</span>
+                        <span class="desconto"> 30% OFF</span>
+                    </div>
+                </div>
+                <!-- frete -->
+                <div class="frete">
+                    <span><img class="caminhao" src="../../../upload/icones/caminhaoEntrega.png" alt="">Frete
+                        gratis</span>
+                </div>
+                <!-- descrição do produto -->
+                <div class="descricaoProd">
+                    <span>jdikjd sjdaksj sadksd sdsd sdsajsdm ojdksadnm k</span>
+                </div>
+
+            </a>
+        </div>
+    </div>
+
+    <div class="rodape">
+        <p>© 2023 PanTec</p>
+        <p>Contato</p>
+        <p>Sobre</p>
+    </div>
+
+
+    <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
