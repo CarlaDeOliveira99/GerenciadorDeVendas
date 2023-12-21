@@ -1,38 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;900&display=swap');
+
 .fundoProduto {
-    background-color: #000000;
-    margin: auto;
+    background-color: #00000049;
+    margin: 2% auto;
     width: 72%;
     height: fit-content;
-    padding: 3px;
+    padding: 2px;
+    margin-bottom: 5%;
 }
 
 .cardsProduto {
     display: flex;
-    background-color: rgba(255, 0, 0, 0.236);
+    background-color: rgba(255, 0, 0, 0.211);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.areaImgPrincipal {
+.areaCarrossel {
     padding: 5px;
 }
 
-.imgProdCarrossel, .imgPrincipal {
-    width: 410px;
+.imgProdCarrossel, .imgPrincipalCarrossel {
+    width: 465px;
     height: 528px;
 }
 
-.iconesImgProduto {
-    margin: auto;
-    display: flex;
-    margin-top: 7px;
-    width: fit-content;
-    background-color: yellow;
+@media (max-width: 1080px) {
+    .imgProdCarrossel, .imgPrincipalCarrossel {
+        width: 100%;
+    }
 }
 
-.imgProdAmostra {
+.imgCarrossel {
     margin: auto;
-    width: 55px;
-    margin-right: 5px;
-    margin-left: 10px;
-    border-radius: 50%;
-    background-color: violet;
+    width: 100%;
+    height: 100%;
+
 }
+
+.carousel-indicators [data-bs-target] {
+    width: 49px;
+    height: 62px;
+}
+
+/* informações do produto */
+
+.inforProduto {
+    margin: 10px;
+    background-color: white;
+}
+
+.codigoProduto {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9.5pt;
+    color: #000000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.areaFavorito {
+    margin: 5px;
+}
+
+.favorito {
+    width: 27px;
+}
+
+#btnFavorito {
+    padding: 1px;
+}
+
+#btnFavorito:hover {
+    animation: heartButton 1s;
+}
+
+@keyframes heartButton {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.tituloDoProduto {
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20pt;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+}
+
+.precoProduto {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.precoProduto .antesDaProma {
+    font-size: 15pt;
+}
+
+.precoProduto .precoNormal {
+    font-size: 20pt;
+}
+
+.precoProduto .desconto {
+    font-size: 13pt;
+}
+
+.precoProduto .desconto{
+    animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .areaQtd{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+  }
+
+  .qtdDisponivel{
+    display: flex;
+    font-size: 13pt;
+    color: #000000;
+  }
+
+  #qtdEstoque{
+    font-weight: bold;
+  }
+  
+  #qtdProd{
+    width: 48px;
+    height: 23px;
+    margin-left: 5px;
+    font-size: 11pt;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+.estoque{
+    margin-top: 15px;
+    text-align: center;
+}
+
+  /* add car */
+
+  #addCar{
+    margin: 5px;
+  }
+
+  .CartBtn {
+    width: 206px;
+    height: 29px;
+    border-radius: 12px;
+    border: none;
+    background-color: #fdfd96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .5s;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+  }
+  
+  .IconContainer {
+    position: absolute;
+    left: -50px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .5s;
+  }
+  
+  .icon {
+    border-radius: 1px;
+  }
+  
+  .text {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(17, 17, 17);
+    z-index: 1;
+    transition-duration: .5s;
+    font-size: 12pt;
+    font-weight: 600;
+  }
+  
+  .CartBtn:hover .IconContainer {
+    transform: translateX(58px);
+    border-radius: 40px;
+    transition-duration: .5s;
+  }
+  
+  .CartBtn:hover .text {
+    transform: translate(10px,0px);
+    transition-duration: .5s;
+  }
+  
+  .CartBtn:active {
+    transform: scale(0.95);
+    transition-duration: .5s;
+  }
+
+
