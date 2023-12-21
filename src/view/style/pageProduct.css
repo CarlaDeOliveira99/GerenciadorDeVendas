@@ -1,0 +1,38 @@
+.fundoProduto {
+    background-color: #000000;
+    margin: auto;
+    width: 72%;
+    height: fit-content;
+    padding: 3px;
+}
+
+.cardsProduto {
+    display: flex;
+    background-color: rgba(255, 0, 0, 0.236);
+}
+
+.areaImgPrincipal {
+    padding: 5px;
+}
+
+.imgProdCarrossel, .imgPrincipal {
+    width: 410px;
+    height: 528px;
+}
+
+.iconesImgProduto {
+    margin: auto;
+    display: flex;
+    margin-top: 7px;
+    width: fit-content;
+    background-color: yellow;
+}
+
+.imgProdAmostra {
+    margin: auto;
+    width: 55px;
+    margin-right: 5px;
+    margin-left: 10px;
+    border-radius: 50%;
+    background-color: violet;
+}

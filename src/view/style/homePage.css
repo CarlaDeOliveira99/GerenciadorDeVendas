@@ -1,0 +1,521 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;900&display=swap');
+
+
+body {
+    padding-top: 90px;
+}
+
+@media (max-width: 1489px) {
+    body {
+        padding-top: 151px;
+    }
+}
+
+@media (max-width: 1097px) {
+    body {
+        padding-top: 102px;
+    }
+}
+
+@media (max-width: 1080px) {
+    body {
+        padding-top: 147px;
+    }
+}
+
+#areaDasIfo, strong, #quantiProduto,
+#areaPromoDay, #areaNav, #areaLogoBtn,
+#BtnMenu, #areaBtn, .textBtn, #favorito,
+#conta, #compra {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+
+#areaNav, #search, .textBtn,
+.favoritoCoonta, .LinkBarraFavCon,
+#itensCompra {
+    display: flex;
+}
+
+
+
+.navbar {
+    padding-top: 0px;
+    position: fixed;
+    justify-content: space-evenly
+}
+
+.navbar>.container-fluid {
+    justify-content: space-evenly;
+}
+
+.estruturaNav {
+    background-color: rgba(68, 71, 72, 1);
+}
+
+.offcanvas {
+    width: fit-content;
+}
+
+#areaNav {
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: space-evenly;
+}
+
+/* Campo de pesquisa */
+
+#search {
+    margin: auto;
+    align-items: center;
+    border: 2px solid rgb(238, 238, 238, 1);
+    border-radius: 5px;
+    padding: 2px;
+    background-color: rgba(238, 238, 238, 1);
+    width: 36%;
+    height: fit-content;
+    margin-left: 4%;
+    margin-right: 11%;
+}
+
+#search__input {
+    background-color: rgba(238, 238, 238, 1);
+    color: rgba(0, 0, 0, 0.841);
+    font-family: 'Alfa Slab One', serif;
+    font-size: 10pt;
+    letter-spacing: 1px;
+    border: none;
+    outline: none;
+    width: 100%;
+    margin: auto;
+}
+
+@media (max-width: 748px) {
+    #search__input {
+        font-size: 6.4pt;
+        letter-spacing: 0px;
+    }
+}
+
+
+#btnPesquisar {
+    border: 1px solid transparent;
+}
+
+#btnPesquisar:hover {
+    background-color: rgba(68, 71, 72, 0.292);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Botão, logotipo ao canto esquerdo */
+#ImgSite {
+    grid-area: hearder;
+}
+
+#BtnMenu {
+    grid-area: sidenav;
+}
+
+#logotipo {
+    grid-area: logotipo;
+}
+
+#areaLogoBtn {
+    display: grid;
+    grid-template-areas:
+        "hearder logotipo"
+        "sidenav logotipo";
+    grid-template-columns: max-content max-content;
+    grid-template-rows: 28px 44px;
+    column-gap: 2px;
+}
+
+
+
+#logotipo, #imgLogotipo {
+    width: 49px;
+    height: 68px;
+    margin-top: 1px;
+}
+
+#ImgSite, #imgLogotipoNome {
+    width: 119px;
+    height: 25px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 2px;
+}
+
+
+#BtnMenu {
+    background-color: rgba(244, 85, 114, 1);
+    border: rgba(244, 85, 114, 1);
+    padding-top: 2px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+}
+
+
+#divImgMenu {
+    grid-area: aside;
+}
+
+#text1 {
+    grid-area: man;
+}
+
+#text2 {
+    grid-area: footer;
+}
+
+#areaBtn {
+    display: grid;
+    grid-template-areas:
+        "aside man"
+        "aside footer";
+    grid-template-columns: max-content max-content;
+    grid-template-rows: 14px 20px;
+    column-gap: 5px;
+}
+
+#divImgMenu, #imgMenu {
+    margin-top: 2px;
+    width: 22px;
+    height: 25.5px;
+}
+
+.textBtn {
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 9.5pt;
+}
+
+/* favorito e conta */
+.favoritoCoonta {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.LinkBarraFavCon {
+    text-decoration: none;
+    color: white;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 15px;
+    font-size: 11pt;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.txtNegrito {
+    letter-spacing: .80px;
+}
+
+.ImgBarraFavCon {
+    margin-right: 5px;
+}
+
+/* favorito */
+#favorito, #conta {
+    margin-right: 3%;
+    margin-left: 1%;
+}
+
+
+/* botão de compras */
+#compra {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+#btnCompras {
+    background-color: rgba(76, 198, 76, 0.68);
+    border: 1px solid rgba(76, 198, 76, 0.68);
+    border-radius: 5px;
+    margin: 5% auto;
+
+
+}
+
+#itensCompra {
+    flex-direction: row;
+    align-items: stretch;
+    margin: auto;
+}
+
+#imgCarrinho {
+    margin: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+#txtCarrinho {
+    font-size: 10pt;
+}
+
+#areaDasIfo {
+    line-height: 16px;
+    color: white;
+    margin: auto;
+}
+
+/* carrossel */
+
+.w-100 {
+    height: 305px !important;
+}
+
+/* area da promoção do dia */
+
+#areaPromoDay {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.textPromoDay {
+    color: #E31313;
+    font-size: 40pt;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+}
+
+
+/*carrosssel cards*/
+
+.areaCardsOfertaDia, .cardsOfertaDia {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    background-color: rgb(145, 145, 146);
+}
+
+/* cards */
+.areaCards {
+    width: fit-content;
+    height: fit-content;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cards {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    background-color: #ffffff;
+    padding: 2%;
+    width: 250px;
+    margin: 17px;
+    border-radius: 12px;
+}
+
+.tituloProd, .preco,
+.frete {
+    width: 192px;
+    margin: auto;
+}
+
+.areaImgProd {
+    padding: 2px;
+}
+
+
+.imgProd {
+    width: 100%;
+    height: 100%;
+}
+
+.tituloProd {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13pt;
+    font-weight: 900;
+    margin-top: 1.5px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.descricaoProd {
+    height: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
+    white-space: normal;
+    text-align: justify;
+    color: black;
+
+}
+
+.preco {
+    margin-top: 10px;
+}
+
+.antesDaProma {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    margin-bottom: 3px;
+    color: #CE261D;
+}
+
+.valorAntes {
+    text-decoration: line-through;
+}
+
+.precoNormal {
+    font-size: 15pt;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: #3A9E0B;
+}
+
+.frete {
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #014618;
+}
+
+.caminhao {
+    margin: auto;
+    width: 22px;
+    margin-right: 7px;
+    margin-bottom: 5pt;
+}
+
+a {
+    text-decoration: none;
+}
+
+.desconto {
+    font-size: 9pt;
+    margin-left: 5px;
+}
+
+/* rodape */
+.rodape {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+}
+
+
+/* icone de favorito */
+.container {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 5px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+    box-shadow: none;
+    color: rgb(255, 0, 0);
+}
+
+#favorite, #favorite-1 {
+    display: none;
+
+}
+
+#favorite:checked+.container svg, #favorite-1:checked+.container svg {
+    fill: hsl(0deg 100% 50%);
+    stroke: hsl(0deg 100% 50%);
+    animation: heartButton 1s;
+}
+
+@keyframes heartButton {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#favorite+.container .action {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+}
+
+#favorite+.container .action span {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    transition: all 0.5s;
+}
+
+#favorite+.container .action span.option-1 {
+    transform: translate(0px, 0%);
+    opacity: 1;
+}
+
+#favorite:checked+.container .action span.option-1 {
+    transform: translate(0px, -100%);
+    opacity: 0;
+}
+
+#favorite+.container .action span.option-2 {
+    transform: translate(0px, 100%);
+    opacity: 0;
+}
+
+#favorite:checked+.container .action span.option-2 {
+    transform: translate(0px, 0%);
+    opacity: 1;
+}
+
+/* ofertas */
+
+.ofertas {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 3%;
+    background-color: rgb(145, 145, 146);
+}
+
+.textOferta {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#imgOfertaLogotipo{
+    width: 45px;
+}
