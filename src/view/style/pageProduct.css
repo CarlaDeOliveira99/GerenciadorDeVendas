@@ -1,17 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;900&display=swap');
 
+body{
+    background-color: #999999;
+}
+
 .fundoProduto {
-    background-color: #00000049;
+    background-color: rgb(255, 255, 255);
     margin: 2% auto;
     width: 72%;
     height: fit-content;
     padding: 2px;
     margin-bottom: 5%;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .cardsProduto {
     display: flex;
-    background-color: rgba(255, 0, 0, 0.211);
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -22,8 +27,9 @@
 }
 
 .imgProdCarrossel, .imgPrincipalCarrossel {
-    width: 465px;
-    height: 528px;
+    width: 491px;
+    height: 566px;
+    border-radius: 15px;
 }
 
 @media (max-width: 1080px) {
@@ -48,7 +54,6 @@
 
 .inforProduto {
     margin: 10px;
-    background-color: white;
 }
 
 .codigoProduto {
@@ -126,56 +131,73 @@
     font-size: 13pt;
 }
 
-.precoProduto .desconto{
+.precoProduto .desconto {
     animation: piscar 1s infinite;
 }
 
 @keyframes piscar {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+    0% {
+        opacity: 1;
+    }
 
-  .areaQtd{
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.areaQtd {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-top: 2px;
-  }
+}
 
-  .qtdDisponivel{
+.qtdDisponivel {
     display: flex;
     font-size: 13pt;
     color: #000000;
-  }
+    flex-direction: row;
+    margin-right: 13px;
+}
 
-  #qtdEstoque{
+#qtdEstoque {
     font-weight: bold;
-  }
-  
-  #qtdProd{
-    width: 48px;
-    height: 23px;
+}
+
+#qtdProd {
+    width: 66px;
+    height: 27px;
     margin-left: 5px;
     font-size: 11pt;
     padding: 0px;
     text-align: center;
     border-radius: 5px;
-  }
-
-.estoque{
-    margin-top: 15px;
-    text-align: center;
+    border: 1px solid black;
 }
 
-  /* add car */
 
-  #addCar{
-    margin: 5px;
-  }
+#qtdProd:hover{
+    border: 2px solid black;
+}
 
-  .CartBtn {
+
+/* add car */
+
+#addCar {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.CartBtn {
     width: 206px;
     height: 29px;
     border-radius: 12px;
@@ -187,11 +209,16 @@
     cursor: pointer;
     transition-duration: .5s;
     overflow: hidden;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.497);
     position: relative;
-  }
-  
-  .IconContainer {
+    margin: 10px;
+}
+
+#addCar #BtnCar {
+    background-color: #84b6f4;
+}
+
+.IconContainer {
     position: absolute;
     left: -50px;
     width: 30px;
@@ -204,13 +231,17 @@
     overflow: hidden;
     z-index: 2;
     transition-duration: .5s;
-  }
-  
-  .icon {
+}
+
+.icon {
     border-radius: 1px;
-  }
-  
-  .text {
+}
+
+#BtnCar .IconContainer {
+    left: -20px;
+}
+
+.text {
     height: 100%;
     width: fit-content;
     display: flex;
@@ -221,22 +252,60 @@
     transition-duration: .5s;
     font-size: 12pt;
     font-weight: 600;
-  }
-  
-  .CartBtn:hover .IconContainer {
+}
+
+.CartBtn:hover .IconContainer {
     transform: translateX(58px);
     border-radius: 40px;
     transition-duration: .5s;
-  }
-  
-  .CartBtn:hover .text {
-    transform: translate(10px,0px);
+}
+
+.CartBtn:hover .text {
+    transform: translate(10px, 0px);
     transition-duration: .5s;
-  }
-  
-  .CartBtn:active {
+}
+
+.CartBtn:active {
     transform: scale(0.95);
     transition-duration: .5s;
-  }
+}
 
+/* descrição do produto */
 
+#descricao{
+    width: 428px;
+    margin: auto;
+    height: 279px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1080px) {
+    #descricao {
+        width: 100%;
+    }
+}
+
+.tituloDaDescricao{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    padding: 6px;
+    font-family: 'Roboto';
+    font-weight: 900;
+}
+
+.areaDaDescricao{
+    height: 211px;
+    width: 100%;
+    overflow-y: scroll;
+    padding: 10px;
+    text-align: justify;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-content: flex-start;
+    border-radius: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}

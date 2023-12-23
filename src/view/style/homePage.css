@@ -252,6 +252,7 @@ body {
     flex-direction: row;
     align-items: stretch;
     margin: auto;
+    padding-right: 5px;
 }
 
 #imgCarrinho {
