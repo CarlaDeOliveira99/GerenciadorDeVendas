@@ -40,7 +40,9 @@ body {
     display: flex;
 }
 
-
+span{
+    word-wrap: break-word;
+}
 
 .navbar {
     padding-top: 0px;

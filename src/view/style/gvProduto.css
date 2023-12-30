@@ -1,0 +1,61 @@
+.formulario{
+    padding: 2px;
+}
+
+
+.campo {
+    height: 34.6px;
+    width: 290px;
+    border: 2px solid black;
+}
+
+.formDados {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.campoCategoria{
+    width: 219px;
+}
+
+.formSelect {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.descricao {
+    margin: 40px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-content: center;
+}
+
+.descricaoPrevia {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 312px;
+}
+
+#descPrevia{
+    word-wrap: break-word; 
+}
+
+.descricaoCompleta{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 311px;
+}
+
+.ImagensProduto{
+    width: fit-content;
+    margin: 20px auto;
+}
