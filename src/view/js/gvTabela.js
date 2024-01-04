@@ -1,19 +1,5 @@
 
  const grid = new gridjs.Grid({
-    sort: {
-      multiColumn: false,
-      server: {
-        url: (prev, columns) => {
-          if (!columns.length) return prev;
-  
-          const col = columns[0];
-          const dir = col.direction === 1 ? 'asc' : 'desc';
-          let colName = ['id', 'cod', 'nome','descricao'][col.index];
-  
-          return `${prev}&order=${colName}&dir=${dir}`;
-        }
-      }
-    },
     search: {
       server: {
         url: (prev, keyword) => `${prev}&search=${keyword}`
@@ -67,5 +53,5 @@
   });
   
   grid.render(document.getElementById("wrapper"));
+
   
-   
