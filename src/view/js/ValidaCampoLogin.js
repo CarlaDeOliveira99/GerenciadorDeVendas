@@ -12,7 +12,6 @@ window.addEventListener("pageshow", function verificarUser() {
         });
 })
 
-
 const submit = document.getElementById("btnEnviar");
 
 submit.addEventListener('click', validate);
