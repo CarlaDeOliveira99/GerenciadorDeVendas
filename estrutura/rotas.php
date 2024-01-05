@@ -1,6 +1,6 @@
 <?php
 
 $ROTAS = [
-    'teste'  => src\controller\ControllerTeste::class,
     'user' => src\controller\ControllerUser::class,
+    'categoria' => src\controller\ControllerCategoria::class,
 ];

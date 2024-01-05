@@ -6,10 +6,10 @@ const grid = new gridjs.Grid({
         }
     },
     pagination: {
-        limit: 5,
-        server: {
-            url: (prev, page, limit) => `${prev}&limit=${limit}&offset=${page * limit}`
-        }
+      limit: 5,
+      server: {
+        url: (prev, page, limit) => `${prev}&limit=${limit}&offset=${page * limit}`
+      }
     },
     columns: [{
         id: 'id',
@@ -19,8 +19,8 @@ const grid = new gridjs.Grid({
         name: 'Nome'
     }],
     server: {
-        url: 'Php/arquivo.php?a',
-        then: json => json.dados.map(produto => [produto.id, produto.nome]),
+        url: 'http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=consultar',
+        then: json => json.dados.map(produto => [produto.id_categoria, produto.nome]),
         total: json => json.totalRegistros
     }
 });
