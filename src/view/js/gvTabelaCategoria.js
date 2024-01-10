@@ -6,10 +6,10 @@ const grid = new gridjs.Grid({
         }
     },
     pagination: {
-      limit: 5,
-      server: {
-        url: (prev, page, limit) => `${prev}&limit=${limit}&offset=${page * limit}`
-      }
+        limit: 5,
+        server: {
+            url: (prev, page, limit) => `${prev}&limit=${limit}&offset=${page * limit}`
+        }
     },
     columns: [{
         id: 'id',
@@ -17,7 +17,29 @@ const grid = new gridjs.Grid({
     }, {
         id: 'nome',
         name: 'Nome'
-    }],
+    }, {
+        id: 'acao',
+        name: 'Ação',
+
+        formatter: (cell, row) => {
+
+            let imgEditar = document.createElement('img')
+            imgEditar.src = '../../../upload/icones/editar.png'
+
+
+            let imgExcluir = document.createElement('img')
+            imgExcluir.src = '../../../upload/icones/lixeira.png'
+            imgExcluir.classList.add('imgPadrao')
+
+            imgExcluir.setAttribute("id", "btnExcluir")
+            imgEditar.classList.add('imgPadrao')
+            imgEditar.setAttribute("id", "btnEditar")
+
+
+            return gridjs.h('div', {}, [imgEditar, imgExcluir]);
+        }        
+          
+        }],
     server: {
         url: 'http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=consultar',
         then: json => json.dados.map(produto => [produto.id_categoria, produto.nome]),
@@ -26,5 +48,4 @@ const grid = new gridjs.Grid({
 });
 
 grid.render(document.getElementById("tabCategoria"));
-
 

@@ -18,7 +18,7 @@
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../style/gerenciadorDeVendas.css">
-    <link rel="stylesheet" href="../../view/style/gvProduto.css">
+    <link rel="stylesheet" href="../../view/style/gvCategoria.css">
 </head>
 
 <body>
@@ -290,10 +290,23 @@
         </div>
     </aside>
 
-    <div class="p-4 sm:ml-64 teste">
-        <div class="p-4 rounded-lg mt-14 teste1">
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 rounded-lg mt-14 formulario">
+            <div class="mb-3 areaCadastro">
+                <label for="exampleFormControlInput1" class="form-label">Nome da categoria</label>
+                <input type="email" class="form-control" id="campoCategoria" maxlength="30">
+              </div>
+              <div class="acaoBtn">
+                <div>
+                    <a href="gvTabelaCategoria.html"><button type="button" id="btnCancelar">Cancelar</button></a>
+                </div>
+                <div>
+                    <a href="gvTabelaCategoria.html"><button type="button" id="btnSalvar">Salvar</button></a>
+                </div>
+              </div>
         </div>
     </div>
+
 
     <script src="../js/finalizarSession.js"></script>
     <script src="../js/gvProduto.js"></script>
