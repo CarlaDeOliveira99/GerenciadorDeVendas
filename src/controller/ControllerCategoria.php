@@ -2,25 +2,33 @@
 
 namespace src\controller;
 
-use src\model\Categoria;
 use src\model\CategoriaDao;
 
 class ControllerCategoria
 {
 
-    private $Categoria;
     private $CategoriaDao;
 
     public function __construct()
     {
-        $this->Categoria =  new Categoria();
         $this->CategoriaDao =  new CategoriaDao();
     }
-
 
     public function get_consultar()
     {
         $dados = $this->CategoriaDao->consultarTab();
-        return $dados;
+        $json = json_encode($dados);
+        header('Content-Type: application/json');
+        echo $json;
     }
+
+
+    public function post_cadastrarCategoria() {
+        $dados = json_decode(file_get_contents('php://input'),true);
+        var_dump($dados);
+    }
+
+
+
+
 }

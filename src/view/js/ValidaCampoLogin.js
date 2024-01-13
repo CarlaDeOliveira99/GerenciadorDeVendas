@@ -50,7 +50,6 @@ function validate(e) {
 function user(email, senha) {
     const dados = { email: email.value, senha: senha.value }
     fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=validarUser', {
-
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

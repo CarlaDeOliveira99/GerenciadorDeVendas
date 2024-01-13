@@ -17,7 +17,6 @@ class CategoriaDao
 
     public function consultarTab()
     {
-
         $sql = 'SELECT * FROM categoria';
         $totalRegistros = $this->totalDeRegistro($sql);
 
@@ -38,9 +37,8 @@ class CategoriaDao
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
         $dados = $stmt->fetchAll();
-        $json = json_encode(['dados' => $dados, 'totalRegistros' => $totalRegistros['total']]);
-        header('Content-Type: application/json');
-        echo $json;
+        $json = ['dados' => $dados, 'totalRegistros' => $totalRegistros['total']];
+        return $json;
     }
 
 
