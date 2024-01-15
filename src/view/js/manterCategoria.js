@@ -13,16 +13,15 @@ btnSalvar.addEventListener('click', function dados() {
 
     if (!validacaoCampo) {
         mensagemErro()
-    }
-
-    if (acao() === "true") {
-        cadastraCategoria(dadosCategoria);
-    } else if (acao() === "true") {
-        alterarCategoria();
     } else {
-        window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/gridCategoria.html'
+        if (acao() === "true") {
+            cadastraCategoria(dadosCategoria);
+        } else if (acao() === "true") {
+            alterarCategoria();
+        } else {
+            telaPrincipal()
+        }
     }
-
 })
 
 
@@ -45,14 +44,16 @@ function mensagemErro() {
 
 function cadastraCategoria(dadosCategoria) {
 
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=cadastrarCategoria', { 
+    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=cadastrarCategoria', {
         headers: {
             'content-Type': 'application/json'
         },
         method: "POST",
         body: JSON.stringify(dadosCategoria)
     })
-
+        .then(
+            mensagemSalvoComSucesso(),
+        )
 }
 
 function alterarCategoria() {
@@ -60,4 +61,17 @@ function alterarCategoria() {
 }
 
 
+function mensagemSalvoComSucesso() {
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Salvo com sucesso!",
+        showConfirmButton: false,
+        timer: 1500
+    }).then(()=> { trocaParatelaPrincipal() })
+}
+
+function trocaParatelaPrincipal() {
+    return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/gridCategoria.html'
+}
 
