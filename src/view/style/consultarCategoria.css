@@ -1,0 +1,16 @@
+.imgAcao {
+    width: 20px;
+    height: 20px;
+}
+
+
+.btnAcoes{
+    background-color: rgba(220, 219, 219, 0.716);
+    padding: 5px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.btnAcoes:hover {
+    transform: translateY(-5px);
+}

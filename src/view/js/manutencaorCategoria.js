@@ -1,7 +1,16 @@
+window.onload = verificarAlterar()
+
+function verificarAlterar() {
+    if (acao() >= 1) {
+        preencherCampoAlterar();
+    }
+}
+
+
 function acao() {
     const urlParametro = new URLSearchParams(window.location.search);
-    const status = urlParametro.get("status");
-    return status
+    const id = urlParametro.get("id");
+    return id
 }
 
 
@@ -14,12 +23,10 @@ btnSalvar.addEventListener('click', function dados() {
     if (!validacaoCampo) {
         mensagemErro()
     } else {
-        if (acao() === "true") {
+        if (acao() == null) {
             cadastraCategoria(dadosCategoria);
-        } else if (acao() === "true") {
-            alterarCategoria();
-        } else {
-            telaPrincipal()
+        } else if (acao() >= 1) {
+            alterar(acao());
         }
     }
 })
@@ -56,8 +63,26 @@ function cadastraCategoria(dadosCategoria) {
         )
 }
 
-function alterarCategoria() {
-    console.log("alterar");
+function preencherCampoAlterar() {
+    const urlParametro = new URLSearchParams(window.location.search);
+    const descricaoCampo = urlParametro.get("descricao");
+
+    document.getElementById('campoCategoria').value = descricaoCampo
+}
+
+
+function alterar(id) {
+    let informacoesAlterada = document.getElementById('campoCategoria').value
+    let dados = { id: id, txtCampo: informacoesAlterada }
+
+    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=alterarCategoria', {
+        headers: {
+            'content-Type': 'application/json'
+        },
+        method: "POST",
+        body: JSON.stringify(dados)
+    })
+
 }
 
 
@@ -68,10 +93,9 @@ function mensagemSalvoComSucesso() {
         title: "Salvo com sucesso!",
         showConfirmButton: false,
         timer: 1500
-    }).then(()=> { trocaParatelaPrincipal() })
+    }).then(() => { trocaParatelaPrincipal() })
 }
 
 function trocaParatelaPrincipal() {
-    return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/gridCategoria.html'
+    return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarCategoria.html'
 }
-

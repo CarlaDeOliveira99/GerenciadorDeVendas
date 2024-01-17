@@ -7,18 +7,16 @@
     <title>PandaTec</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="../../../upload/Logotipo/logotipoPanda.png" type="image/x-icon">
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- sweetalert2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.min.css">
-
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <!-- gridjs -->
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <!-- estilos -->
     <link rel="stylesheet" href="../style/gerenciadorDeVendas.css">
-    <link rel="stylesheet" href="../../view/style/manterCategoria.css">
+    <link rel="stylesheet" href="../style/consultarCategoria.css">
 </head>
 
 <body>
@@ -91,7 +89,7 @@
                             </ul>
                             <ul class="space-y-2 font-medium">
                                 <li>
-                                    <a href="gvTabelaProduto.html"
+                                    <a href="consultarProduto.html"
                                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -103,7 +101,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="gridCategoria.html"
+                                    <a href="consultarCategoria.html"
                                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -197,7 +195,7 @@
         <div class="h-full px-3 pb-4 overflow-y-auto  dark:bg-gray-800 fundoNav">
             <ul class="space-y-2 font-medium">
                 <li>
-                    <a href="gvTabelaProduto.html"
+                    <a href="consultarProduto.html"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -209,7 +207,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="gridCategoria.html"
+                    <a href="consultarCategoria.html"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -291,36 +289,36 @@
     </aside>
 
     <div class="p-4 sm:ml-64">
-        <div class="p-4 rounded-lg mt-14 formulario">
-            <div class="mb-3 areaCadastro">
-                <label for="exampleFormControlInput1" class="form-label">Nome da categoria</label>
-                <input type="email" class="form-control" id="campoCategoria" maxlength="30">
-              </div>
-              <div class="acaoBtn">
-                <div>
-                    <a href="gridCategoria.html"><button type="button" id="btnCancelar">Cancelar</button></a>
-                </div>
-                <div>
-                   <button type="button" id="btnSalvar">Salvar</button>
-                </div>
-              </div>
+        <div class="p-4 rounded-lg mt-14 teste1">
+            <div>
+                <a href="manutencaoCategoria.html">
+                    <button type="button"
+                        class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Cadastrar
+                        Categoria</button>
+                </a>
+            </div>
+            <div class="p-4 rounded-lg mt-14">
+                <div id="tabCategoria"></div>
+            </div>
         </div>
     </div>
 
 
-    <script src="../js/finalizarSession.js"></script>
-    <script src="../js/manterCategoria.js"></script>
+    <!-- gridjs -->
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
 
     <!-- flowbite -->
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-
-    <!-- sweetalert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+
+    <!-- js conf -->
+    <script src="../js/consultarCategoria.js"></script>
+    <script src="../js/finalizarSession.js"></script>
+
 </body>
 
 </html>

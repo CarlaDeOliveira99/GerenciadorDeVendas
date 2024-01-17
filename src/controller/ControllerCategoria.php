@@ -28,4 +28,10 @@ class ControllerCategoria
         $dados = json_decode(file_get_contents('php://input'), true);
         $this->CategoriaDao->cadastrarCategoria($dados);
     }
+
+    public function post_alterarCategoria()
+    {
+        $dados = json_decode(file_get_contents('php://input'), true);
+        var_dump($dados);
+    }
 }

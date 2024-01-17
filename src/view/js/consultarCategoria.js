@@ -22,10 +22,10 @@ const grid = new gridjs.Grid({
         name: 'Ação',
 
         formatter: (cell, row) => {
-            return gridjs.html(`<button class="btnAcoes" id="btnAlterar""><img src="../../../upload/icones/editar.png" alt="Alterar" class="imgAcao"></button>
-           <button class="btnAcoes" id="btnExcluir"><img src="../../../upload/icones/lixeira.png" alt="Alterar" class="imgAcao"></button>`)
-          }   
-
+            
+                return gridjs.html(`<a href="http://localhost/GerenciadorDeVendas/src/view/ui/manutencaoCategoria.html?id=${row.cells[0].data}&descricao=${row.cells[1].data}"><button class="btnAcoes" id="btnAlterar""><img src="../../../upload/icones/editar.png" alt="Alterar" class="imgAcao"></button></a>
+               <button class="btnAcoes" id="btnExcluir"><img src="../../../upload/icones/lixeira.png" alt="excluir" class="imgAcao"></button>`)
+              }  
     }],
     server: {
         url: 'http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=consultar',
@@ -35,4 +35,6 @@ const grid = new gridjs.Grid({
 });
 
 grid.render(document.getElementById("tabCategoria"));
+
+
 
