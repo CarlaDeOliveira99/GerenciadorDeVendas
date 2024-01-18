@@ -2,21 +2,21 @@
 
 namespace src\controller;
 
-use src\model\CategoriaDao;
+use src\model\Categoria;
 
 class ControllerCategoria
 {
 
-    private $CategoriaDao;
+    private $categoria;
 
     public function __construct()
     {
-        $this->CategoriaDao =  new CategoriaDao();
+        $this->categoria =  new Categoria();
     }
 
     public function get_consultar()
     {
-        $dados = $this->CategoriaDao->consultarTab();
+        $dados = $this->categoria->consultarTab();
         $json = json_encode($dados);
         header('Content-Type: application/json');
         echo $json;
@@ -26,12 +26,12 @@ class ControllerCategoria
     public function post_cadastrarCategoria()
     {
         $dados = json_decode(file_get_contents('php://input'), true);
-        $this->CategoriaDao->cadastrarCategoria($dados);
+        $this->categoria->cadastrarCategoria($dados);
     }
 
     public function post_alterarCategoria()
     {
         $dados = json_decode(file_get_contents('php://input'), true);
-        var_dump($dados);
+        $this->categoria->alterarCategoria($dados);
     }
 }
