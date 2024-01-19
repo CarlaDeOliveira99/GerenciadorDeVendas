@@ -82,6 +82,9 @@ function alterar(id) {
         method: "POST",
         body: JSON.stringify(dados)
     })
+        .then(
+            mensagemSalvoComSucesso()
+        ).then(() => { trocaParatelaPrincipal() })
 
 }
 

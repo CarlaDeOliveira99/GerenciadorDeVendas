@@ -1,8 +1,9 @@
 <?php
 
 namespace src\model;
-
 use estrutura\ConexaoBd;
+use PDO;
+
 
 class Categoria
 {
@@ -16,7 +17,9 @@ class Categoria
 
     public function consultarTab()
     {
-        $sql = 'SELECT * FROM categoria';
+        $sql = 'SELECT * FROM categoria ORDER BY id_categoria ASC';
+
+        // $sql = 'SELECT * FROM categoria';
 
 
         if (isset($_GET['search'])) {
@@ -36,6 +39,7 @@ class Categoria
             $sql = $this->paginacaoLimit($limit, $sql);
         }
 
+    
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
         $dados = $stmt->fetchAll();
@@ -85,21 +89,20 @@ class Categoria
         $txtCampo = $dados['txtCampo'];
 
         $publisher = [
-            'id_categoria' => $id,
+            'id' => $id,
             'nome' => $txtCampo,
         ];
 
         $sql = 'UPDATE categoria
         SET nome = :nome
-        WHERE id_categoria = :id_categoria';
+        WHERE id_categoria = :id';
 
         $statement = $this->conexao->prepare($sql);
 
 
-
-        $statement->bindParam(':publisher_id', $publisher['id_categoria']);
+        $statement->bindParam(':id', $publisher['id'], PDO::PARAM_INT);
         $statement->bindParam(':nome', $publisher['nome']);
-
+    
         $statement->execute();
     }
 }
