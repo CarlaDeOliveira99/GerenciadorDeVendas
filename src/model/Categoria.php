@@ -19,15 +19,13 @@ class Categoria
     {
         $sql = 'SELECT * FROM categoria ORDER BY id_categoria ASC';
 
-        // $sql = 'SELECT * FROM categoria';
-
 
         if (isset($_GET['search'])) {
             $infor = $_GET['search'];
             $sql = $this->search($infor, $sql);
         }
 
-        $totalRegistros = $this->totalDeRegistro($sql);
+        $totalRegistros = $this->totalDeRegistro();
 
         if (isset($_GET['offset'])) {
             $offset = $_GET['offset'];
@@ -48,8 +46,10 @@ class Categoria
     }
 
 
-    public function totalDeRegistro($sql)
+    public function totalDeRegistro()
     {
+        $sql = 'SELECT * FROM categoria';
+
         $sqlCount = str_replace('*', 'COUNT(*) as total', $sql);
         $statementCount = $this->conexao->query($sqlCount);
         $totalRegistros = $statementCount->fetch();
