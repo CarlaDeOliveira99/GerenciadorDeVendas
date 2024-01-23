@@ -37,19 +37,4 @@ class UserDao
         $dados = $stmt->fetchAll();
         return $dados;
     }
-
-
-
-
-    function cadastrar(): void
-    {
-    }
-
-    function alterar(): void
-    {
-    }
-
-    function deletar(): void
-    {
-    }
 }

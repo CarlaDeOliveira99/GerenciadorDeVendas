@@ -19,7 +19,6 @@ class Categoria
     {
         $sql = 'SELECT * FROM categoria ORDER BY id_categoria ASC';
 
-
         if (isset($_GET['search'])) {
             $infor = $_GET['search'];
             $sql = $this->search($infor, $sql);

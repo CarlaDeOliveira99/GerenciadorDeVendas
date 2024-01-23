@@ -64,10 +64,8 @@ function cadastraCategoria(dadosCategoria) {
 }
 
 function preencherCampoAlterar() {
-    const urlParametro = new URLSearchParams(window.location.search);
-    const descricaoCampo = urlParametro.get("descricao");
 
-    document.getElementById('campoCategoria').value = descricaoCampo
+    
 }
 
 
