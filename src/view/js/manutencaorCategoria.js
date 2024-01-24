@@ -2,7 +2,7 @@ window.onload = verificarAlterar()
 
 function verificarAlterar() {
     if (acao() >= 1) {
-        preencherCampoAlterar();
+        preencherCampoAlterar(acao());
     }
 }
 
@@ -63,8 +63,13 @@ function cadastraCategoria(dadosCategoria) {
         )
 }
 
-function preencherCampoAlterar() {
-
+function preencherCampoAlterar(id) {
+fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=campoAlterarIndormacoes?id=${id}`,{
+    headers:{
+        'content-Type':'application/json'
+    },
+    method: "GET",
+})
     
 }
 

@@ -22,8 +22,6 @@ class ControllerCategoria
         echo $json;
     }
 
-
-
     public function post_cadastrarCategoria()
     {
         $dados = json_decode(file_get_contents('php://input'), true);
@@ -34,5 +32,11 @@ class ControllerCategoria
     {
         $dados = json_decode(file_get_contents('php://input'), true);
         $this->categoria->alterarCategoria($dados);
+    }
+    
+    public function get_campoAlterarIndormacoes() 
+    {
+        $id = file_get_contents('php://input');
+        print_r($id);
     }
 }
