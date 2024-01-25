@@ -8,14 +8,10 @@
     $metodo = $_GET['acao'] ;
     $classe = $ROTAS[$_GET['rota']];
     
+
     $metodoAjustado = $verboHttp.'_'.$metodo;
     $controller = new $classe();
     $controller->$metodoAjustado();
     
-
-
-
-
-
 ?>
 

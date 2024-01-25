@@ -104,4 +104,14 @@ class Categoria
     
         $statement->execute();
     }
+
+    public function informacaoDoCampoAlterar($id)
+    {
+        $sql = "SELECT nome FROM categoria WHERE id_categoria = :id ";
+        $stmt = $this->conexao->prepare(($sql));
+        $stmt->bindValue(":id",$id);
+        $stmt->execute();
+        $dados = $stmt->fetchAll();
+        return $dados;
+    }
 }

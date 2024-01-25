@@ -36,7 +36,13 @@ class ControllerCategoria
     
     public function get_campoAlterarIndormacoes() 
     {
-        $id = file_get_contents('php://input');
-        print_r($id);
+        $id = $_GET['id'];
+        
+        $informacoesCampo = $this->categoria->informacaoDoCampoAlterar($id);
+
+        $json = json_encode($informacoesCampo);
+        header('Content-Type: application/json');
+        echo $json;
+        
     }
 }

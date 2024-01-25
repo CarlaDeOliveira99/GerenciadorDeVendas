@@ -1,13 +1,13 @@
 window.onload = verificarAlterar()
 
 function verificarAlterar() {
-    if (acao() >= 1) {
-        preencherCampoAlterar(acao());
+    if (id() >= 1) {
+        preencherCampoAlterar(id());
     }
 }
 
 
-function acao() {
+function id() {
     const urlParametro = new URLSearchParams(window.location.search);
     const id = urlParametro.get("id");
     return id
@@ -23,10 +23,10 @@ btnSalvar.addEventListener('click', function dados() {
     if (!validacaoCampo) {
         mensagemErro()
     } else {
-        if (acao() == null) {
+        if (id() == null) {
             cadastraCategoria(dadosCategoria);
-        } else if (acao() >= 1) {
-            alterar(acao());
+        } else if (id() >= 1) {
+            alterar(id());
         }
     }
 })
@@ -64,11 +64,15 @@ function cadastraCategoria(dadosCategoria) {
 }
 
 function preencherCampoAlterar(id) {
-fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=campoAlterarIndormacoes?id=${id}`,{
+fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=campoAlterarIndormacoes&id=${id}`,{
     headers:{
         'content-Type':'application/json'
     },
     method: "GET",
+})
+.then(res => res.json())
+.then(dados =>{
+   document.getElementById('campoCategoria').value = dados[0].nome
 })
     
 }
@@ -87,7 +91,7 @@ function alterar(id) {
     })
         .then(
             mensagemSalvoComSucesso()
-        ).then(() => { trocaParatelaPrincipal() })
+        )
 
 }
 
