@@ -1,15 +1,15 @@
 window.onload = verificarAlterar()
 
 function verificarAlterar() {
-    if (id() >= 1) {
-        preencherCampoAlterar(id());
+    if (idAlterar() >= 1) {
+        preencherCampoAlterar(idAlterar());
     }
 }
 
 
-function id() {
+function idAlterar() {
     const urlParametro = new URLSearchParams(window.location.search);
-    const id = urlParametro.get("id");
+    const id = urlParametro.get("idAlterar");
     return id
 }
 
@@ -23,10 +23,10 @@ btnSalvar.addEventListener('click', function dados() {
     if (!validacaoCampo) {
         mensagemErro()
     } else {
-        if (id() == null) {
+        if (idAlterar() == null) {
             cadastraCategoria(dadosCategoria);
-        } else if (id() >= 1) {
-            alterar(id());
+        } else if (idAlterar() >= 1) {
+            alterar(idAlterar());
         }
     }
 })
@@ -109,3 +109,6 @@ function mensagemSalvoComSucesso() {
 function trocaParatelaPrincipal() {
     return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarCategoria.html'
 }
+
+
+

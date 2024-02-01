@@ -1,6 +1,7 @@
 <?php
 
 namespace src\model;
+
 use estrutura\ConexaoBd;
 use PDO;
 
@@ -17,14 +18,16 @@ class Categoria
 
     public function consultarTab()
     {
-        $sql = 'SELECT * FROM categoria ORDER BY id_categoria ASC';
+        $sql = 'SELECT * FROM categoria';
 
         if (isset($_GET['search'])) {
             $infor = $_GET['search'];
             $sql = $this->search($infor, $sql);
         }
 
-        $totalRegistros = $this->totalDeRegistro();
+        $totalRegistros = $this->totalDeRegistro($sql);
+
+        $sql .= ' ORDER BY id_categoria ASC';
 
         if (isset($_GET['offset'])) {
             $offset = $_GET['offset'];
@@ -36,7 +39,7 @@ class Categoria
             $sql = $this->paginacaoLimit($limit, $sql);
         }
 
-    
+
         $stmt = $this->conexao->prepare($sql);
         $stmt->execute();
         $dados = $stmt->fetchAll();
@@ -45,10 +48,8 @@ class Categoria
     }
 
 
-    public function totalDeRegistro()
+    public function totalDeRegistro($sql)
     {
-        $sql = 'SELECT * FROM categoria';
-
         $sqlCount = str_replace('*', 'COUNT(*) as total', $sql);
         $statementCount = $this->conexao->query($sqlCount);
         $totalRegistros = $statementCount->fetch();
@@ -101,7 +102,7 @@ class Categoria
 
         $statement->bindParam(':id', $publisher['id'], PDO::PARAM_INT);
         $statement->bindParam(':nome', $publisher['nome']);
-    
+
         $statement->execute();
     }
 
@@ -109,9 +110,18 @@ class Categoria
     {
         $sql = "SELECT nome FROM categoria WHERE id_categoria = :id ";
         $stmt = $this->conexao->prepare(($sql));
-        $stmt->bindValue(":id",$id);
+        $stmt->bindValue(":id", $id);
         $stmt->execute();
         $dados = $stmt->fetchAll();
         return $dados;
+    }
+
+    public function excluirDados($id)
+    {
+        $sql = 'DELETE FROM categoria WHERE id_categoria = :id';
+        $statement = $this->conexao->prepare($sql);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $statement->execute();
     }
 }

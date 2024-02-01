@@ -9,8 +9,10 @@
     padding: 5px;
     border-radius: 8px;
     margin-right: 10px;
+    transition-duration: 0.2s;
 }
 
 .btnAcoes:hover {
     transform: translateY(-5px);
+    transition-duration: 0.3s;
 }

@@ -33,16 +33,21 @@ class ControllerCategoria
         $dados = json_decode(file_get_contents('php://input'), true);
         $this->categoria->alterarCategoria($dados);
     }
-    
-    public function get_campoAlterarIndormacoes() 
+
+    public function get_campoAlterarIndormacoes()
     {
         $id = $_GET['id'];
-        
+
         $informacoesCampo = $this->categoria->informacaoDoCampoAlterar($id);
 
         $json = json_encode($informacoesCampo);
         header('Content-Type: application/json');
         echo $json;
-        
+    }
+
+    public function get_excluir()
+    {
+        $id = $_GET['idDeletar'];
+        $this->categoria->excluirDados($id);
     }
 }
