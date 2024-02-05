@@ -27,10 +27,15 @@ const grid = new gridjs.Grid({
             <button onclick=excluir(${row.cells[0].data}) class="btnAcoes"><img src="../../../upload/icones/lixeira.png" alt="excluir" class="imgAcao"></button>`)
         }
     }],
+  
     // style: {
-    //     td: {
-    //         'width':'fit-content',
+    //     th: {
+    //         'width':'112px',
     //     }
+    // td: {
+    //     'text-align': 'center'
+    //   }
+  
     // },
     server: {
         url: 'http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=consultar',
