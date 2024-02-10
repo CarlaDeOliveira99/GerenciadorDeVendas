@@ -13,13 +13,15 @@ const grid = new gridjs.Grid({
     },
     columns: [{
         id: 'id',
-        name: 'Id'
+        name: 'Id',
+        width: '50px',
     }, {
         id: 'nome',
-        name: 'Nome'
+        name: 'Nome',
     }, {
         id: 'acao',
         name: 'Ação',
+        width: '132px',
 
         formatter: (cell, row) => {
 
@@ -27,16 +29,15 @@ const grid = new gridjs.Grid({
             <button onclick=excluir(${row.cells[0].data}) class="btnAcoes"><img src="../../../upload/icones/lixeira.png" alt="excluir" class="imgAcao"></button>`)
         }
     }],
-  
-    // style: {
-    //     th: {
-    //         'width':'112px',
-    //     }
-    // td: {
-    //     'text-align': 'center'
-    //   }
-  
-    // },
+    style: {
+        th: {
+            'background-color': '#bfbfbf83',
+            'color': '#070707'
+        },
+        td: {
+            'background-color': 'rgb(254, 254, 254)'
+        }
+    },
     server: {
         url: 'http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=consultar',
         then: json => json.dados.map(produto => [produto.id_categoria, produto.nome]),

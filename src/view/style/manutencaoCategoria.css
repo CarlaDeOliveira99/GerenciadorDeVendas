@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+
 .mt-14 {
     margin-top: 7.5rem;
 }
@@ -8,7 +9,9 @@
     width: 559px;
     margin: 160px auto;
     font-family: 'Roboto', sans-serif;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
+
 .areaCadastro {
     display: flex;
     flex-direction: column;
@@ -22,8 +25,9 @@
     font-size: 17pt;
 }
 
-#campoCategoria{
-border-radius: 10px;
+#campoCategoria {
+    border-radius: 10px;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
 .acaoBtn {
@@ -33,7 +37,7 @@ border-radius: 10px;
     flex-wrap: wrap;
 }
 
-#btnSalvar, #btnCancelar{
+#btnSalvar, #btnCancelar {
     width: 92px;
     height: fit-content;
     padding: 7px;
@@ -43,17 +47,20 @@ border-radius: 10px;
 }
 
 
-#btnCancelar{
+#btnCancelar {
     background-color: rgb(248, 112, 112);
     border: 1px solid rgb(255, 76, 76);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-#btnSalvar{
+#btnSalvar {
     background-color: rgb(124, 203, 110);
     border: 1px solid rgb(86, 183, 69);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 
-#btnSalvar:active, #btnCancelar:active{
-    transform: translateY(5px);
+#btnSalvar:hover, #btnCancelar:hover {
+    transform: translateY(-5px);
+    transition-duration: 0.3s;
 }
