@@ -1,7 +1,9 @@
 .formulario{
-    padding: 2px;
+    padding: 50px;
     background-color: rgba(220, 220, 220, 0.559);
     border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 
@@ -9,6 +11,7 @@
     height: 34.6px;
     width: 290px;
     border: 2px solid black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .formDados {
@@ -19,8 +22,10 @@
     flex-wrap: wrap;
     align-content: center;
 }
+
 .campoCategoria{
     width: 219px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .formSelect {
@@ -78,40 +83,33 @@
     margin: 5px;
 }
 
-.btnAcao {
-    background-color: #40f86b;
-    color: white;
-    font-weight: bold;
-    border: none;
-    padding: 1rem;
-    font-size: 1rem;
-    width: 10em;
-    border-radius: 1rem;
-    box-shadow: 0 0.4rem #dfd9d9;
-    cursor: pointer;
-    margin: 15px;
-    margin: auto;
-   }
 
-   #btnCancelar{
-    background-color: #ff4b4b;
-    color: white;
-    font-weight: bold;
-   }
-   
-   .btnAcao:active {
-    color: white;
-    box-shadow: 0 0.2rem #21ee4d;
-    transform: translateY(0.2rem);
-   }
-   
-   .btnAcao:hover:not(:disabled) {
-    background: rgb(20, 227, 30);
-    color: white;
-    text-shadow: 0 0.1rem #bcb4b4;
-   }
-   
-   .btnAcao :disabled {
-    cursor: auto;
-    color: grey;
-   }
+   /* botoes de salvar e cancelar */
+
+#btnSalvar, #btnCancelar {
+    width: 92px;
+    height: fit-content;
+    padding: 7px;
+    border-radius: 10px;
+    margin-right: 14px;
+    font-weight: bolder;
+}
+
+
+#btnCancelar {
+    background-color: rgb(248, 112, 112);
+    border: 1px solid rgb(255, 76, 76);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+#btnSalvar {
+    background-color: rgb(124, 203, 110);
+    border: 1px solid rgb(86, 183, 69);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+
+#btnSalvar:hover, #btnCancelar:hover {
+    transform: translateY(-5px);
+    transition-duration: 0.3s;
+}

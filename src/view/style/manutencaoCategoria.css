@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
 
-.mt-14 {
-    margin-top: 7.5rem;
-}
 
+/*
 .formulario {
     background-color: rgba(220, 220, 220, 0.559);
     width: 559px;
@@ -11,31 +9,8 @@
     font-family: 'Roboto', sans-serif;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
+*/
 
-.areaCadastro {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    align-items: flex-start;
-    justify-content: center;
-    width: 325px;
-    margin: auto;
-    font-weight: 900;
-    font-size: 17pt;
-}
-
-#campoCategoria {
-    border-radius: 10px;
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-}
-
-.acaoBtn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
 #btnSalvar, #btnCancelar {
     width: 92px;
