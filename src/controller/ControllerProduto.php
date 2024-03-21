@@ -1,8 +1,11 @@
-<?php 
+<?php
+
 namespace src\controller;
+
 use src\model\Produto;
 
-class ControllerProduto{
+class ControllerProduto
+{
 
     private $produto;
 
@@ -11,9 +14,10 @@ class ControllerProduto{
         $this->produto =  new Produto();
     }
 
-   
+    public function post_validadarDados()
+    {
+        $dadosColetados = json_decode(file_get_contents('php://input'), true);
 
+        print_r( $dadosColetados);
+    }
 }
-
-
-?>
