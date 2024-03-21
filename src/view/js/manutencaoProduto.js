@@ -1,19 +1,33 @@
-let btnSalvar = document.getElementById('btnSalvar')
 
-btnSalvar.addEventListener("click", function validarDados() {
- 
-});
+function listaCategosiras() {
+  fetch('http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=consultar', {
+    headers: {
+      'content-Type': 'application/json'
+    },
+    method: "GET",
+  })
 
-function ValidarCampo() {
-  const nomeProd = document.getElementById('nomeProduto').value 
-  const codigoProd = document.getElementById('cod_barra').value 
+    //lista de categoria
+    .then(resp => resp.json())
+    .then(json => {
+      categoria = json.dados.map(produto => [produto.id_categoria, produto.nome])
+
+      let select = document.getElementById('selectCategoria')
+
+      categoria.forEach(element => {
+        let option = document.createElement('option');
+        option.append(element[1])
+        option.value = element[0]
+        select.append(option)
+      });
+    })
+
 }
 
+// Chame a função para buscar os dados
+ listaCategosiras();
 
-// Swal.fire({
-//   title: "Salvo com sucesso!",
-//   icon: "success",
-// });
-// window.location = "http://localhost/GerenciadorDeVendas/src/view/ui/gvTabelaProduto.html"
+
+
 
 

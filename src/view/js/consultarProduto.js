@@ -41,10 +41,17 @@
     }, {
       id: 'imgProduto',
       name: 'Produto'
-    }, {
+    },{
       id: 'acao',
-      name: 'Ação'
-    }],
+      name: 'Ação',
+      width: '132px',
+
+      formatter: (cell, row) => {
+
+          return gridjs.html(`<a href="http://localhost/GerenciadorDeVendas/src/view/ui/manutencaoCategoria.html?idAlterar=${row.cells[0].data}"><button class="btnAcoes"><img src="../../../upload/icones/editar.png" alt="Alterar" class="imgAcao"></button></a>
+          <button onclick=excluir(${row.cells[0].data}) class="btnAcoes"><img src="../../../upload/icones/lixeira.png" alt="excluir" class="imgAcao"></button>`)
+      }
+  }],
     server: {
       url: 'Php/arquivo.php?a',
       then: json => json.dados.map(produto => [produto.id, produto.nome, produto.quantidade]),
