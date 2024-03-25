@@ -113,3 +113,17 @@
     transform: translateY(-5px);
     transition-duration: 0.3s;
 }
+
+
+#imgPrevia{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imagensUpload{
+    width: 69px;
+    height: 129px;
+    margin: 3px;
+}

@@ -18,6 +18,8 @@ class ControllerProduto
     {
         $dadosColetados = json_decode(file_get_contents('php://input'), true);
 
-        print_r( $dadosColetados);
+          $validadcao =  $this->produto->validarCampo($dadosColetados);
+         
+         echo $validadcao;
     }
 }
