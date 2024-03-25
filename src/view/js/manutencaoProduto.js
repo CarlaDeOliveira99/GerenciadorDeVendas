@@ -50,6 +50,15 @@ function postProdutoDados(dados) {
           icon: "warning"
         });
       }
+      if (resposta == 'ok\n') {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Salvo com sucesso",
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => { window.location.reload(true); })
+      }
     }
     )
 }
