@@ -1,5 +1,20 @@
 // carregar a categoria
-window.onload = listaCategoria();
+window.onload = function () {
+  listaCategoria();
+  verificarAlterar();
+};
+
+function verificarAlterar() {
+    if (idAlterar() >= 1) {
+        preencherCampoAlterar(idAlterar());
+    }
+}
+
+function idAlterar() {
+  const urlParametro = new URLSearchParams(window.location.search);
+  const id = urlParametro.get("idAlterar");
+  return id
+}
 
 // pegar as informações
 document.getElementById('btnSalvar').addEventListener('click', function () {
@@ -131,3 +146,31 @@ uploadImagem.addEventListener('change', function (evt) {
     }
   }
 });
+
+
+function preencherCampoAlterar(id) {
+  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=campoAlterarIndormacoes&id=${id}`,{
+      headers:{
+          'content-Type':'application/json'
+      },
+      method: "GET",
+  })
+  .then((res) => res.json())
+  .then((dados) =>{
+
+    console.log(dados[0]);
+
+     document.getElementById('nomeProduto').value = dados[0].nome
+     document.getElementById('cod_barra').value = dados[0].cod_barra
+     document.getElementById('desconto').value = dados[0].desconto
+     document.getElementById('descricaoCompletaProduto').value = dados[0].descricao
+     document.getElementById('descPrevia').value = dados[0].descricaoprevia
+     document.getElementById('preco').value = dados[0].valor
+     document.getElementById('selectCategoria').value = dados[0].id_categoria
+    //  document.getElementById('').value = dados[0].frete
+    //  document.getElementById('').value = dados[0].imgproduto
+     
+   
+  })
+      
+  }

@@ -1,149 +1,220 @@
-
 .formulario {
-    background-color: rgba(220, 220, 220, 0.559);
-    width: 559px;
-    margin: 160px auto;
-    font-family: 'Roboto', sans-serif;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  background-color: rgba(220, 220, 220, 0.559);
+  width: 559px;
+  margin: 160px auto;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 
 /* botão de cadastrar categoria */
 .btnCadastrar {
-    position: relative;
-    padding: 12px 24px;
-    border-radius: 8px;
-    border: none;
-    color: #070707;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #35f2dfa2;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  position: relative;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  color: #070707;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #35f2dfa2;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.btnCadastrar:active {
+  -webkit-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.btnCadastrar:before,
+.btnCadastrar:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: 100;
+  background-repeat: no-repeat;
+}
+
+.btnCadastrar:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #35f2dfa2 20%, transparent 30%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #35f2dfa2 15%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  -webkit-animation: orangeTopBubbles 0.6s ease;
+  animation: orangeTopBubbles 0.6s ease;
+}
+
+@-webkit-keyframes orangeTopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
   }
-  
-  .btnCadastrar:active {
-    -webkit-transform: scale(0.95);
-        -ms-transform: scale(0.95);
-            transform: scale(0.95);
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
   }
-  
-  .btnCadastrar:before,
-  .btnCadastrar:after {
-    position: absolute;
-    content: "";
-    width: 150%;
-    left: 50%;
-    height: 100%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
-    z-index: 100;
-    background-repeat: no-repeat;
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
-  
-  .btnCadastrar:hover:before {
-    top: -70%;
-    background-image: radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, transparent 20%, #35f2dfa2 20%, transparent 30%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, transparent 10%, #35f2dfa2 15%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%);
-    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
-      10% 10%, 18% 18%;
-    background-position: 50% 120%;
-    -webkit-animation: orangeTopBubbles 0.6s ease;
-            animation: orangeTopBubbles 0.6s ease;
+}
+
+@keyframes orangeTopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
   }
-  
-  @-webkit-keyframes orangeTopBubbles {
-    0% {
-      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-        40% 90%, 55% 90%, 70% 90%;
-    }
-  
-    50% {
-      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-        50% 50%, 65% 20%, 90% 30%;
-    }
-  
-    100% {
-      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-        50% 40%, 65% 10%, 90% 20%;
-      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
+
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
   }
-  
-  @keyframes orangeTopBubbles {
-    0% {
-      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-        40% 90%, 55% 90%, 70% 90%;
-    }
-  
-    50% {
-      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-        50% 50%, 65% 20%, 90% 30%;
-    }
-  
-    100% {
-      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-        50% 40%, 65% 10%, 90% 20%;
-      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
+
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
-  
-  .btnCadastrar:hover::after {
-    bottom: -70%;
-    background-image: radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, transparent 10%, #35f2dfa2 15%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
-      radial-gradient(circle, #35f2dfa2 20%, transparent 20%);
-    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
-    background-position: 50% 0%;
-    -webkit-animation: orangeBottomBubbles 0.6s ease;
-            animation: orangeBottomBubbles 0.6s ease;
+}
+
+.btnCadastrar:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #35f2dfa2 15%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%),
+    radial-gradient(circle, #35f2dfa2 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  -webkit-animation: orangeBottomBubbles 0.6s ease;
+  animation: orangeBottomBubbles 0.6s ease;
+}
+
+@-webkit-keyframes orangeBottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
   }
-  
-  @-webkit-keyframes orangeBottomBubbles {
-    0% {
-      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-        70% -10%, 70% 0%;
-    }
-  
-    50% {
-      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
-        105% 0%;
-    }
-  
-    100% {
-      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
-        110% 10%;
-      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
   }
-  
-  @keyframes orangeBottomBubbles {
-    0% {
-      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-        70% -10%, 70% 0%;
-    }
-  
-    50% {
-      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
-        105% 0%;
-    }
-  
-    100% {
-      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
-        110% 10%;
-      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
+}
+
+@keyframes orangeBottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
+  }
+
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
+  }
+
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+td.gridjs-td {
+  word-wrap: break-word;
+}
+
+
+th.gridjs-th {
+  white-space: normal;
+  text-align: center;
+  padding: 0px;
+}
+
+
+th.gridjs-th .gridjs-th-content {
+  word-break: break-word;
+}
+
+
+
+.imgAcao {
+  width: 20px;
+  height: 20px;
+}
+
+.btnAcoes{
+  background-color: #bfbfbf83;
+  /* background-color: rgba(220, 219, 219, 0.716); */
+  padding: 5px;
+  border-radius: 8px;
+  margin-right: 10px;
+  transition-duration: 0.2s;
+}
+
+.btnAcoes:hover {
+  transform: translateY(-5px);
+  transition-duration: 0.3s;
+}
+
+.telaCadastro {
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-content: center;
+align-items: flex-start;
+justify-content: center;
+width: 325px;
+margin: auto;
+font-weight: 900;
+font-size: 17pt;
+}
+
+#campoCategoria {
+border-radius: 10px;
+box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.acaoBtn {
+display: flex;
+flex-direction: row;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+
+.areaBtnAcao{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}

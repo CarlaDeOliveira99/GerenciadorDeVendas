@@ -22,4 +22,23 @@ class ControllerProduto
          
          echo $validadcao;
     }
+
+    public function get_consultar()
+    {
+        $dados = $this->produto->consultarTabela();
+        $json = json_encode($dados);
+        header('Content-Type: application/json');
+        echo $json;
+    }
+
+    public function get_campoAlterarIndormacoes()
+    {
+        $id = $_GET['id'];
+
+        $informacoesCampo = $this->produto->informacaoDoCampoAlterar($id);
+
+        $json = json_encode($informacoesCampo);
+        header('Content-Type: application/json');
+        echo $json;
+    }
 }

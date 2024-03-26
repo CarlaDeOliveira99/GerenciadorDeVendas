@@ -25,7 +25,8 @@ class Produto
         }
     }
 
-    public function cadastrar($dados){
+    public function cadastrar($dados)
+    {
         $cod_barra = $dados['codigoDeBarraProduto'];
         $descricao = $dados['descricaoCompleta'];
         $nome = $dados['nomeDoPorduto'];
@@ -33,10 +34,10 @@ class Produto
         $desconto = $dados['valorDesconto'];
         $frete = $dados['frete'];
         $id_categoria = $dados['selectCategoria'];
-        $previaDescricao =$dados['previaDescricao'];
+        $previaDescricao = $dados['previaDescricao'];
 
 
-        $sql= 'INSERT INTO produto(cod_barra,nome,descricao,valor,desconto,frete,id_categoria,descricaoPrevia) VALUES(:cod_barra,:nome,:descricao,:valor,:desconto,:frete,:id_categoria,:descricaoPrevia)';
+        $sql = 'INSERT INTO produto(cod_barra,nome,descricao,valor,desconto,frete,id_categoria,descricaoPrevia) VALUES(:cod_barra,:nome,:descricao,:valor,:desconto,:frete,:id_categoria,:descricaoPrevia)';
 
         $statement = $this->conexao->prepare($sql);
 
@@ -51,16 +52,104 @@ class Produto
             ':descricaoPrevia' => $previaDescricao,
         ]);
     }
+
+
+    public function consultarTabela()
+    {
+        $sql = 'SELECT * FROM produto';
+
+        if (isset($_GET['search'])) {
+            $infor = $_GET['search'];
+            $sql = $this->search($infor, $sql);
+        }
+
+        $totalRegistros = $this->totalDeRegistro($sql);
+
+        $sql .= ' ORDER BY id_categoria ASC';
+
+        if (isset($_GET['offset'])) {
+            $offset = $_GET['offset'];
+            $sql = $this->paginacaoOfffset($offset, $sql);
+        }
+
+        if (isset($_GET['limit'])) {
+            $limit = $_GET['limit'];
+            $sql = $this->paginacaoLimit($limit, $sql);
+        }
+
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+        $dados = $stmt->fetchAll();
+        $json = ['dados' => $dados, 'totalRegistros' => $totalRegistros['total']];
+        return $json;
+    }
+
+    public function search($infor, $sql)
+    {
+        return $sql .= " where nome ilike '%{$infor}%'";
+    }
+
+    public function totalDeRegistro($sql)
+    {
+        $sqlCount = str_replace('*', 'COUNT(*) as total', $sql);
+        $statementCount = $this->conexao->query($sqlCount);
+        $totalRegistros = $statementCount->fetch();
+
+        return $totalRegistros;
+    }
+
+    public function paginacaoOfffset($offset, $sql)
+    {
+        return   $sql .= " offset " . $offset;
+    }
+
+    public function paginacaoLimit($limit, $sql)
+    {
+        return $sql .= " limit " . $limit;
+    }
+
+
+
+    // public function alterarCategoria($dados)
+    // {
+    //     $id = $dados['id'];
+    //     $txtCampo = $dados['txtCampo'];
+
+    //     $publisher = [
+    //         'id' => $id,
+    //         'nome' => $txtCampo,
+    //     ];
+
+    //     $sql = 'UPDATE categoria
+    //     SET nome = :nome
+    //     WHERE id_categoria = :id';
+
+    //     $statement = $this->conexao->prepare($sql);
+
+
+    //     $statement->bindParam(':id', $publisher['id'], PDO::PARAM_INT);
+    //     $statement->bindParam(':nome', $publisher['nome']);
+
+    //     $statement->execute();
+    // }
+
+    public function informacaoDoCampoAlterar($id)
+    {
+        $sql = "SELECT * FROM produto WHERE id_produto = :id ";
+        $stmt = $this->conexao->prepare(($sql));
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        $dados = $stmt->fetchAll();
+        return $dados;
+    }
+
+    public function excluirDados($id)
+    {
+        $sql = 'DELETE FROM produto WHERE id_produto = :id';
+        $statement = $this->conexao->prepare($sql);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $statement->execute();
+    }
 }
-
-
-/*
-$sql = 'INSERT INTO categoria(nome) VALUES(:nome)';
-
-$statement = $this->conexao->prepare($sql);
-
-$statement->execute([
-    ':nome' => $dados
-]);
-
-*/
