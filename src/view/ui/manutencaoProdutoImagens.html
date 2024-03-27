@@ -20,6 +20,7 @@
     <!-- confing -->
     <link rel="stylesheet" href="../style/gerenciadorDeVendas.css">
     <link rel="stylesheet" href="../../view/style/manutencaoProduto.css">
+    <link rel="stylesheet" href="../../view/style/manutencaoProdutoImgens.css">
 </head>
 
 <body>
@@ -294,104 +295,37 @@
     <div class="p-4 sm:ml-64 teste">
         <div class="p-4 rounded-lg mt-14 teste1">
             <div class="formulario">
-                <div class="formDados">
-                    <div class="mb-6">
-                        <label for="default-input"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome
-                            do Produto</label>
-                        <input type="text" id="nomeProduto"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 campo"
-                            maxlength="30">
-                    </div>
-                    <div class="mb-6">
-                        <label for="default-input"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código de barra do
-                            produto</label>
-                        <input type="number" id="cod_barra"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 campo">
-                    </div>
-                </div>
-                <div class="formDados">
-                    <div class="mb-6">
-                        <label for="default-input"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Preço</label>
-                        <input type="number" id="preco"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 campo"
-                            placeholder="R$">
-                    </div>
-                    <div class="mb-6">
-                        <label for="default-input"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Valor do
-                            Desconto</label>
-                        <input type="number" id="desconto" value="0"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 campo">
-                    </div>
-                </div>
-                <div class="formSelect">
-                    <div class="frete">
-                        <p for="frete block mb-2 text-sm font-medium text-gray-900 dark:text-white">Possui frete grátis?
-                        </p>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="opcaoFrete" value="1">
-                            <label class="form-check-label block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="inlineRadio1">Sim</label>
+                <div class="wrapper">
+                    <div class="box">
+                        <div class="input-bx">
+                            <h2 class="upload-area-title">Upload das Imagens</h2>
+                            <input type="file" id="upload" accept="image/*" hidden>
+                            <label for="upload" class="uploadlabel">
+                                <span><i class="fa fa-cloud-upload"></i></span>
+                                <p>Click para fazer upload</p>
+                            </label>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="opcaoFrete" value="0" checked>
-                            <label class="form-check-label block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                for="inlineRadio2">Não</label>
-                        </div>
-                    </div>
-                    <div class="categoria block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        <label for="categoria">Categoria</label>
-                        <select class="form-select campoCategoria" name="selectCategoria" id="selectCategoria"
-                            aria-label="Default select example">
-                            <option value="0"></option>
-                        </select>
-                    </div>
-                </div>
-                <div class="descricao">
-                    <div class="descricaoPrevia">
-                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prévia descrição</p>
-                        <textarea class="form-control" id="descPrevia" rows="3" maxlength="66"></textarea>
-                    </div>
-                    <div class="descricaoCompleta">
-                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descrição completa do
-                            produto:</p>
-                        <textarea class="form-control" id="descricaoCompletaProduto" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="ImagensProduto">
-                    <div id="areaButtonImg">
-                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" id="txtImagem">Adicionar Imagens do Produto</p>
-                        <button id="btnImgProduto" class="btnAcoes">
-                            <a href="manutencaoProdutoImagens.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                                class="bi bi-images" viewBox="0 0 16 16">
-                                <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
-                                <path
-                                    d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z" />
-                            </svg>
-                        </a>
-                        </button>
-                    </div>
-                </div>
-                <div class="areaBtn">
-                    <div class="btnDiv">
-                        <a href="consultarProduto.html"><button id="btnCancelar">Cancelar</button>
-                        </a>
-                    </div>
-                    <div class="btnDiv">
-                        <button id="btnSalvar">Salvar</button>
-                    </div>
 
+                        <div id="filewrapper">
+                            <h3 class="uploaded">Upload das Imagens Selecionadas</h3>
+                            <!-- <div class="showfilebox">
+                                <div class="left">
+                                    <span class="filetype">pdf</span>
+                                    <h3>nome do arquivo</h3>
+                                </div>
+                                <div class="right">
+                                    <span>&#215;</span>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- confing -->
-        <script src="../js/finalizarSession.js"></script>
-        <script src="../js/manutencaoProduto.js"></script>
+        <!-- <script src="../js/finalizarSession.js"></script> -->
+        <script src="../js/manutencaoProdutoImagens.js"></script>
 
 
         <!-- flowbite -->
