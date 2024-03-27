@@ -84,7 +84,7 @@ function postProdutoDados(dados, idAlterar) {
           title: "Salvo com sucesso",
           showConfirmButton: false,
           timer: 1500
-        }).then(() => {trocaParatelaPrincipal()});
+        }).then(() => { trocaParatelaPrincipal() });
       })
   } else {
     fetch('http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=validadarDados', {
@@ -154,52 +154,61 @@ function preencherCampoAlterar(id) {
       document.getElementById('selectCategoria').value = dados[0].id_categoria
       // document.getElementById('input[name="opcaoFrete"]:checked').value = dados[0].frete;
     })
-  }
-  
-
-  window.addEventListener('load', () => {
-    const input = document.getElementById('upload');
-    const filewrapper = document.getElementById('filewrapper');
-
-    input.addEventListener("change", (e) => {
-        let fileName = e.target.files[0].name;
-        let filetype = e.target.files[0]
-        fileshow(fileName, filetype);
-    })
-
-    const fileshow = (fileName, filetype) => {
-
-        const reader = new FileReader();
+}
 
 
-        const showfileboxElem = document.createElement("div");
-        showfileboxElem.classList.add("showfilebox");
-        const leftElem = document.createElement("div");
-        leftElem.classList.add("left");
-        const fileTypeElem = document.createElement("span");
-        fileTypeElem.classList.add("filetype");
-        const img = document.createElement("img");
-        img.classList.add("imgProduto");
-        reader.onload = function () { img.src = reader.result; };
-        reader.readAsDataURL(filetype);
-        fileTypeElem.appendChild(img);
-        leftElem.append(fileTypeElem);
-        const filetitleElem = document.createElement("h3");
-        filetitleElem.innerHTML = fileName;
-        leftElem.append(filetitleElem);
-        showfileboxElem.append(leftElem);
-        const rightElem = document.createElement("div");
-        rightElem.classList.add("right");
-        showfileboxElem.append(rightElem);
-        const crossElem = document.createElement("span");
-        crossElem.innerHTML = "&#215;";
-        rightElem.append(crossElem);
-        filewrapper.append(showfileboxElem);
+// imagens do produto
+window.addEventListener('load', () => {
+  const input = document.getElementById('upload');
+  const filewrapper = document.getElementById('filewrapper');
 
-        crossElem.addEventListener("click", () => {
-            filewrapper.removeChild(showfileboxElem);
-        })
+  input.addEventListener("change", (e) => {
+    let fileName = e.target.files[0].name;
+    let filetype = e.target.files[0];
+    let qtdShowfilebox = document.querySelectorAll(".showfilebox");
 
+    if (qtdShowfilebox.length < 6) {
+      document.getElementById("quantidadeCadastrada").innerHTML = qtdShowfilebox.length + 1;
+      fileshow(fileName, filetype);
+    } else {
+      Swal.fire({
+        title: "ATENÇÂO",
+        text: "quantidade informada maior que 6 unidades.",
+        icon: "warning"
+      });
     }
+  })
 
+  const fileshow = (fileName, filetype) => {
+    const reader = new FileReader();
+    const showfileboxElem = document.createElement("div");
+    showfileboxElem.classList.add("showfilebox");
+    const leftElem = document.createElement("div");
+    leftElem.classList.add("left");
+    const fileTypeElem = document.createElement("span");
+    fileTypeElem.classList.add("filetype");
+    const img = document.createElement("img");
+    img.classList.add("imgProduto");
+    reader.onload = function () { img.src = reader.result; };
+    reader.readAsDataURL(filetype);
+    fileTypeElem.appendChild(img);
+    leftElem.append(fileTypeElem);
+    const filetitleElem = document.createElement("h3");
+    filetitleElem.innerHTML = fileName;
+    leftElem.append(filetitleElem);
+    showfileboxElem.append(leftElem);
+    const rightElem = document.createElement("div");
+    rightElem.classList.add("right");
+    showfileboxElem.append(rightElem);
+    const crossElem = document.createElement("span");
+    crossElem.innerHTML = "&#215;";
+    rightElem.append(crossElem);
+    filewrapper.append(showfileboxElem);
+
+    crossElem.addEventListener("click", () => {
+      filewrapper.removeChild(showfileboxElem);
+    })
+  }
 })
+
+
