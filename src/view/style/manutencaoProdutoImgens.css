@@ -28,12 +28,12 @@
 .uploadlabel{
     width: 100%;
     min-height: 100px;
-    background: #18a7ff0d;
+    background: #0000000d;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px dashed #18a6ff99;
+    border: 3px dashed #00000099;
     cursor: pointer;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .uploadlabel p{
-    color: #18a7ff;
+    color: #060606;
     font-size: 20px;
     font-weight: 800;
     font-family: cursive;
@@ -73,20 +73,30 @@
     gap: 10px;
 }
 .filetype{
-    background: #18a7ff;
     color: #fff;
-    padding: 5px 15px;
     font-size: 20px;
     text-transform: capitalize;
     font-weight: 700;
     border-radius: 3px;
+    width: 62px;
+    height: 62px;
 }
+
+.imgProduto{
+    
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
 
 .left h3{
     font-weight: 600;
     font-size: 18px;
     color: #292f42;
     margin: 0;
+    width: 306px;
+    word-break: break-all;
 }
 
 .right span{
@@ -101,4 +111,21 @@
     font-weight: 700;
     cursor: pointer;
     border-radius: 50%;
+}
+
+.btnacao{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+
+h5{
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 3px;
 }

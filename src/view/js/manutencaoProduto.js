@@ -154,53 +154,52 @@ function preencherCampoAlterar(id) {
       document.getElementById('selectCategoria').value = dados[0].id_categoria
       // document.getElementById('input[name="opcaoFrete"]:checked').value = dados[0].frete;
     })
+  }
+  
 
-  // imagens do upload para usuario
-  const uploadImagem = document.querySelector('#uploadImgProduto');
-  const paragraphDescricaoIMG = document.querySelector('#file_input_help');
+  window.addEventListener('load', () => {
+    const input = document.getElementById('upload');
+    const filewrapper = document.getElementById('filewrapper');
 
-  uploadImagem.addEventListener('change', function (evt) {
-    if (!(evt.target && evt.target.files && evt.target.files.length <= 6)) {
-      Swal.fire({
-        title: "ATENÇÂO",
-        text: "quantidade informada maior que 6 unidades. Por Favor, seleciona novamente as imagens.",
-        icon: "warning"
-      });
+    input.addEventListener("change", (e) => {
+        let fileName = e.target.files[0].name;
+        let filetype = e.target.files[0]
+        fileshow(fileName, filetype);
+    })
 
-      document.getElementById("uploadImgProduto").value = ""
+    const fileshow = (fileName, filetype) => {
 
-    } else {
-
-      const files = evt.target.files;
-
-      for (let i = 0; i < files.length; i++) {
-        // Inicia o file-reader para cada arquivo:
-        var reader = new FileReader();
-
-        // Define o que ocorre quando concluir para cada arquivo:
-        reader.onload = (function (file) {
-          return function (e) {
-            const imagem = document.createElement('img');
-            imagem.classList.add("imagensUpload")
-            const divImg = document.getElementById('imgPrevia');
+        const reader = new FileReader();
 
 
-            // Define o `src` do elemento para o resultado:
-            imagem.src = e.target.result;
+        const showfileboxElem = document.createElement("div");
+        showfileboxElem.classList.add("showfilebox");
+        const leftElem = document.createElement("div");
+        leftElem.classList.add("left");
+        const fileTypeElem = document.createElement("span");
+        fileTypeElem.classList.add("filetype");
+        const img = document.createElement("img");
+        img.classList.add("imgProduto");
+        reader.onload = function () { img.src = reader.result; };
+        reader.readAsDataURL(filetype);
+        fileTypeElem.appendChild(img);
+        leftElem.append(fileTypeElem);
+        const filetitleElem = document.createElement("h3");
+        filetitleElem.innerHTML = fileName;
+        leftElem.append(filetitleElem);
+        showfileboxElem.append(leftElem);
+        const rightElem = document.createElement("div");
+        rightElem.classList.add("right");
+        showfileboxElem.append(rightElem);
+        const crossElem = document.createElement("span");
+        crossElem.innerHTML = "&#215;";
+        rightElem.append(crossElem);
+        filewrapper.append(showfileboxElem);
 
-            // Insere a imagem após o parágrafo de descrição:
-            divImg.append(imagem);
-          };
-        })(files[i]);
+        crossElem.addEventListener("click", () => {
+            filewrapper.removeChild(showfileboxElem);
+        })
 
-        // Lê o arquivo e cria um link (o resultado vai ser enviado para o onload).
-        reader.readAsDataURL(files[i]);
-      }
     }
-  });
 
-
-
-
-
-}
+})
