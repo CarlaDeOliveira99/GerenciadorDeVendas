@@ -31,7 +31,7 @@ class Produto
         $descricao = $dados['descricaoCompleta'];
         $nome = $dados['nomeDoPorduto'];
         $valor = $dados['precoProduto'];
-        $desconto = $dados['valorDesconto'];
+        $desconto = $dados['desconto'];
         $frete = $dados['frete'];
         $id_categoria = $dados['selectCategoria'];
         $previaDescricao = $dados['previaDescricao'];
@@ -65,7 +65,7 @@ class Produto
 
         $totalRegistros = $this->totalDeRegistro($sql);
 
-        $sql .= ' ORDER BY id_categoria ASC';
+        $sql .= ' ORDER BY id_produto ASC';
 
         if (isset($_GET['offset'])) {
             $offset = $_GET['offset'];
@@ -111,28 +111,48 @@ class Produto
 
 
 
-    // public function alterarCategoria($dados)
-    // {
-    //     $id = $dados['id'];
-    //     $txtCampo = $dados['txtCampo'];
+    public function alterarProduto($informacoes)
+    {
+        $dadosDosCampos = $informacoes['dados'];
+        $id_produtoString = $informacoes['id_produto'];
 
-    //     $publisher = [
-    //         'id' => $id,
-    //         'nome' => $txtCampo,
-    //     ];
+        $publisher = [
+            'id_produto' =>  $id_produtoString,
+            'codigoDeBarraProduto' => $dadosDosCampos['codigoDeBarraProduto'],
+            'nomeDoPorduto' =>  $dadosDosCampos['nomeDoPorduto'],
+            'descricaoCompleta' =>  $dadosDosCampos['descricaoCompleta'],
+            'precoProduto' => $dadosDosCampos['precoProduto'],
+            'desconto' => $dadosDosCampos['desconto'],
+            'frete' =>  $dadosDosCampos['frete'],
+            'selectCategoria' => $dadosDosCampos['selectCategoria'],
+            'previaDescricao' =>  $dadosDosCampos['previaDescricao'],
+        ];
 
-    //     $sql = 'UPDATE categoria
-    //     SET nome = :nome
-    //     WHERE id_categoria = :id';
+        $sql = 'UPDATE produto
+        SET cod_barra = :cod_barra,
+        nome = :nome, 
+        descricao = :descricao, 
+        valor = :valor,
+        desconto = :desconto,
+        frete =:frete,
+        id_categoria =:id_categoria,
+        descricaoPrevia = :descricaoPrevia
+        WHERE id_produto = :id';
 
-    //     $statement = $this->conexao->prepare($sql);
+        $statement = $this->conexao->prepare($sql);
 
+        $statement->bindParam(':id', $publisher['id_produto'], PDO::PARAM_INT);
+        $statement->bindParam(':cod_barra', $publisher['codigoDeBarraProduto'], PDO::PARAM_INT);
+        $statement->bindParam(':nome', $publisher['nomeDoPorduto']);
+        $statement->bindParam(':descricao', $publisher['descricaoCompleta']);
+        $statement->bindParam(':valor', $publisher['precoProduto'], PDO::PARAM_INT);
+        $statement->bindParam(':desconto', $publisher['desconto'], PDO::PARAM_INT);
+        $statement->bindParam(':frete', $publisher['frete'], PDO::PARAM_INT);
+        $statement->bindParam(':id_categoria', $publisher['selectCategoria'], PDO::PARAM_INT);
+        $statement->bindParam(':descricaoPrevia', $publisher['previaDescricao']);
 
-    //     $statement->bindParam(':id', $publisher['id'], PDO::PARAM_INT);
-    //     $statement->bindParam(':nome', $publisher['nome']);
-
-    //     $statement->execute();
-    // }
+        $statement->execute();
+    }
 
     public function informacaoDoCampoAlterar($id)
     {

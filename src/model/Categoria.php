@@ -93,6 +93,7 @@ class Categoria
             'nome' => $txtCampo,
         ];
 
+        
         $sql = 'UPDATE categoria
         SET nome = :nome
         WHERE id_categoria = :id';

@@ -18,9 +18,9 @@ class ControllerProduto
     {
         $dadosColetados = json_decode(file_get_contents('php://input'), true);
 
-          $validadcao =  $this->produto->validarCampo($dadosColetados);
-         
-         echo $validadcao;
+        $validadcao =  $this->produto->validarCampo($dadosColetados);
+
+        echo $validadcao;
     }
 
     public function get_consultar()
@@ -31,14 +31,28 @@ class ControllerProduto
         echo $json;
     }
 
+    // preencher os campos para alterar as informações
     public function get_campoAlterarIndormacoes()
     {
         $id = $_GET['id'];
-
         $informacoesCampo = $this->produto->informacaoDoCampoAlterar($id);
-
         $json = json_encode($informacoesCampo);
         header('Content-Type: application/json');
         echo $json;
+    }
+
+    public function post_aletarDados()
+    {
+        $dadosColetados = json_decode(file_get_contents('php://input'), true);
+
+       $dados = $this->produto->alterarProduto($dadosColetados);
+
+        echo $dados;
+    }
+
+    public function get_excluir()
+    {
+        $id = $_GET['idDeletar'];
+        $this->produto->excluirDados($id);
     }
 }

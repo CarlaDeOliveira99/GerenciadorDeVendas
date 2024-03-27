@@ -15,28 +15,29 @@ const grid = new gridjs.Grid({
     id: 'id',
     name: 'Id'
   }, {
-    id: 'cod',
-    name: 'Cod'
-  }, {
     id: 'nome',
-    name: 'Nome'
+    name: 'Nome',
+    width: '111px'
   }, {
-    id: 'cod',
-    name: 'Cod'
+    id: 'cod_barra',
+    name: 'cod_barra'
   }, {
     id: 'descricaoPrevia',
-    name: 'Descrição Previa'
+    name: 'Descrição Previa',
+    width: '129px'
+  }, {
+    id: 'descricaoCompleta',
+    name: 'Descrição Completa',
+    width: '159px'
   },
   {
-    id: 'descricaoComple',
-    name: 'Descrição Completa'
-  }, {
     id: 'valor',
     name: 'Preço',
-    width: '87px'
+    width: '100px'
   }, {
     id: 'desconto',
-    name: 'Desconto'
+    name: 'Desconto',
+    width: '87px'
   }, {
     id: 'frete',
     name: 'Frete'
@@ -45,7 +46,7 @@ const grid = new gridjs.Grid({
     name: 'id_categoria'
   }, {
     id: 'imgProduto',
-    name: 'Produto'
+    name: 'Imagem do Produto'
   }, {
     id: 'acao',
     name: 'Ação',
@@ -68,7 +69,7 @@ const grid = new gridjs.Grid({
   },
   server: {
     url: 'http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=consultar',
-    then: json => json.dados.map(produto => [produto.id_produto, produto.nome, produto.cod_barra, produto.descricaoprevia, produto.descricao, produto.valor, produto.desconto, produto.frete, produto.frete, produto.id_categoria, produto.imgproduto,]),
+    then: json => json.dados.map(produto => [produto.id_produto, produto.nome, produto.cod_barra, produto.descricaoprevia, produto.descricao, produto.valor, produto.desconto, produto.frete, produto.id_categoria, produto.imgproduto,]),
     total: json => json.totalRegistros
   }
 });
@@ -76,3 +77,40 @@ const grid = new gridjs.Grid({
 grid.render(document.getElementById("wrapper"));
 
 
+function excluir(id) {
+  mensagemExluir(id)
+}
+
+function mensagemExluir(id) {
+  Swal.fire({
+      title: "Tem certeza?",
+      text: "Você não poderá reverter isso!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, excluí-lo!"
+  }).then((result) => {
+      if (result.isConfirmed) {
+          Swal.fire({
+              title: "Exluído!",
+              text: "Dados excluído com sucesso!",
+              icon: "success"
+          }).then(() => { deletar(id) })
+      }
+  })
+}
+
+function deletar(id) {
+  console.log(id);
+  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=excluir&idDeletar=${id}`, {
+      headers: {
+          'content-Type': 'application/json'
+      },
+      method: "GET",
+  }).then(() => { trocaParatelaPrincipal() })
+}
+
+function trocaParatelaPrincipal() {
+  return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarProduto.html'
+}
