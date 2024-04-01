@@ -57,23 +57,6 @@ class Produto
         };
     }
 
-
-    // public function idProduto($nome, $cod_barra)
-    // {
-
-    //     $sql = "SELECT  id_produto FROM produto WHERE nome = :nome AND cod_barra = :cod_barra";
-    //     $stmt = $this->conexao->prepare($sql);
-    //     $stmt->bindValue(":nome", $nome);
-    //     $stmt->bindValue(":cod_barra", $cod_barra, PDO::PARAM_INT);
-    //     $stmt->execute();
-
-    //     $dados = $stmt->fetchAll();
-
-
-    //     return $dados;
-    // }
-
-
     public function consultarTabela()
     {
         $sql = 'SELECT * FROM produto';
@@ -191,5 +174,33 @@ class Produto
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
         $statement->execute();
+    }
+
+    public function salvarImgNasPastas($arquivo, $idProduto)
+    {
+
+        foreach ($arquivo as $item) {
+            $nomeArquivo = $item["name"];
+            $diretorio = "C:/xampp/htdocs/GerenciadorDeVendas/upload/imagens_e_gifs/" . $nomeArquivo;
+
+            if (move_uploaded_file($item['tmp_name'], $diretorio)) {
+
+                // $sql = "INSERT INTO imagemproduto(id_produto,caminho_imagem_prod) VALUES(:id_produto,:caminho_imagem_prod";
+
+                // $statement = $this->conexao->prepare($sql);
+
+                // if ($statement->execute([
+                //     ':id_produto' => $$idProduto,
+                //     ':caminho_imagem_prod' => $diretorio,
+                // ])) {
+                //     echo "true";
+                // } else {
+                //     echo "false";
+                // };
+                echo "true";
+            } else {
+                echo "false";
+            }
+        }
     }
 }

@@ -218,3 +218,13 @@ flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
+
+/* btn das imagens */
+.confBtn {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}

@@ -46,7 +46,22 @@ const grid = new gridjs.Grid({
     name: 'id_categoria'
   }, {
     id: 'imgProduto',
-    name: 'Imagem do Produto'
+    name: 'Imagem do Produto',
+    formatter: (cell, row) => {
+
+      return gridjs.html(` 
+      <button id="btnImgProduto" class="btnAcoes">
+        <a href="http://localhost/GerenciadorDeVendas/src/view/ui/manutencaoProdutoImagens.html?idProduto=${row.cells[0].data}" class="confBtn">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+          class="bi bi-images" viewBox="0 0 16 16">
+          <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
+          <path
+              d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z" />
+          </svg>
+         <span id="status" class="statusImagens">status:Pedente</span>
+      </a>
+     </button>`)
+    }
   }, {
     id: 'acao',
     name: 'Ação',
@@ -83,31 +98,31 @@ function excluir(id) {
 
 function mensagemExluir(id) {
   Swal.fire({
-      title: "Tem certeza?",
-      text: "Você não poderá reverter isso!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Sim, excluí-lo!"
+    title: "Tem certeza?",
+    text: "Você não poderá reverter isso!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sim, excluí-lo!"
   }).then((result) => {
-      if (result.isConfirmed) {
-          Swal.fire({
-              title: "Exluído!",
-              text: "Dados excluído com sucesso!",
-              icon: "success"
-          }).then(() => { deletar(id) })
-      }
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Exluído!",
+        text: "Dados excluído com sucesso!",
+        icon: "success"
+      }).then(() => { deletar(id) })
+    }
   })
 }
 
 function deletar(id) {
   console.log(id);
   fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=excluir&idDeletar=${id}`, {
-      headers: {
-          'content-Type': 'application/json'
-      },
-      method: "GET",
+    headers: {
+      'content-Type': 'application/json'
+    },
+    method: "GET",
   }).then(() => { trocaParatelaPrincipal() })
 }
 

@@ -23,6 +23,7 @@ window.addEventListener('load', () => {
             arquivo.accept = 'image/*';
             arquivo.style.display = 'none';
             arquivo.classList.add("arquivo");
+            arquivo.name = "arquivoImagens"
             leftElem.append(filetitleElem, arquivo);
             showfileboxElem.append(leftElem);
             const rightElem = document.createElement("div");
@@ -60,7 +61,7 @@ window.addEventListener('load', () => {
         } else {
             Swal.fire({
                 title: "ATENÇÂO",
-                text: "Precisa pelo menos uma imagem do produto.",
+                text: "Atigiu o limite de imagens, máximo 6 imagens e mínimo 1 imagem.",
                 icon: "warning"
             });
         }
@@ -69,19 +70,31 @@ window.addEventListener('load', () => {
 
 
 document.getElementById("btnSalvar").addEventListener('click', () => {
-    console.log(document.querySelectorAll('input[type="file"]'))
     const files = new FormData();
 
     idFile = 0
     Array.from(document.querySelectorAll('input[type="file"]')).forEach(element => {
-        files.append(++idFile, element.files[0]);
+        files.append("imagem " + (++idFile), element.files[0]);
     });
 
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=cadastrarImg', {
-        method: "POST",
-        body: files
-    })
+    console.log();
 
+    if (document.querySelectorAll('input[type="file"]').length > 0 && document.querySelectorAll('input[type="file"]').length < 6) {
+        fetch('http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=cadastrarImg&idProduto=1', {
+            method: "POST",
+            body: files
+        })
+            .then(res => res.text())
+            .then((resposta) => {
+                console.log(resposta);
+            })
+    }else{
+        Swal.fire({
+            title: "ATENÇÂO",
+            text: "Atigiu o limite de imagens, máximo 6 imagens e mínimo 1 imagem.",
+            icon: "warning"
+        });
+    }
 })
 
 
