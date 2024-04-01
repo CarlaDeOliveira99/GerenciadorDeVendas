@@ -20,6 +20,8 @@ class ControllerProduto
 
         $validadcao =  $this->produto->validarCampo($dadosColetados);
 
+        print_r( $validadcao );
+
         echo $validadcao;
     }
 
@@ -45,7 +47,7 @@ class ControllerProduto
     {
         $dadosColetados = json_decode(file_get_contents('php://input'), true);
 
-       $dados = $this->produto->alterarProduto($dadosColetados);
+        $dados = $this->produto->alterarProduto($dadosColetados);
 
         echo $dados;
     }
@@ -54,5 +56,20 @@ class ControllerProduto
     {
         $id = $_GET['idDeletar'];
         $this->produto->excluirDados($id);
+    }
+
+    
+    public function post_cadastrarImg()
+    {
+
+        #$nomeArquivo1 = $_FILES["1"]['files'];
+        #$teste = $_POST['1'];
+
+        var_dump($_FILES);
+        
+
+        #echo "resultado\n";
+        #var_dump($nomeArquivo1);
+        #var_dump($teste);
     }
 }

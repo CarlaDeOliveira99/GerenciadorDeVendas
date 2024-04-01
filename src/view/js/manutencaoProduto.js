@@ -1,7 +1,9 @@
+
 // carregar a categoria
 window.onload = function () {
   listaCategoria();
 };
+
 
 // lista da categoia
 function listaCategoria() {
@@ -28,7 +30,7 @@ function listaCategoria() {
     })
 }
 
-// pegar as informações
+
 document.getElementById('btnSalvar').addEventListener('click', function () {
   const dadosColetados = coletarDadosDoProduto()
   const alterarID = idAlterar();
@@ -44,7 +46,6 @@ function coletarDadosDoProduto() {
   const selectCategoria = document.getElementById('selectCategoria').value;
   const previaDescricao = document.getElementById('descPrevia').value;
   const descricaoCompleta = document.getElementById('descricaoCompletaProduto').value;
-  // const uploadDasImagensproduto = document.getElementById("uploadImgProduto").files;
 
   const dadosColetados = {
     nomeDoPorduto: nomeDoPorduto,
@@ -56,18 +57,18 @@ function coletarDadosDoProduto() {
     previaDescricao: previaDescricao,
     descricaoCompleta: descricaoCompleta
   }
-
   return dadosColetados;
 }
 
 
 // cadastrar os dados e verificar os campos 
 function postProdutoDados(dados, idAlterar) {
+
   if (idAlterar != null) {
 
     let informacoes = {
       dados: dados,
-      id_produto: idAlterar
+      id_produto: idAlterar,
     }
 
     fetch('http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=aletarDados', {
@@ -94,16 +95,10 @@ function postProdutoDados(dados, idAlterar) {
       method: "POST",
       body: JSON.stringify(dados)
     })
-      .then((response) => response.text())
+      .then(res => res.text())
       .then((resposta) => {
-        if (resposta == 'erro\n') {
-          Swal.fire({
-            title: "ATENÇÂO",
-            text: "Preencha todos os campos",
-            icon: "warning"
-          });
-        }
-        if (resposta == 'ok\n') {
+
+        if (resposta == "ok\n") {
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -111,6 +106,18 @@ function postProdutoDados(dados, idAlterar) {
             showConfirmButton: false,
             timer: 1500
           }).then(() => { window.location.reload(true); })
+        } else if (resposta == "erro dados\n") {
+          Swal.fire({
+            title: "ATENÇÂO",
+            text: "Preencha todos os campos",
+            icon: "warning"
+          });
+        } else {
+          Swal.fire({
+            title: "Ops..",
+            text: "Por Favor, atualize a pagina.",
+            icon: "warning"
+          });
         }
       }
       )
@@ -155,60 +162,4 @@ function preencherCampoAlterar(id) {
       // document.getElementById('input[name="opcaoFrete"]:checked').value = dados[0].frete;
     })
 }
-
-
-// imagens do produto
-window.addEventListener('load', () => {
-  const input = document.getElementById('upload');
-  const filewrapper = document.getElementById('filewrapper');
-
-  input.addEventListener("change", (e) => {
-    let fileName = e.target.files[0].name;
-    let filetype = e.target.files[0];
-    let qtdShowfilebox = document.querySelectorAll(".showfilebox");
-
-    if (qtdShowfilebox.length < 6) {
-      document.getElementById("quantidadeCadastrada").innerHTML = qtdShowfilebox.length + 1;
-      fileshow(fileName, filetype);
-    } else {
-      Swal.fire({
-        title: "ATENÇÂO",
-        text: "quantidade informada maior que 6 unidades.",
-        icon: "warning"
-      });
-    }
-  })
-
-  const fileshow = (fileName, filetype) => {
-    const reader = new FileReader();
-    const showfileboxElem = document.createElement("div");
-    showfileboxElem.classList.add("showfilebox");
-    const leftElem = document.createElement("div");
-    leftElem.classList.add("left");
-    const fileTypeElem = document.createElement("span");
-    fileTypeElem.classList.add("filetype");
-    const img = document.createElement("img");
-    img.classList.add("imgProduto");
-    reader.onload = function () { img.src = reader.result; };
-    reader.readAsDataURL(filetype);
-    fileTypeElem.appendChild(img);
-    leftElem.append(fileTypeElem);
-    const filetitleElem = document.createElement("h3");
-    filetitleElem.innerHTML = fileName;
-    leftElem.append(filetitleElem);
-    showfileboxElem.append(leftElem);
-    const rightElem = document.createElement("div");
-    rightElem.classList.add("right");
-    showfileboxElem.append(rightElem);
-    const crossElem = document.createElement("span");
-    crossElem.innerHTML = "&#215;";
-    rightElem.append(crossElem);
-    filewrapper.append(showfileboxElem);
-
-    crossElem.addEventListener("click", () => {
-      filewrapper.removeChild(showfileboxElem);
-    })
-  }
-})
-
 

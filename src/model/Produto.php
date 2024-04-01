@@ -18,10 +18,10 @@ class Produto
     public function validarCampo($dados)
     {
         if ($dados['nomeDoPorduto'] == "" || $dados['codigoDeBarraProduto'] == "" || $dados['precoProduto'] == "" || $dados['selectCategoria'] == 0 || $dados['previaDescricao'] == "" || $dados['descricaoCompleta'] == "") {
-            echo "erro";
+            echo "erro dados";
         } else {
-            $this->cadastrar($dados);
-            echo "ok";
+            $resposta =  $this->cadastrar($dados);
+            echo $resposta;
         }
     }
 
@@ -41,7 +41,7 @@ class Produto
 
         $statement = $this->conexao->prepare($sql);
 
-        $statement->execute([
+        if ($statement->execute([
             ':cod_barra' => $cod_barra,
             ':nome' => $nome,
             ':descricao' => $descricao,
@@ -50,8 +50,28 @@ class Produto
             ':frete' => $frete,
             ':id_categoria' => $id_categoria,
             ':descricaoPrevia' => $previaDescricao,
-        ]);
+        ])) {
+            echo "ok banco";
+        } else {
+            echo "erro bd";
+        };
     }
+
+
+    // public function idProduto($nome, $cod_barra)
+    // {
+
+    //     $sql = "SELECT  id_produto FROM produto WHERE nome = :nome AND cod_barra = :cod_barra";
+    //     $stmt = $this->conexao->prepare($sql);
+    //     $stmt->bindValue(":nome", $nome);
+    //     $stmt->bindValue(":cod_barra", $cod_barra, PDO::PARAM_INT);
+    //     $stmt->execute();
+
+    //     $dados = $stmt->fetchAll();
+
+
+    //     return $dados;
+    // }
 
 
     public function consultarTabela()
