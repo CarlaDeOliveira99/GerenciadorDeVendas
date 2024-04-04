@@ -92,4 +92,14 @@ class ControllerProduto
         $idProduto = $_GET["idProduto"];
         $resu = $this->produto->excluirImgBD($idProduto);
     }
+
+
+    public function get_statusImg()
+    {
+        $resultado = $this->produto->statusImg();
+        $json = json_encode($resultado);
+        header('Content-Type: application/json');
+        echo $json;
+    }
+
 }

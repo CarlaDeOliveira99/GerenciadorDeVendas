@@ -280,4 +280,17 @@ class Produto
 
         return  $dadosImg;
     }
+
+
+    public function statusImg(){
+        $sql = "select distinct img.id_produto
+        from imagemproduto img
+        left join produto pro
+        on img.id_produto = pro.id_produto";
+        $stmt = $this->conexao->prepare(($sql));
+        $stmt->execute();
+        $dadosImg = $stmt->fetchAll();
+
+        return  $dadosImg;
+    }
 }
