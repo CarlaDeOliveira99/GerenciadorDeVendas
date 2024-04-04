@@ -1,4 +1,3 @@
-
 const grid = new gridjs.Grid({
     search: {
         server: {
@@ -18,13 +17,13 @@ const grid = new gridjs.Grid({
     }, {
         id: 'nome',
         name: 'Nome',
-        
+
     }, {
         id: 'acao',
         name: 'Ação',
         width: '132px',
-        class:'areaBtnAcao',
-        
+        class: 'areaBtnAcao',
+
 
         formatter: (cell, row) => {
 
@@ -93,6 +92,11 @@ function trocaParatelaPrincipal() {
     return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarCategoria.html'
 }
 
-
-
-
+window.onload = function () {
+    fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=verificarTabela`, {
+        headers: {
+            'content-Type': 'application/json'
+        },
+        method: "GET",
+    })
+}

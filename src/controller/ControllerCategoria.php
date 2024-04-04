@@ -51,4 +51,8 @@ class ControllerCategoria
         $id = $_GET['idDeletar'];
         $this->categoria->excluirDados($id);
     }
+
+    public function get_verificarTabela() {
+        $this->categoria->verificarTabela();
+      }
 }

@@ -98,24 +98,18 @@ function postProdutoDados(dados, idAlterar) {
       .then(res => res.text())
       .then((resposta) => {
 
-        if (resposta == "ok\n") {
+        if (resposta == "ok banco\n") {
           Swal.fire({
             position: "top-end",
             icon: "success",
             title: "Salvo com sucesso",
             showConfirmButton: false,
             timer: 1500
-          }).then(() => { window.location.reload(true); })
+          }).then(() => { trocaParatelaPrincipal() })
         } else if (resposta == "erro dados\n") {
           Swal.fire({
             title: "ATENÇÂO",
             text: "Preencha todos os campos",
-            icon: "warning"
-          });
-        } else {
-          Swal.fire({
-            title: "Ops..",
-            text: "Por Favor, atualize a pagina.",
             icon: "warning"
           });
         }
@@ -161,5 +155,11 @@ function preencherCampoAlterar(id) {
       document.getElementById('selectCategoria').value = dados[0].id_categoria
       // document.getElementById('input[name="opcaoFrete"]:checked').value = dados[0].frete;
     })
-}
+  }
 
+  document.getElementById('desconto').addEventListener('keyup', function(){
+    let valorDaporcentagem = document.getElementById('desconto').value;
+    let preço = document.getElementById('preco').value
+    let descobrirPorcentagem = (valorDaporcentagem*100)/preço;
+    document.getElementById('porcentagem').innerHTML = descobrirPorcentagem.toFixed(2) + "%";
+  })

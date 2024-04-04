@@ -124,5 +124,21 @@ class Categoria
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
         $statement->execute();
+        $this->verificarTabela();
+    }
+
+    public function verificarTabela()
+    {
+        $sql = 'SELECT id_categoria FROM categoria';
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+        $dados = $stmt->fetchAll();
+
+        if (sizeof($dados) < 1) {
+            $sql = 'ALTER SEQUENCE id_categoria
+            RESTART WITH 1';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->execute();
+        }
     }
 }

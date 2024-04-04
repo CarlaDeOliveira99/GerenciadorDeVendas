@@ -55,7 +55,8 @@ class ControllerProduto
     public function get_excluir()
     {
         $id = $_GET['idDeletar'];
-        $this->produto->excluirDados($id);
+        $resposta = $this->produto->excluirDados($id);
+        echo $resposta;
     }
 
 
@@ -64,7 +65,31 @@ class ControllerProduto
         $idProduto = $_GET["idProduto"];
         if (isset($_FILES)) {
             $arquivo = $_FILES;
-           $this->produto->salvarImgNasPastas($arquivo,intval($idProduto));
+            $resposta = $this->produto->salvarImgNasPastas($arquivo, intval($idProduto));
+            echo $resposta;
         }
+    }
+
+    public function get_verificarTabela()
+    {
+        $this->produto->verificarTabela();
+    }
+
+
+    public function get_consultarIMG()
+    {
+        $idProduto = $_GET["idProduto"];
+
+        $dados =  $this->produto->consultarImg($idProduto);
+        $json = json_encode($dados);
+        header('Content-Type: application/json');
+        echo $json;
+    }
+
+
+    public function get_excluirSoImg()
+    {
+        $idProduto = $_GET["idProduto"];
+        $resu = $this->produto->excluirImgBD($idProduto);
     }
 }

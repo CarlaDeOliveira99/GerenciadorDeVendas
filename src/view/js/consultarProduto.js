@@ -42,11 +42,13 @@ const grid = new gridjs.Grid({
     id: 'frete',
     name: 'Frete'
   }, {
-    id: 'id_categoria',
-    name: 'id_categoria'
+    id: 'nome_categoria',
+    name: 'Categoria',
+    with: '102px'
   }, {
     id: 'imgProduto',
     name: 'Imagem do Produto',
+    width: '152px',
     formatter: (cell, row) => {
 
       return gridjs.html(` 
@@ -58,7 +60,7 @@ const grid = new gridjs.Grid({
           <path
               d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2M14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1M2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1z" />
           </svg>
-         <span id="status" class="statusImagens">status:Pedente</span>
+         <span id="status" class="statusImagens" style="color: red;font-weight: 500;">status:Pedente</span>
       </a>
      </button>`)
     }
@@ -84,13 +86,18 @@ const grid = new gridjs.Grid({
   },
   server: {
     url: 'http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=consultar',
-    then: json => json.dados.map(produto => [produto.id_produto, produto.nome, produto.cod_barra, produto.descricaoprevia, produto.descricao, produto.valor, produto.desconto, produto.frete, produto.id_categoria, produto.imgproduto,]),
+    then: json => json.dados.map(produto => [produto.id_produto, produto.nome, produto.cod_barra, produto.descricaoprevia, produto.descricao, produto.valor, produto.desconto, produto.frete, produto.nome_categoria, produto.imgproduto,]),
     total: json => json.totalRegistros
   }
 });
 
 grid.render(document.getElementById("wrapper"));
 
+
+window.onload = function () {
+  verificarResertIdTabela();
+  statusImg();
+}
 
 function excluir(id) {
   mensagemExluir(id)
@@ -117,15 +124,71 @@ function mensagemExluir(id) {
 }
 
 function deletar(id) {
-  console.log(id);
   fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=excluir&idDeletar=${id}`, {
     headers: {
       'content-Type': 'application/json'
     },
     method: "GET",
-  }).then(() => { trocaParatelaPrincipal() })
+  })
+    .then(resp => resp.text())
+    .then(() => { trocaParatelaPrincipal() })
 }
 
 function trocaParatelaPrincipal() {
   return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarProduto.html'
 }
+
+
+
+function verificarResertIdTabela() {
+  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=verificarTabela`, {
+    headers: {
+      'content-Type': 'application/json'
+    },
+    method: "GET",
+  })
+
+}
+
+function statusImg() {
+
+  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=consultar`, {
+    headers: {
+      'content-Type': 'application/json'
+    },
+    method: "GET",
+  })
+  .then(resposta => resposta.json())
+  .then(resposta => {
+    let Ids = []
+
+    if (resposta["dados"].length > 0) {
+      resposta["dados"].forEach(element => {
+        let id = resposta["dados"][0]["id_produto"]
+        Ids.push[id];
+      });
+      verificarSePossuiIDProduto(Ids);
+    }
+
+    
+  });
+}
+
+
+function verificarSePossuiIDProduto(id) {
+
+
+  
+  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=consultarIMG&idProduto=${id_produto}`, {
+    method: "GET",
+})
+    .then(resposta => resposta.json())
+    .then((resp) => {
+        console.log(resp[0]);
+
+    })
+}
+
+
+
+

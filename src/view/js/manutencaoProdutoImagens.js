@@ -1,10 +1,11 @@
 window.addEventListener('load', () => {
+    consultaImg()
     const filewrapper = document.getElementById('filewrapper');
     let qtdShowfilebox = document.querySelectorAll(".showfilebox").length;
 
     document.getElementById("addImg").addEventListener('click', () => {
 
-        if (document.querySelectorAll(".showfilebox").length < 6) {
+        if (document.querySelectorAll(".showfilebox").length <= 6) {
 
             const showfileboxElem = document.createElement("div");
             showfileboxElem.classList.add("showfilebox");
@@ -71,24 +72,20 @@ window.addEventListener('load', () => {
 
 document.getElementById("btnSalvar").addEventListener('click', () => {
     const files = new FormData();
+    const id_produto = verificarIdProduto();
 
     idFile = 0
     Array.from(document.querySelectorAll('input[type="file"]')).forEach(element => {
         files.append("imagem " + (++idFile), element.files[0]);
     });
 
-    console.log();
-
-    if (document.querySelectorAll('input[type="file"]').length > 0 && document.querySelectorAll('input[type="file"]').length < 6) {
-        fetch('http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=cadastrarImg&idProduto=1', {
+    if (document.querySelectorAll('input[type="file"]').length > 0 && document.querySelectorAll('input[type="file"]').length <= 6) {
+        fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=cadastrarImg&idProduto=${id_produto}`, {
             method: "POST",
             body: files
         })
-            .then(res => res.text())
-            .then((resposta) => {
-                console.log(resposta);
-            })
-    }else{
+            .then(() => { trocaParatelaPrincipal() });
+    } else {
         Swal.fire({
             title: "ATENÇÂO",
             text: "Atigiu o limite de imagens, máximo 6 imagens e mínimo 1 imagem.",
@@ -99,9 +96,92 @@ document.getElementById("btnSalvar").addEventListener('click', () => {
 
 
 
+function verificarIdProduto() {
+    const urlParametro = new URLSearchParams(window.location.search);
+    const id = urlParametro.get("idProduto");
+    return id
+}
+
+function trocaParatelaPrincipal() {
+    return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarProduto.html'
+}
+
+// verificar se tem imagens no banco de dados
+function consultaImg() {
+    const id_produto = verificarIdProduto();
+    let caminhoIMG = [];
+    fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=consultarIMG&idProduto=${id_produto}`, {
+        method: "GET",
+    })
+        .then(resposta => resposta.json())
+        .then((resp) => {
+            if (resp.length > 0) {
+                caminhoIMG.push(resp);
+                alterarIMG(caminhoIMG);
+            } else {
+                let formularioAddImg = document.getElementById("FundoFormulario");
+                formularioAddImg.style.display = "flex";
+            }
+
+        })
 
 
+    // printar as imagens do banco de dados
+    function alterarIMG(caminhoIMG) {
 
+        let formularioAddImg = document.getElementById("FundoFormulario");
+        formularioAddImg.style.display = "none";
 
+        let formularioPrintarImg = document.createElement("div");
+        formularioPrintarImg.id = "formularioPrintarImg";
+        formularioPrintarImg.classList.add("formularioImg");
 
+        for (let i = 0; i < caminhoIMG[0].length; i++) {
+            let localImg = document.createElement("div");
+            localImg.classList.add("localImgPrintar");
+            let img = document.createElement("img");
+            img.classList.add("imgPrintar");
+            img.src = caminhoIMG[0][i]['caminho_imagem_prod'];
+            localImg.appendChild(img);
+            formularioPrintarImg.appendChild(localImg);
+            document.getElementById("ImagensProduto").appendChild(formularioPrintarImg);
+        }
+
+        let areaBtn = document.createElement("div");
+        areaBtn.classList.add("areaBtn")
+        let btnDiv = document.createElement("div");
+        areaBtn.classList.add("btnDiv")
+        let direcionarTelaConsulta = document.createElement("a");
+        direcionarTelaConsulta.href = "consultarProduto.html";
+
+        let btnAlterar = document.createElement("button");
+        btnAlterar.id = "btnAlterar"
+        btnAlterar.innerHTML = "Alterar"
+
+        let btnCalcelar = document.createElement("button");
+        btnCalcelar.id = "btnCancelar"
+        btnCalcelar.innerHTML = "Cancelar"
+
+        direcionarTelaConsulta.append(btnCalcelar)
+        btnDiv.appendChild(direcionarTelaConsulta)
+        btnDiv.appendChild(btnAlterar)
+        areaBtn.appendChild(btnDiv);
+
+        document.getElementById("ImagensProduto").appendChild(areaBtn);
+
+        // botão de alterar as imagens 
+        btnAlterar.addEventListener('click', () => {
+            const id_produto = verificarIdProduto();
+            let caminhoIMG = [];
+            fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=excluirSoImg&idProduto=${id_produto}`, {
+                method: "GET",
+            })
+            let formularioAddImg = document.getElementById("FundoFormulario");
+            formularioAddImg.style.display = "flex";
+            formularioPrintarImg = document.getElementById("formularioPrintarImg");
+            formularioPrintarImg.style.display = "none";
+            areaBtn.style.display = "none";
+        })
+    }
+}
 

@@ -27,13 +27,13 @@ class Produto
 
     public function cadastrar($dados)
     {
-        $cod_barra = $dados['codigoDeBarraProduto'];
+        $cod_barra = intval($dados['codigoDeBarraProduto']);
         $descricao = $dados['descricaoCompleta'];
         $nome = $dados['nomeDoPorduto'];
-        $valor = $dados['precoProduto'];
-        $desconto = $dados['desconto'];
+        $valor = floatval($dados['precoProduto']);
+        $desconto = floatval($dados['desconto']);
         $frete = $dados['frete'];
-        $id_categoria = $dados['selectCategoria'];
+        $id_categoria = intval($dados['selectCategoria']);
         $previaDescricao = $dados['previaDescricao'];
 
 
@@ -59,14 +59,17 @@ class Produto
 
     public function consultarTabela()
     {
-        $sql = 'SELECT * FROM produto';
+        $sql = 'SELECT produto.id_produto, produto.cod_barra, produto.descricao, produto.nome, produto.valor, produto.desconto, produto.frete, produto.descricaoprevia, categoria.nome AS nome_categoria
+        FROM produto
+        LEFT JOIN categoria 
+        ON produto.id_categoria = categoria.id_categoria';
 
         if (isset($_GET['search'])) {
             $infor = $_GET['search'];
             $sql = $this->search($infor, $sql);
         }
 
-        $totalRegistros = $this->totalDeRegistro($sql);
+        $totalRegistros = $this->totalDeRegistro();
 
         $sql .= ' ORDER BY id_produto ASC';
 
@@ -93,8 +96,9 @@ class Produto
         return $sql .= " where nome ilike '%{$infor}%'";
     }
 
-    public function totalDeRegistro($sql)
+    public function totalDeRegistro()
     {
+        $sql = 'SELECT * FROM produto';
         $sqlCount = str_replace('*', 'COUNT(*) as total', $sql);
         $statementCount = $this->conexao->query($sqlCount);
         $totalRegistros = $statementCount->fetch();
@@ -120,14 +124,14 @@ class Produto
         $id_produtoString = $informacoes['id_produto'];
 
         $publisher = [
-            'id_produto' =>  $id_produtoString,
-            'codigoDeBarraProduto' => $dadosDosCampos['codigoDeBarraProduto'],
+            'id_produto' => intval($id_produtoString),
+            'codigoDeBarraProduto' =>intval($dadosDosCampos['codigoDeBarraProduto']),
             'nomeDoPorduto' =>  $dadosDosCampos['nomeDoPorduto'],
             'descricaoCompleta' =>  $dadosDosCampos['descricaoCompleta'],
-            'precoProduto' => $dadosDosCampos['precoProduto'],
-            'desconto' => $dadosDosCampos['desconto'],
+            'precoProduto' => floatval($dadosDosCampos['precoProduto']),
+            'desconto' => floatval($dadosDosCampos['desconto']),
             'frete' =>  $dadosDosCampos['frete'],
-            'selectCategoria' => $dadosDosCampos['selectCategoria'],
+            'selectCategoria' => intval($dadosDosCampos['selectCategoria']),
             'previaDescricao' =>  $dadosDosCampos['previaDescricao'],
         ];
 
@@ -144,14 +148,14 @@ class Produto
 
         $statement = $this->conexao->prepare($sql);
 
-        $statement->bindParam(':id', $publisher['id_produto'], PDO::PARAM_INT);
-        $statement->bindParam(':cod_barra', $publisher['codigoDeBarraProduto'], PDO::PARAM_INT);
+        $statement->bindParam(':id', $publisher['id_produto']);
+        $statement->bindParam(':cod_barra', $publisher['codigoDeBarraProduto']);
         $statement->bindParam(':nome', $publisher['nomeDoPorduto']);
         $statement->bindParam(':descricao', $publisher['descricaoCompleta']);
-        $statement->bindParam(':valor', $publisher['precoProduto'], PDO::PARAM_INT);
-        $statement->bindParam(':desconto', $publisher['desconto'], PDO::PARAM_INT);
-        $statement->bindParam(':frete', $publisher['frete'], PDO::PARAM_INT);
-        $statement->bindParam(':id_categoria', $publisher['selectCategoria'], PDO::PARAM_INT);
+        $statement->bindParam(':valor', $publisher['precoProduto']);
+        $statement->bindParam(':desconto', $publisher['desconto']);
+        $statement->bindParam(':frete', $publisher['frete']);
+        $statement->bindParam(':id_categoria', $publisher['selectCategoria']);
         $statement->bindParam(':descricaoPrevia', $publisher['previaDescricao']);
 
         $statement->execute();
@@ -173,34 +177,107 @@ class Produto
         $statement = $this->conexao->prepare($sql);
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
-        $statement->execute();
-    }
-
-    public function salvarImgNasPastas($arquivo, $idProduto)
-    {
-
-        foreach ($arquivo as $item) {
-            $nomeArquivo = $item["name"];
-            $diretorio = "C:/xampp/htdocs/GerenciadorDeVendas/upload/imagens_e_gifs/" . $nomeArquivo;
-
-            if (move_uploaded_file($item['tmp_name'], $diretorio)) {
-
-                // $sql = "INSERT INTO imagemproduto(id_produto,caminho_imagem_prod) VALUES(:id_produto,:caminho_imagem_prod";
-
-                // $statement = $this->conexao->prepare($sql);
-
-                // if ($statement->execute([
-                //     ':id_produto' => $$idProduto,
-                //     ':caminho_imagem_prod' => $diretorio,
-                // ])) {
-                //     echo "true";
-                // } else {
-                //     echo "false";
-                // };
+        if ($this->excluirImgBD($id)) {
+            if ($statement->execute()) {
+                $this->verificarTabela();
                 echo "true";
             } else {
                 echo "false";
             }
+        } else {
+            echo "false";
         }
+    }
+
+    public function excluirImgBD($id)
+    {
+        $this->excluirImgDaPasta($id);
+
+        $sql = 'DELETE FROM imagemproduto WHERE id_produto = :id';
+        $statement = $this->conexao->prepare($sql);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+
+        if ($statement->execute()) {
+            return true;
+        }
+    }
+
+    public function excluirImgDaPasta($id)
+    {
+
+        $sql = "SELECT caminho_imagem_prod, caminho_imagem_absoluto FROM imagemproduto WHERE id_produto = :id ";
+        $stmt = $this->conexao->prepare(($sql));
+        $stmt->bindValue(":id", $id);
+        $stmt->execute();
+        $dados = $stmt->fetchAll();
+
+        if (sizeof($dados) > 0) {
+            foreach ($dados as $key) {
+                unlink($key["caminho_imagem_absoluto"]);
+            }
+        }
+    }
+
+
+    public function verificarTabela()
+    {
+        $sql = 'SELECT id_produto FROM produto';
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->execute();
+        $dados = $stmt->fetchAll();
+
+        if (sizeof($dados) < 1) {
+            $sql = 'ALTER SEQUENCE id_produto
+            RESTART WITH 1';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->execute();
+
+            $sql = 'ALTER SEQUENCE id_imagem
+            RESTART WITH 1';
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->execute();
+        }
+    }
+
+
+    public function salvarImgNasPastas($arquivo, $idProduto)
+    {
+        foreach ($arquivo as $item) {
+            $nomeArquivo = $item["name"];
+            $diretorio = "C:/xampp/htdocs/GerenciadorDeVendas/upload/imagens_e_gifs/" . $idProduto . " " . $nomeArquivo;
+            $boolean = false;
+
+            if (move_uploaded_file($item['tmp_name'], $diretorio)) {
+
+                $diretorioRelativo = "../../../upload/imagens_e_gifs/". $idProduto . " " . $nomeArquivo;
+
+                $sql = "INSERT INTO imagemproduto(id_produto,caminho_imagem_prod,caminho_imagem_absoluto) VALUES(:id_produto,:caminho_imagem_prod,:caminho_imagem_absoluto)";
+
+                $statement = $this->conexao->prepare($sql);
+
+               if($statement->execute([
+                ':id_produto' => $idProduto,
+                ':caminho_imagem_prod' => $diretorioRelativo,
+                ':caminho_imagem_absoluto' => $diretorio
+
+            ])) {
+                $boolean = true;
+            }
+            } 
+        }
+
+        return $boolean;
+    }
+
+
+    public function consultarImg($id)
+    {
+        $sql = "SELECT caminho_imagem_prod FROM imagemproduto WHERE id_produto = :id ";
+        $stmt = $this->conexao->prepare(($sql));
+        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $dadosImg = $stmt->fetchAll();
+
+        return  $dadosImg;
     }
 }
