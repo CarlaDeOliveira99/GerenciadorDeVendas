@@ -40,7 +40,7 @@ body {
 }
 
 .CardImg {
-    margin: 10% auto;
+    margin: 12% auto;
 }
 
 #imgNome {
@@ -48,8 +48,7 @@ body {
 }
 
 #imglogotipo {
-    width: 180px;
-    padding-left: 5vh;
+    width: 220px;
 
 }
 
