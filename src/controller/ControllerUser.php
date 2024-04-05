@@ -67,4 +67,18 @@ class ControllerUser
         echo $respostaJson;
 
     }
+
+    public function get_validarSeTaLogado() {
+
+        $this->Session->userLogado();
+        
+        if ($_SESSION['gestor'] == User::GESTOR_SIM) {
+            $respostaJson = [true];
+            $json = json_encode($respostaJson);
+        } else {
+            $respostaJson = [false];
+            $json = json_encode($respostaJson);
+        }
+
+    }
 }

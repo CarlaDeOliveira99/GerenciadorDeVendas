@@ -20,90 +20,91 @@
 
 <body>
 
-   <!-- barra lateral -->
-   <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-   aria-labelledby="offcanvasWithBothOptionsLabel">
-   <div class="offcanvas-header">
-       <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
-       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-   </div>
-   <div class="offcanvas-body">
-       <p>Try scrolling the rest of the page to see this option in action.</p>
-   </div>
-</div>
+    <!-- barra lateral -->
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Try scrolling the rest of the page to see this option in action.</p>
+        </div>
+    </div>
 
-<!-- barra de navegação -->
-<nav class="navbar fixed-top bg-body-tertiary">
-   <div class="container-fluid estruturaNav">
-       <div id="areaNav">
-           <!-- botão rosa e logotipo -->
-           <div id="areaLogoBtn">
-               <div id="ImgSite">
-                   <a href="pageProduct.html"><img id="imgLogotipoNome" src="../../../upload/Logotipo/nomeSite.png"
-                           alt="logotipoNome">
-                   </a>
-               </div>
-               <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                   data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
-                   id="BtnMenu">
-                   <div id="areaBtn">
-                       <div id="divImgMenu">
-                           <img id="imgMenu" src="../../../upload/icones/menu.png" alt="menu">
-                       </div>
-                       <div class="textBtn text1">
-                           <span>Acesso todos os</span>
-                       </div>
-                       <div class="textBtn text2">
-                           <strong>dapartamento</strong>
-                       </div>
-                   </div>
-               </button>
-               <div id="logotipo"><a class="navbar-brand" href="pageProduct.html"><img id="imgLogotipo"
-                           src="../../../upload/Logotipo/logotipoPanda.png" alt="logotipo"></a>
-               </div>
-           </div>
-           <!-- barra de pesquisa -->
-           <div id="search">
-               <input id="search__input" type="text" placeholder="Digite o que você procura...">
-               <button type="button" id="btnPesquisar"><img src="../../../upload/icones/lupa.png"
-                       alt="lupa de pesquisa" id="lupaPesquisar">
-               </button>
-           </div>
-           <!-- area favorito -->
-           <div id="favorito">
-               <a href="" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
-                       src="../../../upload/icones/favorito.png" alt="favorito">
-                   <div class="favoritoCoonta">
-                       <span>Meus</span><strong>favoritos</strong>
-                   </div>
-               </a>
-           </div>
-           <!-- area conta -->
-           <div id="conta">
-               <a href="login.html" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
-                       src="../../../upload/icones/userNav.png" alt="favorito">
-                   <div class="favoritoCoonta facet_sidebar">
-                       <span>Minha Conta</span> <strong class="txtNegrito">Entrar/Cadastrar</strong>
-                   </div>
-               </a>
-           </div>
-           <!-- area compra -->
-           <div id="compra">
-               <button type="button" id="btnCompras">
-                   <div id="itensCompra">
-                       <img id="imgCarrinho" src="../../../upload/icones/carrinhoCompras.png" alt="carrinho">
-                       <div id="areaDasIfo">
-                           <strong id="txtCarrinho">CARRINHO</strong>
-                           <div class="quantiProduto">0 <span class="quantiProduto">produto</span>
-                           </div>
-                       </div>
-                   </div>
-               </button>
-           </div>
-       </div>
-   </div>
-   </div>
-</nav>
+    <!-- barra de navegação -->
+    <nav class="navbar fixed-top bg-body-tertiary">
+        <div class="container-fluid estruturaNav">
+            <div id="areaNav">
+                <!-- botão rosa e logotipo -->
+                <div id="areaLogoBtn">
+                    <div id="ImgSite">
+                        <a href="pageProduct.html"><img id="imgLogotipoNome" src="../../../upload/Logotipo/nomeSite.png"
+                                alt="logotipoNome">
+                        </a>
+                    </div>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+                        id="BtnMenu">
+                        <div id="areaBtn">
+                            <div id="divImgMenu">
+                                <img id="imgMenu" src="../../../upload/icones/menu.png" alt="menu">
+                            </div>
+                            <div class="textBtn text1">
+                                <span>Acesso todos os</span>
+                            </div>
+                            <div class="textBtn text2">
+                                <strong>dapartamento</strong>
+                            </div>
+                        </div>
+                    </button>
+                    <div id="logotipo"><a class="navbar-brand" href="pageProduct.html"><img id="imgLogotipo"
+                                src="../../../upload/Logotipo/logotipoPanda.png" alt="logotipo"></a>
+                    </div>
+                </div>
+                <!-- barra de pesquisa -->
+                <div id="search">
+                    <input id="search__input" type="text" placeholder="Digite o que você procura...">
+                    <button type="button" id="btnPesquisar"><img src="../../../upload/icones/lupa.png"
+                            alt="lupa de pesquisa" id="lupaPesquisar">
+                    </button>
+                </div>
+                <!-- area favorito -->
+                <div id="btnSair"> 
+                    <!--  id="favorito" -->
+                    <a href="" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
+                            src="../../../upload/icones/favorito.png" alt="favorito">
+                        <div class="favoritoCoonta">
+                            <span>Meus</span><strong>favoritos</strong>
+                        </div>
+                    </a>
+                </div>
+                <!-- area conta -->
+                <div id="conta">
+                    <a href="login.html" class="LinkBarraFavCon"><img class="ImgBarraFavCon"
+                            src="../../../upload/icones/userNav.png" alt="favorito">
+                        <div class="favoritoCoonta facet_sidebar">
+                            <span>Minha Conta</span> <strong class="txtNegrito">Entrar/Cadastrar</strong>
+                        </div>
+                    </a>
+                </div>
+                <!-- area compra -->
+                <div id="compra">
+                    <button type="button" id="btnCompras">
+                        <div id="itensCompra">
+                            <img id="imgCarrinho" src="../../../upload/icones/carrinhoCompras.png" alt="carrinho">
+                            <div id="areaDasIfo">
+                                <strong id="txtCarrinho">CARRINHO</strong>
+                                <div class="quantiProduto">0 <span class="quantiProduto">produto</span>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </nav>
 
     <!-- Carrossel -->
     <div id="carrossel">
@@ -1471,6 +1472,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
+    <!-- configuração -->
+    <script src="../js/finalizarSession.js"></script>
 </body>
 
 </html>

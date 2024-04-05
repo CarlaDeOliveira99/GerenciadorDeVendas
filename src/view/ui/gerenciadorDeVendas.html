@@ -13,7 +13,9 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- flowbite -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <!-- configurações -->
     <link rel="stylesheet" href="../style/gerenciadorDeVendas.css">
+    <link rel="stylesheet" href="../style/dashboard.css">
 </head>
 
 <body>
@@ -217,7 +219,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="gerenciadorDeVendas.html"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -274,7 +276,8 @@
                 <li id="sair">
                     <a href="homePage.html"
                         class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <button id="btnSair"   class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <button id="btnSair"
+                            class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -289,8 +292,24 @@
         </div>
     </aside>
 
+
     <div class="p-4 sm:ml-64">
-        <div class="p-4 rounded-lg mt-14">
+        <div class="p-4 rounded-lg mt-14 fundoCorpo">
+            <!-- grafico 1 circulo -->
+            <div class="chart-container" style="position: relative;height: 264px;width: 434px;margin: auto;">
+                <canvas id="grafico1"
+                    style="display: block;box-sizing: border-box;height: 264px;width: 434px;"
+                    width="542" height="330">
+                </canvas>
+            </div>
+             <!-- grafico 2 barra  -->
+             <div class="chart-container" style="position: relative;height: 264px;width: 434px;margin: auto;">
+                <canvas id="grafico2"
+                    style="display: block;box-sizing: border-box;height: 264px;width: 434px;"
+                    width="542" height="330">
+                </canvas>
+            </div>
+
         </div>
     </div>
 
@@ -306,8 +325,13 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
+    <!-- graficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- js conf -->
     <script src="../js/finalizarSession.js"></script>
+    <script src="../js/dashboard.js"></script>
 </body>
 
 </html>
