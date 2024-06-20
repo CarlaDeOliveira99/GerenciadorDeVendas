@@ -13,7 +13,6 @@ class ControllerDashboard{
     public function get_estoqueGeral(){
         $resposta = $this->dashboard->consultarEstoqueGeral();
         $return  = json_encode( $resposta);
-        
     }
 }
 

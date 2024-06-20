@@ -7,7 +7,6 @@ use PDO;
 
 class Produto
 {
-
     private $conexao;
 
     public function __construct()
@@ -294,3 +293,4 @@ class Produto
         return  $dadosImg;
     }
 }
+
