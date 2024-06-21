@@ -29,3 +29,13 @@ services:
       - ./:/var/www/html
     depends_on:
       - postgres
+      
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: UserAdmin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgres

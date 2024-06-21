@@ -9,7 +9,7 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
 # Copia o arquivo de configuração do Xdebug para o diretório correto
-COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY ./docker/php/xdebug.ini /usr/local/etc/php/conf.d/
 
 # Instalação do Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer

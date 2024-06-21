@@ -41,7 +41,7 @@ alter table produto add constraint fk_produto_categoria FOREIGN KEY(id_categoria
 /*estoque*/
 
 CREATE TABLE estoque(
-    id_estoque integer not null default nextval('id_estoque'),
+    id_estoque integer not null,
     id_produto integer not null,
     quantidade integer,
     status varchar(12) 
@@ -111,7 +111,7 @@ increment 1;
 create table imagemproduto(
     id_imagem integer not null default nextval('id_imagem'),
     id_produto integer not null,
-	caminho_imagem_prod varchar(900)
+	caminho_imagem_prod varchar(900),
     caminho_imagem_absoluto varchar(900)
 );
 
