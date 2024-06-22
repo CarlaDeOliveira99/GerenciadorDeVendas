@@ -51,7 +51,7 @@ function mensagemErro() {
 
 function cadastraCategoria(dadosCategoria) {
 
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=cadastrarCategoria', {
+    fetch('http://localhost/app.php?rota=categoria&acao=cadastrarCategoria', {
         headers: {
             'content-Type': 'application/json'
         },
@@ -64,7 +64,7 @@ function cadastraCategoria(dadosCategoria) {
 }
 
 function preencherCampoAlterar(id) {
-fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=campoAlterarIndormacoes&id=${id}`,{
+fetch(`http://localhost/app.php?rota=categoria&acao=campoAlterarIndormacoes&id=${id}`,{
     headers:{
         'content-Type':'application/json'
     },
@@ -82,7 +82,7 @@ function alterar(id) {
     let informacoesAlterada = document.getElementById('campoCategoria').value
     let dados = { id: id, txtCampo: informacoesAlterada }
 
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=alterarCategoria', {
+    fetch('http://localhost/app.php?rota=categoria&acao=alterarCategoria', {
         headers: {
             'content-Type': 'application/json'
         },
@@ -107,7 +107,7 @@ function mensagemSalvoComSucesso() {
 }
 
 function trocaParatelaPrincipal() {
-    return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarCategoria.html'
+    return window.location = 'http://localhost/src/view/ui/consultarCategoria.html'
 }
 
 

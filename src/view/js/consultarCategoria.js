@@ -27,7 +27,7 @@ const grid = new gridjs.Grid({
 
         formatter: (cell, row) => {
 
-            return gridjs.html(`<span id=""><a href="http://localhost/GerenciadorDeVendas/src/view/ui/manutencaoCategoria.html?idAlterar=${row.cells[0].data}"><button class="btnAcoes"><img src="../../../upload/icones/editar.png" alt="Alterar" class="imgAcao"></button></a>
+            return gridjs.html(`<span id=""><a href="http://localhost/src/view/ui/manutencaoCategoria.html?idAlterar=${row.cells[0].data}"><button class="btnAcoes"><img src="../../../upload/icones/editar.png" alt="Alterar" class="imgAcao"></button></a>
             <button onclick=excluir(${row.cells[0].data}) class="btnAcoes"><img src="../../../upload/icones/lixeira.png" alt="excluir" class="imgAcao"></button></span>`)
         }
     }],
@@ -41,7 +41,7 @@ const grid = new gridjs.Grid({
         }
     },
     server: {
-        url: 'http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=consultar',
+        url: 'http://localhost/app.php?rota=categoria&acao=consultar',
         then: json => json.dados.map(produto => [produto.id_categoria, produto.nome]),
         total: json => json.totalRegistros
     }
@@ -79,7 +79,7 @@ function mensagemExluir(id) {
 
 function deletar(id) {
     console.log(id);
-    fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=excluir&idDeletar=${id}`, {
+    fetch(`http://localhost/app.php?rota=categoria&acao=excluir&idDeletar=${id}`, {
         headers: {
             'content-Type': 'application/json'
         },
@@ -89,11 +89,11 @@ function deletar(id) {
 
 
 function trocaParatelaPrincipal() {
-    return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarCategoria.html'
+    return window.location = 'http://localhost/src/view/ui/consultarCategoria.html'
 }
 
 window.onload = function () {
-    fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=verificarTabela`, {
+    fetch(`http://localhost/app.php?rota=categoria&acao=verificarTabela`, {
         headers: {
             'content-Type': 'application/json'
         },

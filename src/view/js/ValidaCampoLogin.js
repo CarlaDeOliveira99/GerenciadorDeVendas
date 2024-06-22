@@ -1,7 +1,7 @@
 
 
 window.addEventListener("pageshow", function verificarUser() {
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=userLogado', {
+    fetch('http://localhost/app.php?rota=user&acao=userLogado', {
         method: "GET",
     })
         .then(res => res.json())
@@ -49,7 +49,7 @@ function validate(e) {
 
 function user(email, senha) {
     const dados = { email: email.value, senha: senha.value }
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=validarUser', {
+    fetch('http://localhost/app.php?rota=user&acao=validarUser', {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

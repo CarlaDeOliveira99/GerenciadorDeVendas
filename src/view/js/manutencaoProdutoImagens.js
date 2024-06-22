@@ -80,7 +80,7 @@ document.getElementById("btnSalvar").addEventListener('click', () => {
     });
 
     if (document.querySelectorAll('input[type="file"]').length > 0 && document.querySelectorAll('input[type="file"]').length <= 6) {
-        fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=cadastrarImg&idProduto=${id_produto}`, {
+        fetch(`http://localhost/app.php?rota=produto&acao=cadastrarImg&idProduto=${id_produto}`, {
             method: "POST",
             body: files
         })
@@ -103,14 +103,14 @@ function verificarIdProduto() {
 }
 
 function trocaParatelaPrincipal() {
-    return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarProduto.html'
+    return window.location = 'http://localhost/src/view/ui/consultarProduto.html'
 }
 
 // verificar se tem imagens no banco de dados
 function consultaImg() {
     const id_produto = verificarIdProduto();
     let caminhoIMG = [];
-    fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=consultarIMG&idProduto=${id_produto}`, {
+    fetch(`http://localhost/app.php?rota=produto&acao=consultarIMG&idProduto=${id_produto}`, {
         method: "GET",
     })
         .then(resposta => resposta.json())
@@ -173,7 +173,7 @@ function consultaImg() {
         btnAlterar.addEventListener('click', () => {
             const id_produto = verificarIdProduto();
             let caminhoIMG = [];
-            fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=excluirSoImg&idProduto=${id_produto}`, {
+            fetch(`http://localhost/app.php?rota=produto&acao=excluirSoImg&idProduto=${id_produto}`, {
                 method: "GET",
             })
             let formularioAddImg = document.getElementById("FundoFormulario");

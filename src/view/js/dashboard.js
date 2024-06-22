@@ -3,7 +3,7 @@ window.onload = function () {
 }
 
 function validarSeTaLogado() {
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=validarSeTaLogado', {
+    fetch('http://localhost/app.php?rota=user&acao=validarSeTaLogado', {
         method: "GET",
     })
         .then(res => res.json())
@@ -105,7 +105,7 @@ function estoqueLinha() {
 
 
 function dadosDoEstoqueGeral() {
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=dashboard&acao=estoqueGeral', {
+    fetch('http://localhost/app.php?rota=dashboard&acao=estoqueGeral', {
         headers: {
             'content-Type': 'application/json'
         },

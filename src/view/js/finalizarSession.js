@@ -1,6 +1,6 @@
 document.getElementById('btnSair').addEventListener('click', function () {
     console.log("teste");
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=user&acao=sairSession', {
+    fetch('http://localhost/app.php?rota=user&acao=sairSession', {
         method: "GET",
     })
         .then(res => res.text())

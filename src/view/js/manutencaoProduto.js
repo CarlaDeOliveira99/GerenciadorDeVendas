@@ -7,7 +7,7 @@ window.onload = function () {
 
 // lista da categoia
 function listaCategoria() {
-  fetch('http://localhost/GerenciadorDeVendas/app.php?rota=categoria&acao=consultar', {
+  fetch('http://localhost/app.php?rota=categoria&acao=consultar', {
     headers: {
       'content-Type': 'application/json'
     },
@@ -71,7 +71,7 @@ function postProdutoDados(dados, idAlterar) {
       id_produto: idAlterar,
     }
 
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=aletarDados', {
+    fetch('http://localhost/app.php?rota=produto&acao=aletarDados', {
       headers: {
         'content-Type': 'application/json'
       },
@@ -88,7 +88,7 @@ function postProdutoDados(dados, idAlterar) {
         }).then(() => { trocaParatelaPrincipal() });
       })
   } else {
-    fetch('http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=validadarDados', {
+    fetch('http://localhost/pp.php?rota=produto&acao=validadarDados', {
       headers: {
         'content-Type': 'application/json'
       },
@@ -119,7 +119,7 @@ function postProdutoDados(dados, idAlterar) {
 }
 
 function trocaParatelaPrincipal() {
-  return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarProduto.html'
+  return window.location = 'http://localhost/src/view/ui/consultarProduto.html'
 }
 
 function idAlterar() {
@@ -138,7 +138,7 @@ function verificarAlterar() {
 
 // preencher os campos para alterar
 function preencherCampoAlterar(id) {
-  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=campoAlterarIndormacoes&id=${id}`, {
+  fetch(`http://localhost/app.php?rota=produto&acao=campoAlterarIndormacoes&id=${id}`, {
     headers: {
       'content-Type': 'application/json'
     },

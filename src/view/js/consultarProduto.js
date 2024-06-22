@@ -57,7 +57,7 @@ const grid = new gridjs.Grid({
 
       return gridjs.html(` 
       <button id="btnImgProduto" class="btnAcoes">
-        <a href="http://localhost/GerenciadorDeVendas/src/view/ui/manutencaoProdutoImagens.html?idProduto=${row.cells[0].data}" class="confBtn">
+        <a href="http://localhost/src/view/ui/manutencaoProdutoImagens.html?idProduto=${row.cells[0].data}" class="confBtn">
          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
           class="bi bi-images" viewBox="0 0 16 16">
           <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
@@ -75,7 +75,7 @@ const grid = new gridjs.Grid({
 
     formatter: (cell, row) => {
 
-      return gridjs.html(`<span class="areaBtnAcao"><a href="http://localhost/GerenciadorDeVendas/src/view/ui/manutencaoProduto.html?idAlterar=${row.cells[0].data}"><button class="btnAcoes"><img src="../../../upload/icones/editar.png" alt="Alterar" class="imgAcao"></button></a>
+      return gridjs.html(`<span class="areaBtnAcao"><a href="http://localhost/src/view/ui/manutencaoProduto.html?idAlterar=${row.cells[0].data}"><button class="btnAcoes"><img src="../../../upload/icones/editar.png" alt="Alterar" class="imgAcao"></button></a>
           <button onclick=excluir(${row.cells[0].data}) class="btnAcoes"><img src="../../../upload/icones/lixeira.png" alt="excluir" class="imgAcao"></button></span>`)
     }
   }],
@@ -89,7 +89,7 @@ const grid = new gridjs.Grid({
     }
   },
   server: {
-    url: 'http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=consultar',
+    url: 'http://localhost/app.php?rota=produto&acao=consultar',
     then: json => json.dados.map(produto => [produto.id_produto, produto.nome, produto.cod_barra, produto.descricaoprevia, produto.descricao, produto.valor, produto.desconto, produto.frete, produto.nome_categoria, produto.imgproduto,]),
     total: json => json.totalRegistros,
   }
@@ -122,7 +122,7 @@ function mensagemExluir(id) {
 }
 
 function deletar(id) {
-  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=excluir&idDeletar=${id}`, {
+  fetch(`http://localhost/app.php?rota=produto&acao=excluir&idDeletar=${id}`, {
     headers: {
       'content-Type': 'application/json'
     },
@@ -133,13 +133,13 @@ function deletar(id) {
 }
 
 function trocaParatelaPrincipal() {
-  return window.location = 'http://localhost/GerenciadorDeVendas/src/view/ui/consultarProduto.html'
+  return window.location = 'http://localhost/src/view/ui/consultarProduto.html'
 }
 
 
 
 function verificarResertIdTabela() {
-  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=verificarTabela`, {
+  fetch(`http://localhost/app.php?rota=produto&acao=verificarTabela`, {
     headers: {
       'content-Type': 'application/json'
     },
@@ -150,7 +150,7 @@ function verificarResertIdTabela() {
 
 function statusImg() {
 
-  fetch(`http://localhost/GerenciadorDeVendas/app.php?rota=produto&acao=statusImg`, {
+  fetch(`http://localhost/app.php?rota=produto&acao=statusImg`, {
     headers: {
       'content-Type': 'application/json'
     },
