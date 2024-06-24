@@ -1,8 +1,7 @@
 <?php
 namespace src\model;
 use src\model\UserDao;
-class User
-{
+class User {
 
 	const GESTOR_SIM = 1;
 	const GESTOR_NAO = 0;
@@ -10,9 +9,9 @@ class User
 	private $nome;
 	private $email;
 	private $cpf; 
-  
 	private $senha;
 	private $gestor;
+
 	public function validarLogin($emailUser, $senhaUser)
 	{
 		$this->email = $emailUser;
@@ -21,6 +20,7 @@ class User
 		$result = $dao->validarCadastro($this->email, $this->senha);
 		return $result;
 	}
+	
 	public function userLogado($cpf)
 	{
 		$this->cpf = $cpf;
@@ -29,9 +29,6 @@ class User
 		return $result;
 	}
 
-
-
-    
 	public function getNome()
 	{
 		return $this->nome;

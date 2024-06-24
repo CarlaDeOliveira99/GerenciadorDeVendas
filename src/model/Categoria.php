@@ -5,7 +5,6 @@ namespace src\model;
 use estrutura\ConexaoBd;
 use PDO;
 
-
 class Categoria
 {
 
@@ -142,3 +141,4 @@ class Categoria
         }
     }
 }
+

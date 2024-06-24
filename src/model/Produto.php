@@ -58,7 +58,7 @@ class Produto
 
     public function consultarTabela()
     {
-        $sql = 'SELECT produto.id_produto, produto.cod_barra, produto.descricao, produto.nome, produto.valor, produto.desconto, produto.frete, produto.descricaoprevia, categoria.nome AS nome_categoria
+        $sql = 'SELECT produto.id_produto, produto.cod_barra, produto.descricao, produto.nome, produto.valor, produto.desconto, produto.frete, categoria.nome AS nome_categoria 
         FROM produto
         LEFT JOIN categoria 
         ON produto.id_categoria = categoria.id_categoria';
