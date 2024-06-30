@@ -26,7 +26,8 @@ CREATE TABLE produto(
 	id_produto integer not null default nextval('id_produto'),
 	cod_barra integer not null,
 	nome varchar(30) not null,
-	descricao varchar(255),
+	descricaoCompleta varchar(255),
+	previaDescricao varchar(255),
 	valor decimal(10,2) not null,
 	desconto decimal(10,2),
 	frete varchar(3) not null,
@@ -35,7 +36,6 @@ CREATE TABLE produto(
 
 alter table produto add constraint pk_produto primary key(id_produto);
 alter table produto add constraint fk_produto_categoria FOREIGN KEY(id_categoria) references categoria (id_categoria);
-
 
 
 /*estoque*/

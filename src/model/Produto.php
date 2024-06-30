@@ -16,7 +16,7 @@ class Produto
 
     public function validarCampo($dados)
     {
-        if ($dados['nomeDoPorduto'] == "" || $dados['codigoDeBarraProduto'] == "" || $dados['precoProduto'] == "" || $dados['selectCategoria'] == 0 || $dados['previaDescricao'] == "" || $dados['descricaoCompleta'] == "") {
+        if ($dados['nomeDoPorduto'] == "" || $dados['codigoDeBarraProduto'] == "" || $dados['precoProduto'] == "" || $dados['selectCategoria'] == 0 ) {
             echo "erro dados";
         } else {
             $resposta =  $this->cadastrar($dados);
@@ -27,28 +27,30 @@ class Produto
     public function cadastrar($dados)
     {
         $cod_barra = intval($dados['codigoDeBarraProduto']);
-        $descricao = $dados['descricaoCompleta'];
         $nome = $dados['nomeDoPorduto'];
+        $descricao = $dados['descricaoCompleta'];
+        $previaDescricao = $dados['previaDescricao'];
         $valor = floatval($dados['precoProduto']);
         $desconto = floatval($dados['desconto']);
         $frete = $dados['frete'];
         $id_categoria = intval($dados['selectCategoria']);
-        $previaDescricao = $dados['previaDescricao'];
 
 
-        $sql = 'INSERT INTO produto(cod_barra,nome,descricao,valor,desconto,frete,id_categoria,descricaoPrevia) VALUES(:cod_barra,:nome,:descricao,:valor,:desconto,:frete,:id_categoria,:descricaoPrevia)';
+        $sql = 'INSERT INTO produto(cod_barra,nome,descricaoCompleta,previaDescricao,valor,desconto,frete,id_categoria) 
+                VALUES(:cod_barra,:nome,:descricaoCompleta,:descricaoPrevia,:valor,:desconto,:frete,:id_categoria)';
 
+        //id_produto, cod_barra, nome, descricaocompleta, previadescricao, valor, desconto, frete, id_categoria
         $statement = $this->conexao->prepare($sql);
 
         if ($statement->execute([
             ':cod_barra' => $cod_barra,
             ':nome' => $nome,
-            ':descricao' => $descricao,
+            ':descricaoCompleta' => $descricao,
+            ':descricaoPrevia' => $previaDescricao,
             ':valor' => $valor,
             ':desconto' => $desconto,
             ':frete' => $frete,
             ':id_categoria' => $id_categoria,
-            ':descricaoPrevia' => $previaDescricao,
         ])) {
             echo "ok banco";
         } else {
@@ -58,7 +60,7 @@ class Produto
 
     public function consultarTabela()
     {
-        $sql = 'SELECT produto.id_produto, produto.cod_barra, produto.descricao, produto.nome, produto.valor, produto.desconto, produto.frete, categoria.nome AS nome_categoria 
+        $sql = 'SELECT produto.id_produto,  produto.nome, produto.cod_barra, produto.descricaoCompleta, produto.descricaoPrevia, produto.valor, produto.desconto, produto.frete, categoria.nome AS nome_categoria 
         FROM produto
         LEFT JOIN categoria 
         ON produto.id_categoria = categoria.id_categoria';

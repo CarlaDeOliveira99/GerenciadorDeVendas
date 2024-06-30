@@ -88,7 +88,7 @@ function postProdutoDados(dados, idAlterar) {
         }).then(() => { trocaParatelaPrincipal() });
       })
   } else {
-    fetch('http://localhost/pp.php?rota=produto&acao=validadarDados', {
+    fetch('http://localhost/app.php?rota=produto&acao=validadarDados', {
       headers: {
         'content-Type': 'application/json'
       },

@@ -25,7 +25,6 @@ services:
   php:
     build:
       context: ./docker/php
-    restart: always 
     volumes:
       - ./:/var/www/html
     depends_on:
