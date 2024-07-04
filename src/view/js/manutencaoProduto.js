@@ -85,7 +85,8 @@ function postProdutoDados(dados, idAlterar) {
           title: "Salvo com sucesso",
           showConfirmButton: false,
           timer: 1500
-        }).then(() => { trocaParatelaPrincipal() });
+        })
+        .then(() => { trocaParatelaPrincipal() });
       })
   } else {
     fetch('http://localhost/app.php?rota=produto&acao=validadarDados', {
@@ -105,7 +106,8 @@ function postProdutoDados(dados, idAlterar) {
             title: "Salvo com sucesso",
             showConfirmButton: false,
             timer: 1500
-          }).then(() => { trocaParatelaPrincipal() })
+          })
+          .then(() => { trocaParatelaPrincipal() })
         } else if (resposta == "erro dados\n") {
           Swal.fire({
             title: "ATENÇÂO",

@@ -36,17 +36,17 @@ class Produto
         $id_categoria = intval($dados['selectCategoria']);
 
 
-        $sql = 'INSERT INTO produto(cod_barra,nome,descricaoCompleta,previaDescricao,valor,desconto,frete,id_categoria) 
-                VALUES(:cod_barra,:nome,:descricaoCompleta,:descricaoPrevia,:valor,:desconto,:frete,:id_categoria)';
+        $sql = 'INSERT INTO produto(cod_barra,nome, descricaoCompleta, previaDescricao, valor,desconto, frete, id_categoria) 
+                VALUES(:cod_barra,:nome,:descricaoCompleta,:previaDescricao,:valor,:desconto,:frete,:id_categoria)';
 
-        //id_produto, cod_barra, nome, descricaocompleta, previadescricao, valor, desconto, frete, id_categoria
+        //id_produto, cod_barra, nome, descricaoCompleta, previadescricao, valor, desconto, frete, id_categoria
         $statement = $this->conexao->prepare($sql);
 
         if ($statement->execute([
             ':cod_barra' => $cod_barra,
             ':nome' => $nome,
             ':descricaoCompleta' => $descricao,
-            ':descricaoPrevia' => $previaDescricao,
+            ':previaDescricao' => $previaDescricao,
             ':valor' => $valor,
             ':desconto' => $desconto,
             ':frete' => $frete,
@@ -60,7 +60,7 @@ class Produto
 
     public function consultarTabela()
     {
-        $sql = 'SELECT produto.id_produto,  produto.nome, produto.cod_barra, produto.descricaoCompleta, produto.descricaoPrevia, produto.valor, produto.desconto, produto.frete, categoria.nome AS nome_categoria 
+        $sql = 'SELECT produto.id_produto,  produto.nome, produto.cod_barra, produto.descricaoCompleta, produto.previaDescricao, produto.valor, produto.desconto, produto.frete, categoria.nome AS nome_categoria 
         FROM produto
         LEFT JOIN categoria 
         ON produto.id_categoria = categoria.id_categoria';
@@ -139,12 +139,12 @@ class Produto
         $sql = 'UPDATE produto
         SET cod_barra = :cod_barra,
         nome = :nome, 
-        descricao = :descricao, 
+        descricaoCompleta = :descricaoCompleta, 
         valor = :valor,
         desconto = :desconto,
         frete =:frete,
         id_categoria =:id_categoria,
-        descricaoPrevia = :descricaoPrevia
+        previaDescricao = :previaDescricao
         WHERE id_produto = :id';
 
         $statement = $this->conexao->prepare($sql);
@@ -152,12 +152,12 @@ class Produto
         $statement->bindParam(':id', $publisher['id_produto']);
         $statement->bindParam(':cod_barra', $publisher['codigoDeBarraProduto']);
         $statement->bindParam(':nome', $publisher['nomeDoPorduto']);
-        $statement->bindParam(':descricao', $publisher['descricaoCompleta']);
+        $statement->bindParam(':descricaoCompleta', $publisher['descricaoCompleta']);
         $statement->bindParam(':valor', $publisher['precoProduto']);
         $statement->bindParam(':desconto', $publisher['desconto']);
         $statement->bindParam(':frete', $publisher['frete']);
         $statement->bindParam(':id_categoria', $publisher['selectCategoria']);
-        $statement->bindParam(':descricaoPrevia', $publisher['previaDescricao']);
+        $statement->bindParam(':previaDescricao', $publisher['previaDescricao']);
 
         $statement->execute();
     }
