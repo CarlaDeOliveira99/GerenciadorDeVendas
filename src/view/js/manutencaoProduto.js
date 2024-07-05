@@ -99,7 +99,7 @@ function postProdutoDados(dados, idAlterar) {
       .then(res => res.text())
       .then((resposta) => {
 
-        if (resposta == "ok banco\n") {
+        if (resposta == "1") {
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -108,12 +108,14 @@ function postProdutoDados(dados, idAlterar) {
             timer: 1500
           })
           .then(() => { trocaParatelaPrincipal() })
-        } else if (resposta == "erro dados\n") {
+        } else if (resposta == "0") {
           Swal.fire({
             title: "ATENÇÂO",
             text: "Preencha todos os campos",
             icon: "warning"
           });
+        }else{
+          console.log(resposta);
         }
       }
       )

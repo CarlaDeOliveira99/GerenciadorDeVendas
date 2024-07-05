@@ -42,6 +42,8 @@ class Produto
         //id_produto, cod_barra, nome, descricaoCompleta, previadescricao, valor, desconto, frete, id_categoria
         $statement = $this->conexao->prepare($sql);
 
+        $oExcutadoSucesso = false;
+
         if ($statement->execute([
             ':cod_barra' => $cod_barra,
             ':nome' => $nome,
@@ -52,9 +54,9 @@ class Produto
             ':frete' => $frete,
             ':id_categoria' => $id_categoria,
         ])) {
-            echo "ok banco";
+            echo $oExcutadoSucesso = true;
         } else {
-            echo "erro bd";
+            echo $oExcutadoSucesso;
         };
     }
 
@@ -243,10 +245,12 @@ class Produto
 
     public function salvarImgNasPastas($arquivo, $idProduto)
     {
+
+        $boolean = true;
+
         foreach ($arquivo as $item) {
             $nomeArquivo = $item["name"];
-            $diretorio = "C:/xampp/htdocs/GerenciadorDeVendas/upload/imagens_e_gifs/" . $idProduto . " " . $nomeArquivo;
-            $boolean = false;
+            $diretorio = "/var/www/html/upload/imagens_e_gifs/" . $idProduto . " " . $nomeArquivo;
 
             if (move_uploaded_file($item['tmp_name'], $diretorio)) {
 

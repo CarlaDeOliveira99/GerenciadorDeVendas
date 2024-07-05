@@ -94,8 +94,6 @@ document.getElementById("btnSalvar").addEventListener('click', () => {
     }
 })
 
-
-
 function verificarIdProduto() {
     const urlParametro = new URLSearchParams(window.location.search);
     const id = urlParametro.get("idProduto");
@@ -103,7 +101,7 @@ function verificarIdProduto() {
 }
 
 function trocaParatelaPrincipal() {
-    return window.location = 'http://localhost/src/view/ui/consultarProduto.html'
+    // return window.location = 'http://localhost/src/view/ui/consultarProduto.html'
 }
 
 // verificar se tem imagens no banco de dados
